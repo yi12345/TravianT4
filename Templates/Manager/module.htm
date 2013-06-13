@@ -1,0 +1,152 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language" content="fa">
+<link rel="stylesheet" type="text/css" href="main.css">
+<link rel="stylesheet" type="text/css" href="../template/admin/rashcms/main.css">
+<script language="javascript" src="../template/admin/rashcms/ajax.js" type="text/javascript"></script>
+<title>RashCMS:: ماژول ها</title>
+<script>
+var CurrentStep = 1;
+function SetCurrent(val)
+{
+
+	 if(CurrentStep!=val)
+	 {
+	 gi('div_'+CurrentStep).style.display = 'none';
+	 gi('a_title_'+CurrentStep).className = '';
+	 gi('div_'+val).style.display = 'block';
+	 gi('a_title_'+val).className = 'current';
+	 }
+	CurrentStep = val;
+	if(val == 2)
+	connect('pages/listbacks.php',"r",'ajax_tabs_1_content',loadingt,'');
+
+}
+</script>
+</head>
+<body>
+<div align="center">
+<div class="main">
+<table align="center" cellpadding="0" cellspacing="3" width="850">
+	<tr>
+		<td height="305" width="170" valign="top">
+		<div class="list">
+		<tag:rashcms_links>
+		<div class="point"> <a target=[target] href=[url] class="[class]">[title]</a></div>
+		</tag:rashcms_links>
+<div class="point"> <a target=_blank href="http://rashcms.com" class="rashcms">راش سي ام اس</a></div>
+<div class="point"> <a target=_blank href="[site]" class="rash">مشاهده سايت</a></div>
+<div class="point"> <a target=_blank href="login.php?logout=true" class="rashcms">خروج از سيستم</a></div>
+</div>
+		</td>
+		<td width="670" valign="top">
+		<table align="center" cellpadding="0" cellspacing="3">
+			<tr>
+				<td height="86" width="425" valign="middle">
+				<div class="point">سيستم مديريت محتواي راش</div>
+				<div class="point">امروز 
+				<b>[todayfarsi]</b> 
+				مي باشد .</div>
+				<div class="point"><font color="#FF33CC"><b>[fullname]</b></font> عزیز به مدیریت سیستم خوش آمدید ! خسته نباشید .</div>
+				<div class="point">آی پی : 
+				[ip]</div></td>
+				<td height="86" width="236">
+				<p align="center">
+				<img border="0" src="../template/admin/rashcms/images/logo.png" width="207" height="63"></td>
+			</tr>
+			<tr>
+				<td height="12" width="425" valign="middle">
+				</td>
+				<td height="12" width="236">
+				</td>
+			</tr>
+			<tr>
+				<td width="664" colspan="2" valign="top">
+									
+			</td>
+			</tr>
+			<tr>
+				<td height="261" width="664" colspan="2" valign="top">
+									
+				<div class="page">
+				
+				<div align="center">
+				<ul class="tabs">
+				  <li><a id="a_title_1" onclick="SetCurrent(1);return false;" class="current" href="#">
+			ماژول ها</a></li>
+					
+				 <tag:extra_div>
+				 <li><a id="a_title_[id]" onclick="SetCurrent([id]);return false;" href="#">[title]</a></li>
+				</tag:extra_div>
+				</ul>
+				</div>
+				
+<div id="div_1"> 
+<center>
+	<table border="0" width="95%" id="duplicate">
+<tr>
+
+<td bgcolor="#d1dde0" height="26">
+<strong>نام ماژول</strong></td>
+<td bgcolor="#d1dde0" height="26">
+<strong>وضعيت</strong></td>
+<td bgcolor="#d1dde0" height="26">
+<strong>عمليات</strong></td>
+<td bgcolor="#d1dde0" height="26">
+<strong>سازنده</strong></td>
+</tr>
+<tag:modulelist>
+<tr>
+
+<td height="26">
+[name]</td>
+<td>
+[stat]</td>
+<td>
+<!-- IF Install -->
+<a href="modules.php?module=[file]&task=install&return=module.php">نصب</a> -
+<!-- ENDIF Install -->
+<!-- IF UInstall -->
+<a href="modules.php?module=[file]&task=uninstall&return=module.php">حذف</a> -
+<!-- ENDIF UInstall -->
+<!-- IF Activate -->
+<a href="modules.php?module=[file]&task=activate&return=module.php">فعال سازي </a>-
+<!-- ENDIF Activate -->
+<!-- IF InActivate -->
+<a href="modules.php?module=[file]&task=inactivate&return=module.php">غير فعال سازي
+<!-- ENDIF InActivate -->
+
+</a>
+
+</td>
+<td>
+<a href="[url]" target="_blank">[provider]
+</a>
+</td>
+</tr>
+</tag:modulelist>
+</table>
+</center>
+</div>
+<tag:extra_div>
+<div id="div_[id]"  style="display:none" >
+[inside]
+</div>
+</tag:extra_div>
+<br><br><br><br><br>
+</div>
+				<p>&nbsp;</td>
+			</tr>
+		</table>
+		<p align="center" style="height: 28px">كليه حقوق براي
+		<a href="http://rashcms.com" target="_blank"><strong>راش سي ام اس</strong></a> محفوظ است. 
+		<strong><a href="http://mihanphp.com" target="_blank">مــــــيهن پي اچ پي</a></strong><br><br>
+		</td>
+	</tr>
+	</table>
+	
+</div>
+</div>
+</body>
+</html>

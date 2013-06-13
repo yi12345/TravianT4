@@ -1,0 +1,297 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language" content="fa">
+<link rel="stylesheet" type="text/css" href="main.css">
+<link rel="stylesheet" type="text/css" href="../template/admin/rashcms/main.css">
+<script language="javascript" src="../template/admin/rashcms/ajax.js" type="text/javascript"></script>
+<title>RashCMS:: پيغام خصوصي</title>
+<script>
+var editing = false;
+var CurrentStep = 1;
+function SetCurrent(val)
+{
+	 if(CurrentStep!=val)
+	 {
+	 gi('div_'+CurrentStep).style.display = 'none';
+	 gi('a_title_'+CurrentStep).className = '';
+	 gi('div_'+val).style.display = 'block';
+	 gi('a_title_'+val).className = 'current';
+	 }
+	CurrentStep = val;
+	if(val == 2)
+	connect('pages/listpms.php',"task=inbox&page=[ipage]",'ajax_tabs_1_content',loadingt,'');
+	if(val == 3)
+	connect('pages/listpms.php',"task=outbox&page=[opage]",'ajax_tabs_2_content',loadingt,'');
+
+}
+function Mform(action){
+var title  	= gi("msg_title").value;
+var reciver = gi("msg_reciver").value;
+var text  	= gi("msg_text").value;
+connect('pages/pm.php',"task=post_msg&title="+title+"&reciver="+reciver+"&text="+text,'ajax_tabs_0_content',loadingt,'');
+}
+function readpm(id,type)
+{
+place = (type == 'inbox') ? 'ajax_tabs_1_content_1' : 'ajax_tabs_2_content_2';
+connect('pages/pm.php',"task=read_pm&id="+id+"&folder="+type,place,loadingt,'');
+}
+function delpm(id){
+var msg = "آيا از حذف اين پيام اطمينان داريد؟\nعمليات حذف برگشت پذير نميباشد.";
+if(confirm(msg))
+{
+connect('pages/pm.php',"task=delete_pm&id="+id,'ajax_tabs_1_content_1',loadingt,'edit_pm_in');
+}
+}
+function delpmo(id){
+var msg = "آيا از حذف اين پيام اطمينان داريد؟\nعمليات حذف برگشت پذير نميباشد.";
+if(confirm(msg))
+{
+connect('pages/pm.php',"task=delete_pmo&id="+id,'ajax_tabs_2_content_2',loadingt,'edit_pm_out');
+}
+}
+</script>
+<style type="text/css">
+.style1 {
+	color: #008000;
+}
+.style2 {
+	color: #FF3399;
+}
+</style>
+</head>
+<body>
+<div align="center">
+<div class="main">
+<table align="center" cellpadding="0" cellspacing="3" width="850">
+	<tr>
+		<td height="305" width="170" valign="top">
+		<div class="list">
+		<tag:rashcms_links>
+		<div class="point"> <a target=[target] href=[url] class="[class]">[title]</a></div>
+		</tag:rashcms_links>
+<div class="point"> <a target=_blank href="http://rashcms.com" class="rashcms">راش سي ام اس</a></div>
+<div class="point"> <a target=_blank href="[site]" class="rash">مشاهده سايت</a></div>
+<div class="point"> <a target=_blank href="login.php?logout=true" class="rashcms">خروج از سيستم</a></div>
+</div>
+		</td>
+		<td width="670" valign="top">
+		<table align="center" cellpadding="0" cellspacing="3">
+			<tr>
+				<td height="86" width="425" valign="middle">
+				<div class="point">سيستم مديريت محتواي راش</div>
+				<div class="point">امروز 
+				<b>[todayfarsi]</b> 
+				مي باشد .</div>
+				<div class="point"><font color="#FF33CC"><b>[fullname]</b></font> عزیز به مدیریت سیستم خوش آمدید ! خسته نباشید .</div>
+				<div class="point">آی پی : 
+				[ip]</div></td>
+				<td height="86" width="236">
+				<p align="center">
+				<img border="0" src="../template/admin/rashcms/images/logo.png" width="207" height="63"></td>
+			</tr>
+			<tr>
+				<td height="12" width="425" valign="middle">
+				</td>
+				<td height="12" width="236">
+				</td>
+			</tr>
+			<tr>
+				<td width="664" colspan="2" valign="top">
+									
+			</td>
+			</tr>
+			<tr>
+				<td height="261" width="664" colspan="2" valign="top">
+									
+				<div class="page">
+				
+				<div align="center">
+				<ul class="tabs">
+				  <li><a id="a_title_1" onclick="SetCurrent(1);return false;" class="current" href="#">
+				ارسال پيغام خصوصي</a></li>
+					
+				  <li><a id="a_title_2" onclick="SetCurrent(2);return false;" href="#">
+			صندوق ورودي</a></li>
+					<li><a id="a_title_3" onclick="SetCurrent(3);return false;" href="#">
+					صندوق خروجي </a></li>
+			
+				</ul>
+				</div>
+				
+<div id="div_1"> 
+<form onsubmit="Mform('post_msg');return false" method=post>
+<table border="0" width="100%" class="tbl" id="tabs_0_content">
+<tr>
+<td colspan="3" id="ajax_tabs_0_content"></td>
+</tr>
+<tr>
+<td width="23%">عنوان پيام :</td>
+<td width="76%" colspan="2">
+<input class="rinput" type="text" name="msg_title" id="msg_title"  dir="rtl" ></td>
+</tr>
+<tr>
+<td width="23%">نام كاربري دريافت كننده :</td>
+<td width="76%" colspan="2">
+<input class="rinput" type="text" name="msg_reciver" id="msg_reciver"  dir="ltr" ></td>
+</tr>
+<tr>
+<td width="23%">&nbsp;</td>
+<td width="76%" colspan="2">
+براي ارسال به بيش از يك كاربر ؛ نام هاي كاربري را با <span lang="en-us">,</span> 
+از يكديگر جدا كنيد.<br>
+براي ارسال پيام به تمام كاربران از عبارت <font color="#008000"> <span lang="en-us">[rashcms::all]</span></font> 
+استفاده كنيد.</td>
+</tr>
+<tr>
+<td width="23%" valign=top>متن پيام :</td>
+<td width="38%" rowspan="2">
+<textarea dir=rtl class="srtarea" name="msg_text" id="msg_text" cols="10" rows="10"></textarea></td>
+<td width="38%" rowspan="2" valign=top>
+متن پيام مي توانيد شامل متغير هايي مانند عنوان و آدرس سايت و ... باشد.<br>
+اطلاعات بيشتر</td>
+</tr>
+<tr>
+<td width="23%">&nbsp;</td>
+</tr>
+<tr>
+<td><center>
+&nbsp;</center></td>
+<td>
+<input onclick="Mform('post_msg');return false;" type="submit" name="submit" value="ارسال پيغام خصوصي" class="inp"></td>
+<td>&nbsp;</td>
+</tr>
+</table></form>
+
+</div>
+<div id="div_2" style="display:none">
+<table border="0" width="100%" class="tbl" id="tabs_1_content">
+<tr>
+<form action="inbox.php?task=view&inbox=true&page=1" method=post>
+
+<td width="161">
+<legend>پيام ها در صفحه : </td>
+<td colspan="4">
+<select class="select" name=number size="1">
+<option>5</option>
+<option selected>10</option>
+<option>15</option>
+<option>20</option>
+<option>30</option>
+<option>50</option>
+<option>75</option>
+<option>100</option>
+</select></td>
+<td colspan="3">
+<input type="button" onclick="document.location='inbox.php?reset=true&inbox&page=1'" name="reset" size="22" class=inp value="بازگشت به حالت پيشفرض">
+</td><input type="hidden" name="act" value="1">
+
+</tr>
+<tr>
+<td width="161">
+ترتیب نمایش : </td>
+<td colspan="3">
+<select class="select" name="type" size="1">
+<option value="ASC">صعودی</option>
+<option value="DESC" selected>نزولی</option>
+<option value="notread">خوانده نشده ها اول</option>
+</select>
+<input type="submit" name="show" size="22" class=inp value="نمایش"></td></form>
+<form action="inbox.php" method=get>
+<td colspan="2">
+صفحه :</td>
+<td>
+<input type="text" name="page" size="9" class=inp></td>
+<td>
+<input type="hidden" name="inbox" size="22" class=inp value="true">
+<input type="submit" name="show" size="22" class=inp value="نمایش"></td></form>
+</tr>
+<tr>
+<td colspan="8">
+</td>
+</tr>
+
+<tr>
+<td  colspan="8" id="ajax_tabs_1_content_1"></td>
+</tr><tr>
+<td colspan="8"  id="ajax_tabs_1_content"></td>
+</tr>
+</table>
+
+</div>
+<div id="div_3" style="display:none">
+<table border="0" width="100%" class="tbl" id="tabs_2_content">
+<tr>
+<form action="inbox.php?task=view&outbox=true&page=1" method=post>
+
+<td width="161">
+<legend>پيام ها در صفحه : </td>
+<td colspan="4">
+<select class="select" name=number size="1">
+<option>5</option>
+<option selected>10</option>
+<option>15</option>
+<option>20</option>
+<option>30</option>
+<option>50</option>
+<option>75</option>
+<option>100</option>
+</select></td>
+<td colspan="3">
+<input type="button" onclick="document.location='inbox.php?reset=true&outbox&page=1'" name="reset" size="22" class=inp value="بازگشت به حالت پيشفرض">
+</td><input type="hidden" name="act" value="1">
+
+</tr>
+<tr>
+<td width="161">
+ترتیب نمایش : </td>
+<td colspan="3">
+<select class="select" name="type" size="1">
+<option value="ASC">صعودی</option>
+<option value="DESC" selected>نزولی</option>
+<option value="notread">خوانده نشده ها اول</option>
+</select>
+<input type="submit" name="show" size="22" class=inp value="نمایش"></td></form>
+<form action="inbox.php" method=get>
+<td colspan="2">
+صفحه :</td>
+<td>
+<input type="text" name="page" size="9" class=inp></td>
+<td>
+<input type="hidden" name="outbox" size="22" class=inp value="true">
+<input type="submit" name="show" size="22" class=inp value="نمایش"></td></form>
+</tr>
+<tr>
+<td colspan="8">
+&nbsp;</td>
+</tr>
+
+<tr>
+<td  colspan="8" id="ajax_tabs_2_content_2"></td>
+</tr><tr>
+<td colspan="8"  id="ajax_tabs_2_content"></td>
+</tr>
+</table>
+
+</div>
+<br><br><br><br><br>
+</div>
+				<p>&nbsp;</td>
+			</tr>
+		</table>
+		<p align="center" style="height: 28px">كليه حقوق براي
+		<a href="http://rashcms.com" target="_blank"><strong>راش سي ام اس</strong></a> محفوظ است. 
+		<strong><a href="http://mihanphp.com" target="_blank">مــــــيهن پي اچ پي</a></strong><br><br>
+		</td>
+	</tr>
+	</table>
+	
+</div>
+</div>
+</body>
+<script>
+<tag:inbox>SetCurrent(2);</tag:inbox>
+<tag:outbox>SetCurrent(3);</tag:outbox>
+</script>
+
+</html>

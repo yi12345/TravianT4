@@ -1,0 +1,310 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language" content="fa">
+<link rel="stylesheet" type="text/css" href="main.css">
+<link rel="stylesheet" type="text/css" href="../template/admin/rashcms/main.css">
+<script language="javascript" src="../template/admin/rashcms/ajax.js" type="text/javascript"></script>
+<script type="text/javascript">_editor_url="htmlarea/";_editor_lang="en";</script>
+<script type="text/javascript" src="htmlarea/htmlarea.js"></script>
+<title>RashCMS:: ويرايش مطلب</title>
+<script>
+var CurrentStep = 1;
+function SetCurrent(val)
+{
+	if(CurrentStep!=val)
+	{
+	 gi('div_'+CurrentStep).style.display = 'none';
+	 gi('a_title_'+CurrentStep).className = '';
+	 gi('div_'+val).style.display = 'block';
+	 gi('a_title_'+val).className = 'current';
+	}
+	CurrentStep = val;
+	if(val == 4)
+	connect('pages/updated.php','task=check','div_4',loadingt,'');
+
+}function setup(){HTMLArea.loadPlugin("ContextMenu");HTMLArea.onload=function() { var config=new HTMLArea.Config();config.width='100%';config.height='100%';config.pageStyle ='body { background-color: white; color: black; font-family: Tahoma,verdana,sans-serif ;font-size: 8pt;direction: rtl } p { font-size: 8pt; font-family: Tahoma; direction: rtl; line-height: 130%;margin-top: 2; margin-bottom: 2 }';var editor =new HTMLArea("post");var editor2=new HTMLArea("fullpost");editor.registerPlugin(ContextMenu);editor2.registerPlugin(ContextMenu);HTMLArea.replace('text', config);HTMLArea.replace('fulltext', config);};HTMLArea.init();}
+function showfull(){changeclass('fulltxt','hideclass');changeclass('refull','reza');changeclass('fullpr','reza');changeclass('deltxt','reza');}
+function hidefull(){changeclass('fulltxt','reza');changeclass('refull','hideclass');changeclass('fullpr','hideclass');changeclass('deltxt','hideclass');}
+function Mform(act){
+var star= gi("star").checked ? 1 : 0;
+if(gi("deltxt").className == 'hideclass'){fte='';}else{
+fte=rajax(parent.rezash_fulltext.document.body.innerHTML);
+}
+if(gi("password").style.display == 'none'){
+var postpassword='';}else{
+var postpassword=rajax(gi("postpassword").value);
+}
+if(gi("fullpassword").style.display == 'none'){var fullpasswordi='';}else{
+var fullpasswordi=rajax(gi("fullpasswordi").value);
+}
+if(gi("expire").style.display == 'none'){var expiredate_day,expiredate_month,expiredate_year,expiredate_hour= '';}else{expiredate_day=rajax(gi("expiredate_day").value);expiredate_month=rajax(gi("expiredate_month").value);expiredate_year=rajax(gi("expiredate_year").value);expiredate_hour=  rajax(gi("expiredate_hour").value);}
+if(gi("showbox").style.display == 'none'){var posttime_day,posttime_month,posttime_year,posttime_hour= '';}else{posttime_day=rajax(gi("posttime_day").value);posttime_month=rajax(gi("posttime_month").value);posttime_year=rajax(gi("posttime_year").value);posttime_hour=rajax(gi("posttime_hour").value);}
+te=rajax(parent.rezash_text.document.body.innerHTML);
+elm=['title','entitle','timage','main','author','context','hits','show','scomments','email','seoupdate','commentbox','keys','reg'];
+re='';query='';elen=elm.length;
+for(var rsh=0;rsh<elen;rsh++){
+if(gi(elm[rsh])){
+re +='s'+elm[rsh]+'=gi("'+ elm[rsh]+'").value; \n';
+thisd=gi(elm[rsh]).value;
+if(rsh != (elen-1)){andv='&'}else{andv=''}
+query += elm[rsh]+'='+thisd+andv;
+}
+}
+eval(re);
+var cats=new Array([cats_id]);
+var selected=new Array();
+elen=cats.length;count=0;
+for(var rsh=0;rsh<elen;rsh++){
+if(gi(cats[rsh]).checked){
+count++;
+selected[count] = cats[rsh];
+}
+}
+hideid('postfrm');hideid('sendbtn');
+query += '&cats='+selected;
+tabclick= false;
+var rlll = gi("rln");
+query2="&rezash_text="+te+"&rezash_full_text="+fte+"&postpassword="+postpassword+"&fullpasswordi="+fullpasswordi+"&expiredate_day="+expiredate_day+"&expiredate_month="+expiredate_month+"&expiredate_year="+expiredate_year+"&expiredate_hour="+expiredate_hour+"&posttime_day="+posttime_day+"&posttime_month="+posttime_month+"&posttime_year="+posttime_year+"&posttime_hour="+posttime_hour+"&star="+star+"&postid=[postid]";
+query2 += '&rl='+rlll;
+connect('pages/postedit.php',query+query2,'displaybox',loadingt,'');
+}
+function showfrm(){showid('postfrm');showid('sendbtn');
+writeid('displaybox','');
+}
+</script>
+<style type="text/css">
+.style1 {
+	color: #008000;
+}
+.style2 {
+	color: #FF3399;
+}
+</style>
+</head>
+<body>
+<div align="center">
+<div class="main">
+<table align="center" cellpadding="0" cellspacing="3" width="850">
+	<tr>
+		<td height="305" width="170" valign="top">
+		<div class="list">
+		<tag:rashcms_links>
+		<div class="point"> <a target=[target] href=[url] class="[class]">[title]</a></div>
+		</tag:rashcms_links>
+<div class="point"> <a target=_blank href="http://rashcms.com" class="rashcms">راش سي ام اس</a></div>
+<div class="point"> <a target=_blank href="[site]" class="rash">مشاهده سايت</a></div>
+<div class="point"> <a target=_blank href="login.php?logout=true" class="rashcms">خروج از سيستم</a></div>
+</div>
+		</td>
+		<td width="670" valign="top">
+		<table align="center" cellpadding="0" cellspacing="3">
+			<tr>
+				<td height="86" width="425" valign="middle">
+				<div class="point">سيستم مديريت محتواي راش</div>
+				<div class="point">امروز 
+				<b>[todayfarsi]</b> 
+				مي باشد .</div>
+				<div class="point"><font color="#FF33CC"><b>[fullname]</b></font> عزیز به مدیریت سیستم خوش آمدید ! خسته نباشید .</div>
+				<div class="point">آی پی : 
+				[ip]</div></td>
+				<td height="86" width="236">
+				<p align="center">
+				<img border="0" src="../template/admin/rashcms/images/logo.png" width="207" height="63"></td>
+			</tr>
+			<tr>
+				<td height="12" width="425" valign="middle">
+				</td>
+				<td height="12" width="236">
+				</td>
+			</tr>
+			<tr>
+				<td width="664" colspan="2" valign="top">
+									
+			</td>
+			</tr>
+			<tr>
+				<td height="261" width="664" colspan="2" valign="top">
+									
+				<div class="page">
+				
+				<div align="center">
+				<ul class="tabs">
+				  <li><a id="a_title_1" onclick="SetCurrent(1);return false;" class="current" href="#">
+					نخست</a></li>
+					
+				  <li><a id="a_title_2" onclick="SetCurrent(2);return false;" href="#">
+					تنظیمات مطلب</a></li>
+						
+				</ul>
+				</div>
+				
+<div id="div_1"> 
+<div id="displaybox"></div>
+	<table border="0" width="95%" class="tbl" id="postfrm">
+<tr>
+<td><label class=hand for="title">عنوان مطلب :</label></td>
+<td width="200" colspan="3">
+<input class="rinput" name="title" id="title" size="59" lang="fa-IR" value="[title]"></td>
+</tr>
+<tr>
+<td><label class=hand for="entitle">نام انگلیسی : </label></td>
+<td width="200" colspan="3">
+<input class="rinput" name="entitle" id="entitle" size="59" lang="fa-IR" value="[entitle]"></td>
+</tr>
+<tr>
+<td><label class=hand for="timage">آدرس تصویر:</label></td>
+<td width="200" colspan="3">
+<input  class="rinput" type="text" name="timage" id="timage" size="59" value="[timage]"></td>
+</tr>
+<tr>
+<td><span class=hand>نویسنده :</span></td>
+<td width="200" colspan="3">
+<input class="rinput" name="author" id="author" size="59"  value="[author]" onFocus="this.blur()"></td>
+</tr>
+<tr>
+<td><label class=hand for="main">موضوع مطلب :</label></td>
+<td width="200" colspan="3">
+[main]</td>
+</tr>
+<td colspan="4">
+<textarea dir=rtl class="inp" name="text" id="text" style="height: 193; width: 428;" cols="10" rows="10">[text]</textarea></td>
+</tr>
+<tr>
+<td colspan="4">
+<span id=fulltxt class="hideclass">
+» <a onclick="showfull()" href="#show">درج ادامه مطلب</a></span>
+<span id=deltxt>
+» <a onclick="hidefull()" href="#show">حذف ادامه مطلب</a></span>
+</td>
+</tr>
+<tr><td id="refull" colspan="4">
+<textarea  dir=rtl id="fulltext" class="inp" name="fulltext"  style="height: 193; width: 427" cols="10" rows="10">[fulltext]</textarea></td>
+</td></td></tr>
+<tr id="fullpr" class="hideclass"><td><label class=hand for="context">متن ادامه مطلب :</label>
+</td>
+<td>
+<input onblur="clickrecall(this, 'ادامه مطلب');" onfocus="clickclear(this, 'ادامه مطلب');" type="text" name="context" id="context" size="20" value="[context]" class="srinput"></span>
+<a href="#quickhelp" onclick="alert('درج کد اچ تی ام ال مانند کد عکس نیز مجاز است.')">؟</a></td>
+<td><label class=hand for="hits">بازدید ادامه مطلب:</label></td>
+<td>
+<input type="text" name="hits" id="hits" size="20" value="[hits]"  class="srinput" dir="ltr"></td>
+</tr>
+
+<tr>
+<td colspan="4">
+موضوعات مرتبط: <br>
+<div style="border: 0pt none; height: 88px;  overflow: auto">
+[subject]</div>
+</td>
+</tr>
+<tr>
+<td colspan="4">
+</td>
+</tr>
+</table> 
+<center>
+<table border="0" width="65%" id="sendbtn">
+<tr>
+<td colspan="4" align="center" height="28">
+<input onclick="Mform('submit')" type="submit" name="submitnews" value="ويرايش مطلب" class="inp">
+</td>
+</tr>
+</table></center>
+
+</div>
+
+<div id="div_2" style="display:none">
+
+<table border="0" width="95%" class="tbl" id="tabs_1_content">
+<tr><td width="41%">
+&nbsp;</td>
+<td colspan="2">
+&nbsp;</td>
+</tr>
+<tr><td width="41%">
+وضعیت:</td>
+<td colspan="2">
+<select class="select" size="1" name="show" id="show" dir="rtl">
+<option value="1" [show1]>عادی</option>
+<option value="2" [show2]>همیشه در صفحه نخست [چسبانک]</option>
+<option value="4" [show4]>ذخیره در پیش نویس</option>
+</select></td>
+</tr>
+<tr><td width="41%">
+نظرات:</td>
+<td colspan="2">
+<select name="scomments" id="scomments" class="select" size="1" dir="rtl">
+<option value="1" [scomments1]>فعال</option>
+<option value="2" [scomments2]>غیر فعال</option>
+<option value="3" [scomments3]>نمایش پس از تایید</option>
+</select></td>
+</tr>
+<tr><td colspan="3">
+<input  type="checkbox" name="star" id="star" [star]><label for="star">امتیاز دهی فعال باشد</label></td>
+</tr>
+<tr><td height="33" width="41%">
+<input onclick="toggle('expire')" type="checkbox" name="expirech" id="expirech" value="1"><label for="expirech">مطلب دارای تاریخ انقضا باشد</label></td>
+<td height="33" colspan="2">
+<div id="expire" style="display:none">[expiredate]</div></td>
+</tr>
+<tr><td  width="41%">
+<input onclick="toggle('showbox')" type="checkbox" name="postch" id="postch" value="1"><label for="postch">ارسال به اینده</label></td>
+<td  colspan="2">
+<div id="showbox"  style="display:none">[posttime]</div></td>
+</tr>
+<tr><td width="41%">
+<input  onclick="toggle('password')" type="checkbox" name="postpwch" id="postpwch" value="1" [postpwch]><label for="postpwch">محدویت گذر واژه</label>
+</td>
+<td colspan="2">
+<div id="password" style="display:[postpassword]">
+<input type="text" name="postpassword" id="postpassword" size="20" class="srinput" dir="ltr" value="[pass1]">
+</div>
+</td>
+</tr>
+<tr><td width="41%">
+<input onclick="toggle('fullpassword')" type="checkbox" name="fpostpwch" id="fpostpwch" value="1" [fpostpwch]><label for="fpostpwch">محدویت گذر واژه ادامه مطلب</label></td>
+<td colspan="2">
+<div id=fullpassword style="display:[postfullpassword]">
+<input type="text" name="fullpasswordi" id="fullpasswordi" size="20" class="srinput" dir="ltr" value="[pass2]">
+</div></td>
+</tr>
+<tr><td width="41%">
+تگ های مطلب: [<a onclick="createkey()" href="#autokeys">تولید خودکار</a>]</td>
+<td width="50%">
+<input type="text" name="keys" id="keys" size="40" class="rinput" dir="rtl" value="[keys]"></td>
+<td width="7%"><span id="keysid"></span></td>
+</tr>
+<tr>
+<td width="41%">
+لینک ها:</td>
+<td colspan="2">
+<select name="reg" id="reg" class="select" size="1">
+<option value="1" [reg1]>نمایش برای عموم کاربران</option>
+<option value="2" [reg2]>نمایش فقط برای کاربران عضو</option>
+</select>
+</td>
+</tr>
+</tr>
+</table><center>
+</center>
+</form>
+
+</div>
+<br><br><br><br><br>
+</div>
+				<p>&nbsp;</td>
+			</tr>
+		</table>
+		<p align="center" style="height: 28px">كليه حقوق براي
+		<a href="http://rashcms.com" target="_blank"><strong>راش سي ام اس</strong></a> محفوظ است. 
+		<strong><a href="http://mihanphp.com" target="_blank">مــــــيهن پي اچ پي</a></strong><br><br>
+		</td>
+	</tr>
+	</table>
+	
+</div>
+</div>
+<script>setup();</script>
+</body>
+</html>

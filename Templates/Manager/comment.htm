@@ -1,0 +1,345 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language" content="fa">
+<link rel="stylesheet" type="text/css" href="main.css">
+<link rel="stylesheet" type="text/css" href="../template/admin/rashcms/main.css">
+<script language="javascript" src="../template/admin/rashcms/ajax.js" type="text/javascript"></script>
+<title>RashCMS:: مديريت نظرات</title>
+<script>
+var editing = false;
+var CurrentStep = 1;
+function SetCurrent(val)
+{
+	 if(CurrentStep!=val)
+	 {
+	 if(val == 3 && editing == false)
+	 	{
+			 alert('لطفا ابتدا يك نظر را جهت ويرايش انتخاب كنيد.');return false;
+		}
+	 gi('div_'+CurrentStep).style.display = 'none';
+	 gi('a_title_'+CurrentStep).className = '';
+	 gi('div_'+val).style.display = 'block';
+	 gi('a_title_'+val).className = 'current';
+	 }
+	CurrentStep = val;
+	if(val == 4)
+	connect('pages/updated.php','task=check','div_4',loadingt,'');
+
+}
+function Mform(action){
+if(action == "move")
+{
+var cid = gv("c_id");
+var pid	= gv("p_id");
+connect('pages/comment.php',"task=move&cid="+cid+"&pid="+pid,'ajax_tabs_1_content',loadingt,'');
+}
+if(action == "edit")
+{
+var name    = gv("edit_comment_name");
+var email   = gv("edit_comment_email");
+var website = gv("edit_comment_website");
+var comment = gv("edit_comment_comment");
+var reply   = gv("edit_comment_reply");
+var id	    = gv("edit_id");
+connect('pages/comment.php',"task=edit&name="+name+"&email="+email+"&website="+website+"&comment="+comment+"&reply="+reply+"&id="+id,'ajax_tabs_2_content_1',loadingt,'');
+}
+
+}
+function activate(id){
+connect('pages/comment.php',"task=activate&id="+id,'ajax_tabs_0_content',loadingt,'');
+}
+function hide(id){
+connect('pages/comment.php',"task=hide&id="+id,'ajax_tabs_0_content',loadingt,'');
+}
+function deletec(id){
+if(confirm("آيا از حذف نظر اطمينان داريد؟\n» عمليات حذف برگشت پذير نمي باشد.")){
+connect('pages/comment.php',"task=delete&id="+id,'ajax_tabs_0_content',loadingt,'');
+}
+}
+function edit(id){
+editing = true;
+SetCurrent(3);
+gi("edit_comment_name").value 	 = gv('comment_name_'+id);
+gi("edit_comment_email").value	 = gv('comment_email_'+id);
+gi("edit_comment_website").value = gv('comment_website_'+id);
+gi("edit_comment_comment").value = gv('comment_comment_'+id);
+gi("edit_comment_reply").value 	 = gv('comment_reply_'+id);
+gi("edit_id").value = id;
+}
+function showcm()
+{
+var type = gv("ctype");
+document.location = '?type='+type;
+
+}
+function doaction(task){
+var msg = (task == 'delete') ? "شما در حال حذف تمامي نظرات پست هستيد.اين عمليات بر گشت ناپذير است.آيا از ادامه اطمينان داريد؟" : "شما در حال اعمال يك تغيير بر روي تمامي مطالب يك پست هستيد\n آيا ميخواهيد ادامه دهيد؟";
+if(task=='show'){
+var postid = gv("posts");
+document.location = '?postid='+postid;
+return;
+}
+if(confirm(msg))
+{
+connect('pages/comment.php',"task=action&do="+task+"&postid="+postid,'ajax_tabs_1_content_1',loadingt,'');
+}
+}
+
+</script>
+<style type="text/css">
+.style1 {
+	color: #008000;
+}
+.style2 {
+	color: #FF3399;
+}
+</style>
+</head>
+<body>
+<div align="center">
+<div class="main">
+<table align="center" cellpadding="0" cellspacing="3" width="850">
+	<tr>
+		<td height="305" width="170" valign="top">
+		<div class="list">
+		<tag:rashcms_links>
+		<div class="point"> <a target=[target] href=[url] class="[class]">[title]</a></div>
+		</tag:rashcms_links>
+<div class="point"> <a target=_blank href="http://rashcms.com" class="rashcms">راش سي ام اس</a></div>
+<div class="point"> <a target=_blank href="[site]" class="rash">مشاهده سايت</a></div>
+<div class="point"> <a target=_blank href="login.php?logout=true" class="rashcms">خروج از سيستم</a></div>
+</div>
+		</td>
+		<td width="670" valign="top">
+		<table align="center" cellpadding="0" cellspacing="3">
+			<tr>
+				<td height="86" width="425" valign="middle">
+				<div class="point">سيستم مديريت محتواي راش</div>
+				<div class="point">امروز 
+				<b>[todayfarsi]</b> 
+				مي باشد .</div>
+				<div class="point"><font color="#FF33CC"><b>[fullname]</b></font> عزیز به مدیریت سیستم خوش آمدید ! خسته نباشید .</div>
+				<div class="point">آی پی : 
+				[ip]</div></td>
+				<td height="86" width="236">
+				<p align="center">
+				<img border="0" src="../template/admin/rashcms/images/logo.png" width="207" height="63"></td>
+			</tr>
+			<tr>
+				<td height="12" width="425" valign="middle">
+				</td>
+				<td height="12" width="236">
+				</td>
+			</tr>
+			<tr>
+				<td width="664" colspan="2" valign="top">
+									
+			</td>
+			</tr>
+			<tr>
+				<td height="261" width="664" colspan="2" valign="top">
+									
+				<div class="page">
+				
+				<div align="center">
+				<ul class="tabs">
+				  <li><a id="a_title_1" onclick="SetCurrent(1);return false;" class="current" href="#">
+				نظرات</a></li>
+					
+				  <li><a id="a_title_2" onclick="SetCurrent(2);return false;" href="#">
+				ويژه</a></li>
+					<li><a id="a_title_3" onclick="SetCurrent(3);return false;" href="#">
+					ويرايش نظر </a></li>
+			
+				</ul>
+				</div>
+				
+<div id="div_1"> 
+<table border="0" width="100%" class="tbl" id="tabs_0_content">
+<tr>
+<td colspan="3" id="ajax_tabs_0_content"></td>
+</tr>
+<tr>
+<td width="25%">نمايش</td>
+<td width="37%">
+<select class=select name="ctype" id="ctype" size="1" dir="rtl">
+<option value="3" [ctype_3]>همه</option>
+<option value="0" [ctype_0]>تاييد نشده</option>
+<option value="1" [ctype_1]>تاييد شده</option>
+<option value="2" [ctype_2]>پنهان</option>
+</select> </td>
+<td width="36%">
+<input onclick="showcm();" type=button name="show" value="نمايش" class="inp"></td>
+</tr>
+<tag:comment>
+<tr>
+<td width="25%">نام و نام خانوادگي&nbsp; :</td>
+<td width="73%" colspan="2">
+<input type=hidden value="[name]" id=comment_name_[id]>
+<input type=hidden value="[email]" id=comment_email_[id]>
+<input type=hidden value="[website]" id=comment_website_[id]>
+
+
+[name] - <a href="mailto:[email]">پست الكترونيك</a> [<a href="sendmail.php?email=[email]">ارسال نامه</a>] - 
+<a target="_blank" href="[website]">وب سايت</a> - آي پي : [ip]</td>
+</tr>
+
+<tr>
+<td >گروه كاربري&nbsp; :</td>
+<td colspan="2">
+ [member_name] - نام كاربري : [member_user] | ارسال شده در [comment_date]</td>
+</tr>
+<tr>
+<td >مطلب :</td>
+<td  colspan="2">
+<input type=hidden value="[posttitle]" id=comment_posttitle_[id]>
+
+[posttitle]<span lang="en-us"> -- </span>شماره اختصاصي مطلب : <b>[pnum]</b></td>
+</tr>
+<tr>
+<td width="25%">عمليات : </td>
+<td width="73%" colspan="2">
+<a href="javascript:activate('[id]');">تاييد نظر</a> - 
+<a href="javascript:hide('[id]');">پنهان سازي نظر</a> - 
+<a href="javascript:deletec('[id]');">حذف نظر</a> - 
+<a href="javascript:edit('[id]');">ويرايش نظر</a> - شماره اختصاصي نظر : <b>[id]</b></td>
+</tr>
+<tr>
+<td width="98%" colspan="3">
+<input type=hidden value="[comment]" id=comment_comment_[id]>
+<input type=hidden value="[reply_txt]" id=comment_reply_[id]>
+<div style="border: 0pt none; height: auto; width: 642px; overflow: auto">
+<font color="#FF0000">
+<b>»</b></font> [comment]
+[reply]
+</div>
+</td>
+</tr>
+<tr>
+<td colspan="3"><center>
+<hr style="border: 1px dotted rgb(0, 150, 0);" size="1">
+</center></td>
+</tr>
+</tag:comment>
+<tr>
+<td bgcolor="#d1dde0" height="26" align="center" colspan="3">
+<tag:pages>[<a href="[pagelink]">[page]</a>]</tag:pages>
+</td>
+</tr>
+</table>
+
+</div>
+<div id="div_2" style="display:none"><table border="0" width="100%" class="tbl" id="tabs_1_content">
+<tr>
+<td colspan=6>
+<div id="ajax_tabs_1_content"></div>
+<div id="ajax_tabs_1_content_1"></div>
+<tr>
+<td>پست</td>
+<td colspan="2">
+<select class=select name="posts" id="posts" size="1" dir="rtl">
+<tag:listposts>
+<option selected value="[postid]">[postname]</option>
+</tag:listposts>
+</select></td>
+<td>
+<select class=select name="task" id="task" size="1" dir="rtl">
+<option value="show">نمايش نظرات</option>
+<option value="activate">تاييد همه نظرات</option>
+<option value="deactivate">غير فعال سازي همه نظرات</option>
+<option value="hide">پنهان سازي همه نظرات</option>
+<option value="delete">حذف تمامي نظرات</option>
+</select></td>
+<td colspan="2">
+<input onclick="doaction(gv('task'));return false;" type="button" name="do" value="انجام" class="inp"></td>
+</tr>
+<tr>
+<td height="45">&nbsp;</td>
+<td colspan="2" height="45">
+&nbsp;</td>
+<td colspan="3" height="45">
+&nbsp;</td>
+</tr>
+<tr>
+<td valign=middle height="22">انتقال نظر&nbsp; :</td>
+<td valign=middle height="22">
+<input class="srinput" onblur="clickrecall(this, 'شماره اختصاصي نظر');" onfocus="clickclear(this, 'شماره اختصاصي نظر');" type="text" name="c_id" id="c_id" size="59" dir="rtl" value="شماره اختصاصي نظر"></td>
+<td colspan="2" height="22">
+&nbsp;به 
+پست شماره </td>
+<td height="22">
+<input class="srinput" onblur="clickrecall(this, 'شماره اختصاصي مطلب');" onfocus="clickclear(this, 'شماره اختصاصي مطلب');" type="text" name="p_id" id="p_id" size="59" dir="rtl" value="شماره اختصاصي مطلب"> </td>
+<td height="22">
+<input onclick="Mform('move');return false;" type="submit" name="do_move" value="انجام عمليات" class="inp"></td>
+</tr>
+
+</div>
+</tr>
+
+</table>
+</div>
+<div id="div_3" style="display:none">
+<form onsubmit="Mform('edit_one_comment');return false" method=post>
+<table border="0" width="100%" class="tbl" id="tabs_2_content">
+<tr>
+<td colspan=2>
+<div id="ajax_tabs_2_content"></div>
+<div id="ajax_tabs_2_content_1"></div>
+<tr>
+<td width="25%">نام و نام خانوادگي :</td>
+<td width="74%">
+<input class="srinput" type="text" name="edit_comment_name" id="edit_comment_name" size="59" dir="rtl"></td>
+</tr>
+<tr>
+<td width="25%">پست الكترونيك :</td>
+<td width="74%">
+<input class="srinput" type="text" name="edit_comment_email" id="edit_comment_email" size="59" dir="rtl"></td>
+</tr>
+<tr>
+<td width="25%">وب سايت :</td>
+<td width="74%">
+<input class="srinput" type="text" name="edit_comment_website" id="edit_comment_website" size="59" dir="ltr"></td>
+</tr>
+<tr>
+<td width="25%" valign=top>متن پيام</td>
+<td width="74%">
+<textarea rows="2" name="edit_comment_comment" id="edit_comment_comment" cols="20" class=srtarea></textarea></td>
+</tr>
+<tr>
+<td width="25%" valign=top>پاسخ :</td>
+<td width="74%">
+<textarea rows="2" name="edit_comment_reply" id="edit_comment_reply" cols="20" class=srtarea></textarea></td>
+</tr>
+<tr>
+<td width="25%">&nbsp;</td>
+<td width="74%">
+&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2"><center>
+<input type="hidden" name="edit_id" id="edit_id" value="">
+<input onclick="Mform('edit');return false;" type="submit" name="show" value="ويرايش" class="inp"></center></td>
+</tr>
+</div>
+</tr>
+
+</table></form>
+
+</div>
+<br><br><br><br><br>
+</div>
+				<p>&nbsp;</td>
+			</tr>
+		</table>
+		<p align="center" style="height: 28px">كليه حقوق براي
+		<a href="http://rashcms.com" target="_blank"><strong>راش سي ام اس</strong></a> محفوظ است. 
+		<strong><a href="http://mihanphp.com" target="_blank">مــــــيهن پي اچ پي</a></strong><br><br>
+		</td>
+	</tr>
+	</table>
+	
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,349 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language" content="fa">
+<link rel="stylesheet" type="text/css" href="main.css">
+<link rel="stylesheet" type="text/css" href="../template/admin/rashcms/main.css">
+<script language="javascript" src="../template/admin/rashcms/ajax.js" type="text/javascript"></script>
+<title>RashCMS:: آرشيو مطالب</title>
+<script>
+var CurrentStep = 1;
+function SetCurrent(val)
+{
+	if(CurrentStep!=val)
+	{
+	 gi('div_'+CurrentStep).style.display = 'none';
+	 gi('a_title_'+CurrentStep).className = '';
+	 gi('div_'+val).style.display = 'block';
+	 gi('a_title_'+val).className = 'current';
+	}
+	CurrentStep = val;
+	if(val == 4)
+	connect('pages/updated.php','task=check','div_4',loadingt,'');
+
+}
+
+function titleEdit(id){
+var text = gi("HideQuick_"+id).value;
+var out  = '<input type="text" name="NewsQuick_'+id+'" id="NewsQuick_'+id+'" size="22" class=inp value="'+text+'">'+" <img class='hand' onclick='Quickedit("+id+")' border='0' src='../template/admin/rashcms/images/tick.png'>";
+gi("ntitle_"+id).innerHTML = out;
+}
+function Quickedit(id)
+{
+var text = gv("NewsQuick_"+id);
+if(text == '')
+{
+alert('وارد كردن عنوان ضروري مي باشد.');
+}else{
+connect('pages/Quick.php','task=Quickedit&text='+text+'&newsid='+id,'ntitle_'+id,sload,'');
+gi("HideQuick_"+id).value = text;
+}
+}
+function down(id){
+document.location = '?movedown='+id;
+//window.location = '?movedown='+id;
+}
+function up(id){
+document.location = '?moveup='+id;
+//window.location = '?moveup='+id;
+}
+function deletepost(id)
+{
+if(confirm("آيا از حذف مطلب اطمينان داريد؟\nعمليات حذف برگشت پذير نمي باشد")){
+document.location="?deletepost&id="+id;
+}
+}
+var checkflag = "false";
+function change(field){
+if (checkflag == "false") {
+for (i = 0; i < field.length; i++)
+field[i].checked = true;
+checkflag = "true";
+}else {
+for (i = 0; i < field.length; i++)
+field[i].checked = false;
+checkflag = "false";
+}
+}
+function cchange(field){
+var sw =1;
+for (i = 0; i < field.length && sw==1; i++)
+if(field[i].checked == false)
+{
+checkflag = "true";
+gi("ach").checked = false;
+sw = 0;
+}
+if(sw == 1)
+gi("ach").checked = true;
+checkflag = "false";
+}
+function doaction(form)
+{
+var field = form.list;
+var out = '';var c =0;
+for (i = 0; i < field.length; i++)
+if((field[i].checked == true) && field[i].value!='rashcms')
+{
+var conj = (c == 0 ) ? '' : ',';
+c++;
+out = out+conj+(field[i].value);
+}
+gi("listids").value = out;
+form.submit();
+}
+
+</script>
+<style type="text/css">
+.style1 {
+	color: #008000;
+}
+.style2 {
+	color: #FF3399;
+}
+</style>
+</head>
+<body>
+<div align="center">
+<div class="main">
+<table align="center" cellpadding="0" cellspacing="3" width="850">
+	<tr>
+		<td height="305" width="170" valign="top">
+		<div class="list">
+		<tag:rashcms_links>
+		<div class="point"> <a target=[target] href=[url] class="[class]">[title]</a></div>
+		</tag:rashcms_links>
+<div class="point"> <a target=_blank href="http://rashcms.com" class="rashcms">راش سي ام اس</a></div>
+<div class="point"> <a target=_blank href="[site]" class="rash">مشاهده سايت</a></div>
+<div class="point"> <a target=_blank href="login.php?logout=true" class="rashcms">خروج از سيستم</a></div>
+</div>
+		</td>
+		<td width="670" valign="top">
+		<table align="center" cellpadding="0" cellspacing="3">
+			<tr>
+				<td height="86" width="425" valign="middle">
+				<div class="point">سيستم مديريت محتواي راش</div>
+				<div class="point">امروز 
+				<b>[todayfarsi]</b> 
+				مي باشد .</div>
+				<div class="point"><font color="#FF33CC"><b>[fullname]</b></font> عزیز به مدیریت سیستم خوش آمدید ! خسته نباشید .</div>
+				<div class="point">آی پی : 
+				[ip]</div></td>
+				<td height="86" width="236">
+				<p align="center">
+				<img border="0" src="../template/admin/rashcms/images/logo.png" width="207" height="63"></td>
+			</tr>
+			<tr>
+				<td height="12" width="425" valign="middle">
+				</td>
+				<td height="12" width="236">
+				</td>
+			</tr>
+			<tr>
+				<td width="664" colspan="2" valign="top">
+									
+			</td>
+			</tr>
+			<tr>
+				<td height="261" width="664" colspan="2" valign="top">
+									
+				<div class="page">
+				
+				<div align="center">
+				<ul class="tabs">
+				  <li><a id="a_title_1" onclick="SetCurrent(1);return false;" class="current" href="#">
+					ليست مطالب</a></li>
+					
+				  <li><a id="a_title_2" onclick="SetCurrent(2);return false;" href="#">
+					جستجو پیشرفته</a></li>
+								
+				</ul>
+				</div>
+				
+<div id="div_1"> 
+<table border="0" width="95%" class="tbl" id="tabs_0_content">
+<tr>
+<form action="postmgr.php?task=view" method=post>
+
+<td width="27%">
+<legend>پست ها در صفحه : </td>
+<td colspan="4">
+<select class="select" name=number size="1">
+<option>5</option>
+<option selected>10</option>
+<option>15</option>
+<option>20</option>
+<option>30</option>
+<option>50</option>
+<option>75</option>
+<option>100</option>
+</select></td>
+<td colspan="4">
+<input type="button" onclick="document.location='?reset'" name="reset" size="22" class=inp value="بازگشت به حالت پيشفرض">
+</td><input type="hidden" name="act" value="1">
+
+</tr>
+<tr>
+<td width="27%">
+ترتیب نمایش : </td>
+<td colspan="3">
+<select class="select" name="type" size="1">
+<option value="ASC">صعودی</option>
+<option value="DESC" selected>نزولی</option>
+</select>
+<input type="submit" name="show" size="22" class=inp value="نمایش"></td></form>
+<form action="postmgr.php" method=get>
+<td colspan="2">
+صفحه :</td>
+<td width="9%" colspan=2>
+<input type="text" name="page" size="9" class=inp></td>
+<td width="9%">
+<input type="submit" name="show" size="22" class=inp value="نمایش"></td></form>
+</tr>
+<form name=myform action="" method=post>
+<table border="0" width="95%" class="tbl" id="duplicate">
+<tr>
+<td colspan="8">
+&nbsp;</td>
+</tr>
+<tr>
+<td bgcolor="#d1dde0" height="26" align="center" width="3%">
+<input type="checkbox" name="ach" id="ach" onclick="change(this.form.list);" value="0">
+<input type="hidden" name="list" id="list" value="rashcms">
+</td>
+<td bgcolor="#d1dde0" height="26" align="center" width="26%">
+<b>عنوان مطلب</b></td>
+<td bgcolor="#d1dde0" height="26" align="center" width="14%">
+<b>نویسنده</b></td>
+<td bgcolor="#d1dde0" height="26" align="center" colspan="2" style="width: 20%">
+<b>تاریخ</b></td>
+<td bgcolor="#d1dde0" height="26" align="center" style="width: 6%">
+<b>وضعیت</b></td>
+<td bgcolor="#d1dde0" height="26" align="center" width="7%">
+<b>ترتیب</b></td>
+<td bgcolor="#d1dde0" height="26" align="center" width="9%">
+<b>عملیات</b></td>
+</tr><tag:listtr>
+<tr>
+<td bgcolor="#f3f7f8" height="26" align="right" width="3%">
+<input type="checkbox" name="list" id="list" value="[NewsId]" onclick="cchange(this.form.list);"></td>
+<td bgcolor="#f3f7f8" height="26" align="center" width="26%"><input type=hidden value="[NewsTitle]" id="HideQuick_[NewsId]"><span id="ntitle_[NewsId]"><a href="#rashcms" onclick='titleEdit("[NewsId]");return false;'>
+[NewsTitle]</a></span></td>
+<td bgcolor="#f3f7f8" height="26" align="right" width="14%">[NewsAuthor]</td>
+<td bgcolor="#f3f7f8" height="26" align="right" colspan="2" style="width: 20%">[NewsDate]</td>
+<td bgcolor="#f3f7f8" height="26" align="right" style="width: 6%">[NewsStat]</td>
+<td bgcolor="#f3f7f8" height="26" align="center" width="7%">
+<a onclick="down('[Newsposid]')" href="#down"><img border='0' src='../template/admin/rashcms/images/down.png'></a>
+<a onclick="up('[Newsposid]')" href="#up"><img border='0' src='../template/admin/rashcms/images/up.png'></a></td>
+<td bgcolor="#f3f7f8" height="26" align="center" width="9%">
+&nbsp;<a href="edit.php?id=[NewsId]"><img border='0' src='../template/admin/rashcms/images/edit.gif'></a><a onclick="deletepost('[NewsId]')" href="javascript:void(0)"><img border='0' src='../template/admin/rashcms/images/trash.gif'></a>
+</td>
+</tr></tag:listtr>
+<tr>
+<td bgcolor="#d1dde0" height="26" align="right" colspan="4">
+<select class="select" name="action" id="action" size="1">
+<option value="delete">حذف انتخاب ها</option>
+<option value="draft">ارسال به پيش نويس</option>
+</select>
+<input type="button" onclick="doaction(this.form);" name="show" size="22" class=inp value="انجام">
+</td>
+<td bgcolor="#d1dde0" height="26" align="right" colspan="4">
+<select class="select" name="pagelist" id="pagelist" size="1">
+<tag:pages>
+<option value="[pagelink]">[page]</option>
+</tag:pages>
+</select>
+<input type="button" name="page" onclick="go(gv('pagelist',1));" size="22" class=inp value="برو"></td>
+</tr>
+<tr>
+<td bgcolor="#d1dde0" height="26" align="center" colspan="8">
+<a target="_blank" href="http://rashcms.com">سيستم مديريت محتواي راش سي ام اس</a> 
+<a target="_blank" href="http://mihanphp.com">
+[ميـهن پي اج پي]
+</a>
+<input type="hidden" name="listids" id="listids" size="22" class=inp value="">
+</td>
+</tr>
+</table></form>
+
+</div>
+<div id="div_2" style="display:none">
+<form action="postmgr.php" autocomplete=on method=post>
+<table border="0" width="95%" class="tbl" id="tabs_1_content">
+<tr>
+<td width="27%">وضعيت : </td>
+<td>
+<select class="select" size="1" name="search[show]" id="show" dir="rtl">
+<option value="0">همه</option>
+<option value="1" selected>عادي</option>
+<option value="2">هميشه در صفحه نخست [چسبانک]</option>
+<option value="3">ذخيره در آرشيو</option>
+<option value="4">ذخيره در پيش نويس</option>
+<option value="5">ثبت کن اما در ليستي نشان نده</option>
+</select></td>
+</tr>
+<tr>
+<td width="27%">دسته : </td>
+<td>
+[main]</td>
+</tr>
+<tr>
+<td width="27%">موضوع:</td>
+<td>
+[subject]</td>
+</tr>
+<tag:Limitation>
+<tr>
+<td width="27%">نام کاربري نويسنده:</td>
+<td>
+<input type="text" name="search[username]" size="22" class=inp></td>
+</tr>
+</tag:Limitation>
+<tr>
+<td width="27%">ترتيب نمايش : </td>
+<td height="13">
+<select class="select" name=type size="1">
+<option selected value="1">صعودي</option>
+<option value="2">نزولي</option>
+</select></td>
+</tr>
+<tr>
+<td width="27%">از تاريخ : </td>
+<td height="7">[timebox1]</td>
+</tr>
+<tr>
+<td width="27%">تا تاريخ : </td>
+<td height="6">[timebox2]</td>
+</tr>
+<tr>
+<td>عبارت مورد جستجو: </td>
+<td><input type="text" name="search[text]" size="22" class=inp></td>
+</tr>
+<tr>
+<td width="27%">عنوان مطلب:</td>
+<td><input type="text" name="search[title]" size="22" class=inp></td>
+</tr>
+<tr>
+<td colspan="2">
+<p align="center">
+<input type="submit" name="T7" size="22" class=inp value="جستجو"></td>
+</tr></table>
+<input type="hidden" name="searching" value="rashcms"></form>
+
+</div>
+<br><br><br><br><br>
+</div>
+				<p>&nbsp;</td>
+			</tr>
+		</table>
+		<p align="center" style="height: 28px">كليه حقوق براي
+		<a href="http://rashcms.com" target="_blank"><strong>راش سي ام اس</strong></a> محفوظ است. 
+		<strong><a href="http://mihanphp.com" target="_blank">مــــــيهن پي اچ پي</a></strong><br><br>
+		</td>
+	</tr>
+	</table>
+	
+</div>
+</div>
+</body>
+</html>

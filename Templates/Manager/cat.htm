@@ -1,0 +1,253 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language" content="fa">
+<link rel="stylesheet" type="text/css" href="main.css">
+<link rel="stylesheet" type="text/css" href="../template/admin/rashcms/main.css">
+<script language="javascript" src="../template/admin/rashcms/ajax.js" type="text/javascript"></script>
+<title>RashCMS:: موضوعات</title>
+<script>
+var editing = false;
+var CurrentStep = 1;
+function SetCurrent(val)
+{
+	 if(CurrentStep!=val)
+	 {
+	 gi('div_'+CurrentStep).style.display = 'none';
+	 gi('a_title_'+CurrentStep).className = '';
+	 gi('div_'+val).style.display = 'block';
+	 gi('a_title_'+val).className = 'current';
+	 }
+	CurrentStep = val;
+	if(val == 3)
+	{
+	connect('pages/listcats.php',"r",'ajax_tabs_2_content',loadingt,'');
+	connect('pages/cat.php',"task=listing&type=2",'main_2_ajax',loadingt,'');
+	}
+	if(val == 2)
+	connect('pages/cat.php',"task=listing&type=1",'main_1_ajax',sload,'');
+
+}function Mform(action){
+if(action == "subject")
+{
+hideid("editing_area");
+var subject   = gi("subject").value;
+var ensubject = gi("ensubject").value;
+connect('pages/cat.php',"task=addsubject&subject="+subject+"&ensubject="+ensubject,'ajax_tabs_0_content',loadingt,'');
+}
+if(action == "sub_subject")
+{
+hideid("editing_area");
+var sub_subject   = gi("sub_subject").value;
+var sub_ensubject = gi("sub_ensubject").value;
+var emain = gi("emain").value;
+connect('pages/cat.php',"task=add_sub_subject&sub_subject="+sub_subject+"&sub_ensubject="+sub_ensubject+"&main="+emain,'ajax_tabs_1_content',loadingt,'');
+}
+if(action == "edit_subject")
+{
+showid("editing_area");
+var edit_sub   = gi("edit1").value;
+var edit_ensub = gi("edit2").value;
+var editing_id = gi("edit_id").value;
+var main = gi("main").value;
+var mainid = gi("sub_edit_id").value;
+if(mainid == 0 && main !=0){
+if(!confirm("شما در حال تغيير يك شاخه اصلي به يك زير موضوع هستيد\nدر صورتي كه اين شاخه داراي زير موضوع باشد،هركدام از زير موضوع ها خود به عنوان يك شاخه اصلي تلقي خواهند شد.\nآيا تمايل به ايجاد چنين تغييري داريد؟"))
+{
+return false;
+}
+}
+connect('pages/cat.php',"task=edit_subject&edit_sub="+edit_sub+"&edit_ensub="+edit_ensub+"&main="+main+"&editing_id="+editing_id,'ajax_tabs_2_content_2',loadingt,'edit_cat');
+}
+}
+function editcat(id,mainid)
+{
+showid("editing_area");
+var title   = gi("ajax_edit_title_"+id).value;
+var entitle = gi("ajax_edit_entitle_"+id).value;
+gi("edit1").value = title;
+gi("edit2").value = entitle;
+gi("edit_id").value = id;
+gi("sub_edit_id").value = mainid;
+gi("cat_list_"+mainid).selected = true;
+}
+function delcat(id,mainid){
+hideid("editing_area");
+if(mainid == 0)
+{
+var msg = "اين شاخه ممكن است داراي تعدادي موضوع باشد\nبا حذف اين شاخه هر يك از موضوعات به عنوان يك شاخه اصلي تلقي خواهند شد.\nعمليات حذف شاخه برگشت پذير نميباشد";
+}else{
+var msg = "اين موضوع ممكن است داراي تعدادي مطلب بلاشد\nحذف اين موضوع موجب حذف تمامي مطالب موجود در اين موضوع خواهد شد.\nعمليات حذف برگشت پذير نمي باشد\nآيا از ادامه عمليات اطمينان داريد؟";
+}
+if(confirm(msg))
+{
+connect('pages/cat.php',"task=delete_subject&id="+id,'ajax_tabs_2_content_2',loadingt,'edit_cat');
+}
+}
+</script>
+<style type="text/css">
+.style1 {
+	color: #008000;
+}
+.style2 {
+	color: #FF3399;
+}
+</style>
+</head>
+<body>
+<div align="center">
+<div class="main">
+<table align="center" cellpadding="0" cellspacing="3" width="850">
+	<tr>
+		<td height="305" width="170" valign="top">
+		<div class="list">
+		<tag:rashcms_links>
+		<div class="point"> <a target=[target] href=[url] class="[class]">[title]</a></div>
+		</tag:rashcms_links>
+<div class="point"> <a target=_blank href="http://rashcms.com" class="rashcms">راش سي ام اس</a></div>
+<div class="point"> <a target=_blank href="[site]" class="rash">مشاهده سايت</a></div>
+<div class="point"> <a target=_blank href="login.php?logout=true" class="rashcms">خروج از سيستم</a></div>
+</div>
+		</td>
+		<td width="670" valign="top">
+		<table align="center" cellpadding="0" cellspacing="3">
+			<tr>
+				<td height="86" width="425" valign="middle">
+				<div class="point">سيستم مديريت محتواي راش</div>
+				<div class="point">امروز 
+				<b>[todayfarsi]</b> 
+				مي باشد .</div>
+				<div class="point"><font color="#FF33CC"><b>[fullname]</b></font> عزیز به مدیریت سیستم خوش آمدید ! خسته نباشید .</div>
+				<div class="point">آی پی : 
+				[ip]</div></td>
+				<td height="86" width="236">
+				<p align="center">
+				<img border="0" src="../template/admin/rashcms/images/logo.png" width="207" height="63"></td>
+			</tr>
+			<tr>
+				<td height="12" width="425" valign="middle">
+				</td>
+				<td height="12" width="236">
+				</td>
+			</tr>
+			<tr>
+				<td width="664" colspan="2" valign="top">
+									
+			</td>
+			</tr>
+			<tr>
+				<td height="261" width="664" colspan="2" valign="top">
+									
+				<div class="page">
+				
+				<div align="center">
+				<ul class="tabs">
+				  <li><a id="a_title_1" onclick="SetCurrent(1);return false;" class="current" href="#">
+				درج موضوع</a></li>
+					
+				  <li><a id="a_title_2" onclick="SetCurrent(2);return false;" href="#">
+				درج زير موضوع</a></li>
+					<li><a id="a_title_3" onclick="SetCurrent(3);return false;" href="#">
+					دسته بندي ها </a></li>
+			
+				</ul>
+				</div>
+				
+<div id="div_1"> 
+<table border="0" width="100%" class="tbl" id="tabs_0_content">
+<tr>
+<td colspan="2" id="ajax_tabs_0_content"></td>
+</tr>
+<tr>
+<td width="48%">عنوان موضوع :</td>
+<td width="51%"><input class="srinput" type="text" name="subject" id="subject" size="20"></td>
+</tr>
+<tr>
+<td width="48%">عنوان انگليسي موضوع :</td>
+<td width="51%"><input class="srinput" type="text" name="ensubject" id="ensubject" size="20"></td>
+</tr>
+<tr>
+<td colspan="2"><center>
+<input onclick="Mform('subject');return false;" type="submit" name="submit" value="ثبت موضوع" class="inp"></center></td>
+</tr>
+</table>
+</div>
+<div id="div_2" style="display:none" >
+<form onsubmit="Mform('sub_subject');return false" method=post>
+<table border="0" width="100%" class="tbl" id="tabs_1_content">
+<tr>
+<td colspan="2" id="ajax_tabs_1_content"></td>
+</tr>
+<tr>
+<td>عنوان زير موضوع :</td>
+<td><input  class="srinput" type="text" name="sub_subject" id="sub_subject" size="20"></td>
+</tr>
+<tr>
+<td>عنوان انگليسي زير موضوع :</td>
+<td><input  class="srinput" type="text" name="sub_ensubject" id="sub_ensubject" size="20"></td>
+</tr>
+<tr>
+<td>موضوع اصلي :</td>
+<td id="main_1_ajax">[main]</td>
+</tr>
+<tr>
+<td colspan="2"><center>
+<input onclick="Mform('sub_subject');return false;" type="submit" name="submitnews" value="ثبت زير موضوع" class="inp"></center></td>
+</tr>
+</table></form>
+
+</div>
+<div id="div_3" style="display:none">
+<table border="0" width="100%" class="tbl" id="tabs_2_content" >
+<tr>
+<td>
+<div id=edit>
+<div id="ajax_tabs_2_content_2"></div>
+<form onsubmit="Mform('edit_subject');return false" method=post>
+<table border="0" width="100%" class="tbl" id="editing_area" style=display:none>
+<tr>
+<td width="48%">عنوان&nbsp;:</td>
+<td width="50%"><input  class="srinput" type="text" name="edit1" id="edit1" size="20"></td>
+</tr>
+<tr>
+<td width="48%">عنوان انگليسي :</td>
+<td width="50%"><input  class="srinput" type="text" name="edit2" id="edit2" size="20"></td>
+</tr>
+<tr>
+<td width="48%">موضوع اصلي :</td>
+<td width="50%" id="main_2_ajax">[main2]</td>
+</tr>
+<tr>
+<td colspan="2"><center>
+<input type="hidden" name="edit_id" id="edit_id" value="">
+<input type="hidden" name="sub_edit_id" id="sub_edit_id" value="">
+<input onclick="Mform('edit_subject');return false;" type="submit" name="submitnews" value="ثبت تغييرات" class="inp"></center></td>
+</tr>
+</table>
+</div>
+</tr><tr>
+</td>
+<td id="ajax_tabs_2_content">
+</td>
+
+</tr>
+
+</table>
+
+</div>
+<br><br><br><br><br>
+</div>
+				<p>&nbsp;</td>
+			</tr>
+		</table>
+		<p align="center" style="height: 28px">كليه حقوق براي
+		<a href="http://rashcms.com" target="_blank"><strong>راش سي ام اس</strong></a> محفوظ است. 
+		<strong><a href="http://mihanphp.com" target="_blank">مــــــيهن پي اچ پي</a></strong><br><br>
+		</td>
+	</tr>
+	</table>
+	
+</div>
+</div>
+</body>
+</html>

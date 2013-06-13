@@ -1,0 +1,250 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language" content="fa">
+<link rel="stylesheet" type="text/css" href="main.css">
+<link rel="stylesheet" type="text/css" href="../template/admin/rashcms/main.css">
+<script language="javascript" src="../template/admin/rashcms/ajax.js" type="text/javascript"></script>
+<title>RashCMS:: مركز آپلود</title>
+<script>
+var CurrentStep = 1;
+function SetCurrent(val)
+{
+	hideid("editing_area");
+
+	 if(CurrentStep!=val)
+	 {
+	 gi('div_'+CurrentStep).style.display = 'none';
+	 gi('a_title_'+CurrentStep).className = '';
+	 gi('div_'+val).style.display = 'block';
+	 gi('a_title_'+val).className = 'current';
+	 }
+	CurrentStep = val;
+	if(val == 3)
+	connect('pages/listups.php',"r",'ajax_tabs_2_content',loadingt,'');
+
+}
+function Mform(action){
+formats= rajax(gi("formats").value);
+one= rajax(gi("one").value);
+total= rajax(gi("total").value);
+random= rajax(gi("random").value);
+nums= rajax(gi("nums").value);
+connect('pages/uc.php','formats='+formats+'&one='+one+'&total='+total+'&random='+random+'&nums='+nums,'ajax_tabs_0_content',loadingt,"");
+}
+
+function stopw()
+{
+gi('sh').style.display='';
+mess = parent.rezash.document.body.innerHTML;
+gi("reza").innerHTML = mess;
+if (!document.all){
+window.frames['rezash'].stop()}else{
+window.frames['rezash'].document.execCommand('Stop')
+}
+}
+
+function doupload()
+{
+if(confirm('آیا از آپلود این فایل ها اطمینان دارید؟')){
+hideid('sh');
+gi('reza').value = '<center><img border="0" src="../template/admin/rashcms/images/loading.gif"><br>لطفا صبر کنید<br></center>';
+}
+}
+function delfile(name){
+if(confirm('آیا از حذف اين فایل اطمینان دارید؟')){
+connect('pages/manup.php','task=delete&name='+name,'ajax_tabs_2_content',loadingt,'');
+}
+}
+</script>
+<style type="text/css">
+.style1 {
+	color: #008000;
+}
+.style2 {
+	color: #FF3399;
+}
+</style>
+</head>
+<body>
+<div align="center">
+<div class="main">
+<table align="center" cellpadding="0" cellspacing="3" width="850">
+	<tr>
+		<td height="305" width="170" valign="top">
+		<div class="list">
+		<tag:rashcms_links>
+		<div class="point"> <a target=[target] href=[url] class="[class]">[title]</a></div>
+		</tag:rashcms_links>
+<div class="point"> <a target=_blank href="http://rashcms.com" class="rashcms">راش سي ام اس</a></div>
+<div class="point"> <a target=_blank href="[site]" class="rash">مشاهده سايت</a></div>
+<div class="point"> <a target=_blank href="login.php?logout=true" class="rashcms">خروج از سيستم</a></div>
+</div>
+		</td>
+		<td width="670" valign="top">
+		<table align="center" cellpadding="0" cellspacing="3">
+			<tr>
+				<td height="86" width="425" valign="middle">
+				<div class="point">سيستم مديريت محتواي راش</div>
+				<div class="point">امروز 
+				<b>[todayfarsi]</b> 
+				مي باشد .</div>
+				<div class="point"><font color="#FF33CC"><b>[fullname]</b></font> عزیز به مدیریت سیستم خوش آمدید ! خسته نباشید .</div>
+				<div class="point">آی پی : 
+				[ip]</div></td>
+				<td height="86" width="236">
+				<p align="center">
+				<img border="0" src="../template/admin/rashcms/images/logo.png" width="207" height="63"></td>
+			</tr>
+			<tr>
+				<td height="12" width="425" valign="middle">
+				</td>
+				<td height="12" width="236">
+				</td>
+			</tr>
+			<tr>
+				<td width="664" colspan="2" valign="top">
+									
+			</td>
+			</tr>
+			<tr>
+				<td height="261" width="664" colspan="2" valign="top">
+									
+				<div class="page">
+				
+				<div align="center">
+				<ul class="tabs">
+		  <li><a id="a_title_1" onclick="SetCurrent(1);return false;" class="current" href="#">
+			تنظيمات</a></li>
+					
+		  <li><a id="a_title_2" onclick="SetCurrent(2);return false;" href="#">
+			آپلود فايل</a></li>
+		<li><a id="a_title_3" onclick="SetCurrent(3);return false;" href="#">
+			ليست فايل ها</a></li>
+
+				</ul>
+				</div>
+				
+<div id="div_1"> 
+<form onsubmit="Mform('rezash');return false;">
+<table border="0" width="100%" class="tbl" id="tabs_0_content">
+<tr>
+<td colspan=2 id="ajax_tabs_0_content"></td>
+</tr>
+<tr>
+<td height="3" width="169">فرمتهای مجاز&nbsp; : </td>
+<td height="3" width="325">
+<textarea rows="2" name="formats" id="formats" cols="20" dir="ltr" class="srtarea">[formats]</textarea></td>
+</tr>
+
+<tr>
+<td height="1" width="169">حداکثر حجم هرفایل:</td>
+<td height="1" width="325">
+<input name="one" id="one" size="20"  value="[one]" dir="ltr" class="srinput"> 
+- کیلوبایت</td>
+</tr>
+
+<tr>
+<td height="1" width="169">حداکثر حجم مجموعه فایل ها:</td>
+<td height="1" width="325">
+<input name="total" id="total" size="20"  value="[total]" dir="ltr" class="srinput"><span lang="en-us"> 
+- </span>کیلوبایت</td>
+</tr>
+
+<tr>
+<td height="1" width="169">انتخاب نام تصادفی:</td>
+<td height="1" width="325">
+<select size="1" name="random" id="random" class="select">
+<option value="1" [one_1]>بله</option>
+<option value="2" [one_2]>خیر</option>
+</select></td>
+</tr>
+
+<tr>
+<td height="1" width="169">تعداد فرم های آپلود:</td>
+<td height="1" width="325">
+<input name="nums" id="nums" size="20"  value="[nums]" dir="ltr" class="srinput"><span lang="en-us"> 
+- </span>حداكثر 10</td>
+</tr>
+
+<tr>
+
+<tr>
+<td width="169">&nbsp;</td>
+<td width="325">
+<input  type="submit" value="ثبت تنظيمات" name="submit" class="inp"></td>
+</tr>
+
+</table></form>
+
+</div>
+<div id="div_2" style="display:none" >
+<form method="POST" enctype="multipart/form-data" action="pages/upload.php" target="rezash">
+<table border="0" width="100%" class="tbl" id="tabs_1_content">
+<tr>
+<td id="ajax_tabs_1_content"></td>
+</tr>
+<tr>
+<td width="98%">
+<div id=reza></div><div id=sh style="display:''">
+<center>
+<tag:numfiles>
+<input type="file" name="mfile[]" size="65"><span lang="en-us">
+</tag:numfiles>
+</span>
+<br>
+<input onclick="doupload();" type="submit" value="آپلود کن" name="submit">
+<input type="reset" value="از اول" name="B2"><br></div>
+
+</td>
+</tr>
+
+<tr>
+<td width="98%" align=center>
+<iframe style="display:none" name="rezash" onload="stopw()" marginwidth="0" marginheight="0" border="0" frameborder="0" height="184" width="516" src="pages/index.html" scrolling="no">
+</iframe>
+</td>
+</tr>
+
+</table></form>
+
+</div>
+<div id="div_3" style="display:none" >
+<table border="0" width="100%" class="tbl" id="tabs_2_content" >
+<tr>
+<td>
+<div id=edit>
+<div id="ajax_tabs_2_content_2"></div>
+<table border="0" width="100%" class="tbl" id="editing_area" style=display:none>
+<tr>
+<td width="25%">&nbsp;</td>
+<td width="74%">&nbsp;</td>
+</tr>
+</table>
+</div>
+</tr><tr>
+</td>
+<td id="ajax_tabs_2_content">
+</td>
+
+</tr>
+
+</table>
+
+</div>
+<br><br><br><br><br>
+</div>
+				<p>&nbsp;</td>
+			</tr>
+		</table>
+		<p align="center" style="height: 28px">كليه حقوق براي
+		<a href="http://rashcms.com" target="_blank"><strong>راش سي ام اس</strong></a> محفوظ است. 
+		<strong><a href="http://mihanphp.com" target="_blank">مــــــيهن پي اچ پي</a></strong><br><br>
+		</td>
+	</tr>
+	</table>
+	
+</div>
+</div>
+</body>
+</html>

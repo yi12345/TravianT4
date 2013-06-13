@@ -1,0 +1,515 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language" content="fa">
+<link rel="stylesheet" type="text/css" href="main.css">
+<link rel="stylesheet" type="text/css" href="../template/admin/rashcms/main.css">
+<script language="javascript" src="../template/admin/rashcms/ajax.js" type="text/javascript"></script>
+<title>RashCMS:: تنظيمات</title>
+<script>
+var CurrentStep = 1;
+function SetCurrent(val)
+{
+
+	 if(CurrentStep!=val)
+	 {
+	 gi('div_'+CurrentStep).style.display = 'none';
+	 gi('a_title_'+CurrentStep).className = '';
+	 gi('div_'+val).style.display = 'block';
+	 gi('a_title_'+val).className = 'current';
+	 }
+	CurrentStep = val;
+
+}
+
+
+function Mform(action){
+if(action == "sett_general")
+{
+elm=['email','site','num','nlast','tries','member_area','comment'];
+re='';query='';elen=elm.length;
+for(var rsh=0;rsh<elen;rsh++){
+if(gi(elm[rsh])){
+re +='s'+elm[rsh]+'=gi("'+ elm[rsh]+'").value; \n';
+thisd=gv(elm[rsh]);
+if(rsh != (elen-1)){andv='&'}else{andv=''}
+query += elm[rsh]+'='+thisd+andv;
+}
+}
+eval(re);
+connect('pages/setting.php',"task=general&"+query,'ajax_tabs_0_content',loadingt,'');
+}
+if(action == "sett_time")
+{
+var s_dzone = gv("dzone");
+var s_dtype = gv("dtype");
+connect('pages/setting.php',"task=time&dzone="+s_dzone+"&dtype="+s_dtype,'ajax_tabs_1_content_1',loadingt,'');
+}
+if(action == "sett_seo")
+{
+var s_title	= gv("title");
+var s_keys	= gv("keys");
+var s_desc	= gv("desc");
+var s_seo 	= gv("seo");
+connect('pages/setting.php',"task=seo&title="+s_title+"&keys="+s_keys+"&desc="+s_desc+"&seo="+s_seo,'ajax_tabs_2_content_2',loadingt,'');
+}
+if(action == "move")
+{
+showMenu();
+var ids = gv("results");
+connect('pages/setting.php',"task=menus&list="+ids,'ajax_tabs_3_content',loadingt,'');
+}
+if(action == "post_setting")
+{
+var a_reg  = gi("active_reg").value;
+var u_list = gi("user_list").value;
+var m_u_l  = gi("min_user_len").value;
+var m_p_l  = gi("min_pass_len").value;
+var a_s_pm = gi("allow_send_pm").value;
+var a_s_po = gi("allow_send_post").value;
+connect('pages/member.php',"task=post_setting&active_reg="+a_reg+"&user_list="+u_list+"&min_user_len="+m_u_l+'&min_pass_len='+m_p_l+'&allow_send_pm='+a_s_pm+'&"allow_send_post='+a_s_po,'ajax_tabs_5_content',loadingt,'');
+}
+if(action == "rezash")
+{
+formats= rajax(gi("formats").value);
+one= rajax(gi("one").value);
+total= rajax(gi("total").value);
+random= rajax(gi("random").value);
+nums= rajax(gi("nums").value);
+connect('pages/uc.php','formats='+formats+'&one='+one+'&total='+total+'&random='+random+'&nums='+nums,'ajax_tabs_4_content',loadingt,"");
+}
+}
+function move(way) {
+			foo = gi('rashcms_admin_menus_select');
+			j=-1; menuLen=foo.length; 
+			if (way=='up') { lim=0; m=-1 } else { lim=menuLen-1; m=1 };
+			for (i=0;i<menuLen;i++) if (foo.options[i].selected) { j=i; i=menuLen; }
+			if (j==-1) alert('هیچ سطری انتخاب نشده است'); 
+			else if (j==lim){
+			if(way=='up'){ way_fa='شما در ابتدای لیست قرار دارید';}
+			else{ way_fa='شما در انتهای لیست قرار دارید';}
+			 alert(way_fa);}
+			else { k=j+m; tempt=foo.options[k].text; tempv=foo.options[k].value; 
+			foo.options[k].text=foo.options[j].text
+			foo.options[k].value=foo.options[j].value
+			foo.options[j].text=tempt; foo.options[j].value=tempv; 
+			foo.options[j].selected=false; 
+			foo.options[k].selected=true; } }
+			function showMenu() {
+			foo = gi('rashcms_admin_menus_select');
+			temp=''; menuLen=foo.length; comma=''
+			for (i=0;i<menuLen;i++) { j=i+1; temp += comma + foo.options[i].value; comma=',' }
+			gi("results").value=temp;
+			}
+			
+
+
+</script>
+<style type="text/css">
+.style1 {
+	color: #008000;
+}
+.style2 {
+	color: #FF3399;
+}
+</style>
+</head>
+<body>
+<div align="center">
+<div class="main">
+<table align="center" cellpadding="0" cellspacing="3" width="850">
+	<tr>
+		<td height="305" width="170" valign="top">
+		<div class="list">
+		<tag:rashcms_links>
+		<div class="point"> <a target=[target] href=[url] class="[class]">[title]</a></div>
+		</tag:rashcms_links>
+<div class="point"> <a target=_blank href="http://rashcms.com" class="rashcms">راش سي ام اس</a></div>
+<div class="point"> <a target=_blank href="[site]" class="rash">مشاهده سايت</a></div>
+<div class="point"> <a target=_blank href="login.php?logout=true" class="rashcms">خروج از سيستم</a></div>
+</div>
+		</td>
+		<td width="670" valign="top">
+		<table align="center" cellpadding="0" cellspacing="3">
+			<tr>
+				<td height="86" width="425" valign="middle">
+				<div class="point">سيستم مديريت محتواي راش</div>
+				<div class="point">امروز 
+				<b>[todayfarsi]</b> 
+				مي باشد .</div>
+				<div class="point"><font color="#FF33CC"><b>[fullname]</b></font> عزیز به مدیریت سیستم خوش آمدید ! خسته نباشید .</div>
+				<div class="point">آی پی : 
+				[ip]</div></td>
+				<td height="86" width="236">
+				<p align="center">
+				<img border="0" src="../template/admin/rashcms/images/logo.png" width="207" height="63"></td>
+			</tr>
+			<tr>
+				<td height="12" width="425" valign="middle">
+				</td>
+				<td height="12" width="236">
+				</td>
+			</tr>
+			<tr>
+				<td width="664" colspan="2" valign="top">
+									
+			</td>
+			</tr>
+			<tr>
+				<td height="261" width="664" colspan="2" valign="top">
+									
+				<div class="page">
+				
+				<div align="center">
+				<ul class="tabs">
+<li><a id="a_title_1" onclick="SetCurrent(1);return false;" class="current" href="#">
+تنظيمات عمومي</a></li>
+
+<li><a id="a_title_2" onclick="SetCurrent(2);return false;" href="#">
+تنظيمات زمان وتاريخ</a></li>
+
+<li><a id="a_title_3" onclick="SetCurrent(3);return false;" href="#">
+تنظيمات سئو</a></li>
+<li><a id="a_title_5" onclick="SetCurrent(5);return false;" href="#">
+تنظيمات عضويت</a></li>
+<li><a id="a_title_6" onclick="SetCurrent(6);return false;" href="#">
+تنظيمات آپلود فايل</a></li>
+<li><a id="a_title_4" onclick="SetCurrent(4);return false;" href="#">
+مديريت منوها</a></li>
+
+					
+		
+				</ul>
+				</div>
+				
+<div id="div_1"> 
+<form onsubmit="Mform('sett_general');return false" method=post>
+<table border="0" width="100%" class="tbl" id="tabs_0_content">
+<tr>
+<td colspan="3" id="ajax_tabs_0_content"></td>
+</tr>
+<tr>
+<td width="25%">پست الكترونيك سايت&nbsp; :</td>
+<td width="73%" colspan="2">
+<input class="rinput" type="text" name="email" id="email" size="59" dir="ltr" value="[email]"></td>
+</tr>
+<tr>
+<td width="25%">آدرس سايت &nbsp; :</td>
+<td width="73%" colspan="2">
+<input class="rinput" type="text" name="site" id="site" size="59" dir="ltr" value="[site]"></td>
+</tr>
+<tr>
+<td width="25%">تعداد مطالب در صفحه&nbsp; : </td>
+<td width="73%" colspan="2">
+<input class="srinput" type="text" name="num" id="num" size="59" dir="ltr" value="[num]"></td>
+</tr>
+<tr>
+<td width="25%">تعداد آخرين مطالب : </td>
+<td width="73%" colspan="2">
+<input class="srinput" type="text" name="nlast" id="nlast" size="59" dir="ltr" value="[nlast]"></td>
+</tr>
+<tr>
+<td width="25%">نمايش كد امنيتي بعد از </td>
+<td width="37%">
+<input class="srinput" type="text" name="tries" id="tries" size="59" dir="ltr" value="[tries]"> </td>
+<td width="36%">
+&nbsp;تلاش ناموفق</td>
+</tr>
+<tr>
+<td width="25%">بخش كاربري : </td>
+<td width="73%" colspan="2">
+<SELECT class=select  name=member_area id=member_area size="1">
+<option [member_area_1] value="1">فعال</option>
+<option [member_area_2] value="2">غير فعال</option>
+</SELECT></td>
+</tr>
+<tr>
+<td width="25%">نظرات :</td>
+<td width="73%" colspan="2">
+<SELECT class=select  name=comment id=comment size="1">
+<option [comment_1] value="1">پيش فرض تنظيم مطلب</option>
+<option [comment_2] value="2">نظرات تمام مطالب فعال و بدون نياز به تاييد</option>
+<option [comment_3] value="3">نظرات تمام مطالب فعال و نيازمند تاييد</option>
+<option [comment_4] value="4">نظرات تمام مطالب غير فعال</option>
+</SELECT></td>
+</tr>
+
+<td colspan="3"><center>
+<input onclick="Mform('sett_general');return false;" type="submit" name="submit" value="ثبت تنظيمات" class="inp"></center></td>
+</tr>
+</table></form>
+
+</div>
+<div id="div_2" style="display:none"> 
+<form onsubmit="Mform('sett_time');return false" method=post>
+<table border="0" width="100%" class="tbl" id="tabs_1_content">
+<tr>
+<td colspan=2>
+<div id="ajax_tabs_1_content"></div>
+<div id="ajax_tabs_1_content_1"></div>
+<tr>
+<td width="25%">منطقه زماني :</td>
+<td width="74%"><select class=select name="dzone" id="dzone" size="1" dir="ltr"><option value="-12">(GMT -12:00 
+hours) Eniwetok, Kwajalein</option><option value="-11">(GMT -11:00 hours) Midway 
+Island, Samoa</option><option value="-10">(GMT -10:00 hours)</option><option value="-9">
+(GMT -9:00 hours) ???</option><option value="-8">(GMT -8:00 hours) Pacific Time 
+(US &amp; Canada), Tijuana</option><option value="-7">(GMT -7:00 hours) Mountain 
+Time (US &amp; Canada), Arizona</option><option value="-6">(GMT -6:00 hours) Central 
+Time (US &amp; Canada), Mexico City</option><option value="-5">(GMT -5:00 hours) 
+Eastern Time (US &amp; Canada), Bogota, Lima, Quito</option><option value="-4">(GMT 
+-4:00 hours) Atlantic Time (Canada), Caracas, La Paz</option><option value="-3.5">
+(GMT -3:30 hours) Newfoundland</option><option value="-3">(GMT -3:00 hours) 
+Brassila, Buenos Aires, Georgetown, Falkland Is</option><option value="-2">(GMT 
+-2:00 hours) Mid-Atlantic, Ascension Is., St. Helena</option><option value="-1">
+(GMT -1:00 hours) Azores, Cape Verde Islands</option><option value="0">(GMT) 
+Casablanca, Dublin, Edinburgh, London, Lisbon, Monrovia</option><option value="1">
+(GMT +1:00 hours) Amsterdam, Berlin, Brussels, Madrid, Paris, Rome</option><option value="2">
+(GMT +2:00 hours) Cairo, Helsinki, Kaliningrad, South Africa</option><option value="3">
+(GMT +3:00 hours) Baghdad, Riyadh, Moscow, Nairobi</option>
+
+<option value="3.5" selected>(GMT +3:30 hours) | Tehran</option><option value="4">
+(GMT +4:00 hours) Abu Dhabi, Baku, Muscat, Tbilisi</option><option value="4.5">
+(GMT +4:30 hours) ??</option><option value="5">(GMT +5:00 hours) Ekaterinburg, 
+Islamabad, Karachi, Tashkent</option><option value="5.5">(GMT +5:30 hours) 
+Bombay, Calcutta, Madras, New Delhi</option><option value="6">(GMT +6:00 hours) 
+Almaty, Colombo, Dhaka, Novosibirsk</option><option value="6.5">(GMT +6:30 
+hours)</option><option value="7">(GMT +7:00 hours) Bangkok, Hanoi, Jakarta</option><option value="8">
+(GMT +8:00 hours) Beijing, Hong Kong, Perth, Singapore, Taipei</option><option value="9">
+(GMT +9:00 hours) Osaka, Sapporo, Seoul, Tokyo, Yakutsk</option><option value="9.5">
+(GMT +9:30 hours)</option><option value="10">(GMT +10:00 hours) Canberra, Guam, 
+Melbourne, Sydney, Vladivostok</option><option value="11">(GMT +11:00 hours) 
+Magadan, New Caledonia, Solomon Islands</option><option value="12">(GMT +12:00 
+hours) Auckland, Wellington, Fiji, Marshall Island</option></select></td>
+</tr>
+<tr>
+<td width="25%">نحوه نمايش تاریخ&nbsp; :</td>
+<td width="74%">
+<SELECT class=select  name=dtype id=dtype size="1">
+<OPTION value="l j F Y" selected>مانند سه شنبه 27 مرداد 1389</OPTION> 
+<OPTION value="j F Y">مانند 27 مرداد 1389</OPTION> <OPTION value="F Y">
+مانند مرداد 1387</OPTION> 
+<OPTION value=Y/m/d>مانند 1389/05/27</OPTION>
+</SELECT></td>
+</tr>
+<tr>
+<td colspan="2"><center>
+<input type="hidden" name="edit_id" id="edit_id" value="">
+<input onclick="Mform('sett_time');return false;" type="submit" name="submitnews" value="ثبت تنظيمات" class="inp"></center></td>
+</tr>
+</div>
+</tr>
+
+</table></form>
+
+</div>
+<div id="div_3" style="display:none"> 
+<form onsubmit="Mform('sett_seo');return false" method=post>
+<table border="0" width="100%" class="tbl" id="tabs_2_content">
+<tr>
+<td colspan=2>
+<div id="ajax_tabs_2_content"></div>
+<div id="ajax_tabs_2_content_2"></div>
+<tr>
+<td width="25%">عنوان سايت :</td>
+<td width="74%">
+<input class="rinput" type="text" name="title" id="title" size="59" dir="ltr" value="[title]"></td>
+</tr>
+<tr>
+<td width="25%">كلمات كليدي&nbsp; :</td>
+<td width="74%">
+<input class="rinput" type="text" name="keys" id="keys" size="59" dir="rtl" value="[keys]"></td>
+</tr>
+<tr>
+<td width="25%">توضيحات :</td>
+<td width="74%">
+<textarea class="srtarea" type="text" name="desc" id="desc" dir="rtl" cols="10" rows="10">[desc]</textarea>
+</tr>
+<tr>
+<td width="25%">لينك هاي كاربر پسند:</td>
+<td width="74%">
+<SELECT class=select  name=seo id=seo size="1">
+<option [seo_1] value="1">فعال</option>
+<option [seo_2] value="2">غير فعال</option>
+</SELECT></td>
+</tr>
+<tr>
+<td colspan="2"><center>
+<input onclick="Mform('sett_seo');return false;" type="submit" name="submit" value="ثبت تنظيمات" class="inp"></center></td>
+</tr>
+</div>
+</tr>
+
+</table></form>
+
+</div>
+<div id="div_4" style="display:none"> 
+<form onsubmit="Mform('move');return false" method=post name="rashcms_admin_menus">
+<table border="0" width="100%" class="tbl" id="tabs_3_content">
+<tr>
+<td colspan=3>
+<div id="ajax_tabs_3_content"></div>
+<div id="ajax_tabs_3_content_3"></div>
+<tr>
+<td width="23%">&nbsp;<p>
+<a onclick="move('down')" href="#down"><img border='0' src='../template/admin/rashcms/images/down.png'></a>
+<a onclick="move('up')" href="#up"><img border='0' src='../template/admin/rashcms/images/up.png'></a>
+</td>
+<td width="23%">
+<select name="rashcms_admin_menus_select" id="rashcms_admin_menus_select" size="10" dir=rtl 	style="border: 1px solid #c0c0c0; padding-right: 2px; padding-left: 2px; font-family: tahoma; font-size: 11px; color: #4E4E4E; width: 287;height:284" class="select">';
+<tag:menu_name><option value="[id]">[name]</option></tag:menu_name>
+</select></td>
+<td width="46%">&nbsp;</td>
+<tr>
+<td colspan="3"><center>
+<input onclick="Mform('move');return false;" type="submit" name="submit" value="ثبت تنظيمات" class="inp"></center></td>
+</tr>
+</div>
+</tr>
+
+</table><input type="hidden" name="results" id="results" value="">
+</form>
+
+</div>
+<div id="div_5" style="display:none"> 
+<form onsubmit="Mform('post_setting');return false" method=post>
+<table border="0" width="100%" class="tbl" id="tabs_5_content">
+<tr>
+<td colspan="3" id="ajax_tabs_5_content"></td>
+</tr>
+<tr>
+<td width="23%">عضو گيري :</td>
+<td width="76%" colspan="2">
+<select name="active_reg" id="active_reg" class="select" size="1">
+<option [active_reg_1] value="1">فعال</option>
+<option [active_reg_2] value="2">غير فعال</option>
+
+</select></td>
+</tr>
+<tr>
+<td width="23%">ليست كاربران : </td>
+<td width="76%" colspan="2">
+<select name="user_list" id="user_list" class="select" size="1">
+<option [user_list_1] value="1">عدم نمايش</option>
+<option [user_list_2] value="2">نمايش عمومي</option>
+<option [user_list_3] value="3">نمايش براي كاربران</option>
+
+</select></td>
+</tr>
+<tr>
+<td width="23%">حداق طول نام كاربري :</td>
+<td width="76%" colspan="2">
+<select name="min_user_len" id="min_user_len" class="select" size="1">
+<option [min_user_len_4] value="4">4 كاراكتر</option>
+<option [min_user_len_5] value="5">5 كاراكتر</option>
+<option [min_user_len_6] value="6">6 كاراكتر</option>
+<option [min_user_len_7] value="7">7 كاراكتر</option>
+<option [min_user_len_8] value="8">8 كاراكتر</option>
+</select></td>
+</tr>
+<tr>
+<td width="23%">حداقل طول كلمه عبور :</td>
+<td width="76%" colspan="2">
+<select  name="min_pass_len" id="min_pass_len" class="select" size="1">
+<option [min_pass_len_5] value="5">5 كاراكتر</option>
+<option [min_pass_len_6] value="6">6 كاراكتر</option>
+<option [min_pass_len_7] value="7">7 كاراكتر</option>
+<option [min_pass_len_8] value="8">8 كاراكتر</option>
+<option [min_pass_len_9] value="9">9 كاراكتر</option>
+</select></td>
+</tr>
+<tr>
+<td width="23%">امكان ارسال پيغام خصوصي :</td>
+<td width="76%" colspan="2">
+<select name="allow_send_pm" id="allow_send_pm" class="select" size="1">
+<option [allow_send_pm_1] value="1">فعال</option>
+<option [allow_send_pm_2] value="2">غير فعال</option>
+</select></td>
+</tr>
+<tr>
+<td width="23%">امكان ارسال مطلب :</td>
+<td width="76%" colspan="2">
+<select name="allow_send_post" id="allow_send_post" class="select" size="1">
+<option [allow_send_post_1] value="1">فعال</option>
+<option [allow_send_post_2] value="2">غير فعال</option>
+</select></td>
+</tr>
+<tr>
+<td><center>
+&nbsp;</center></td>
+<td>
+<input onclick="Mform('post_setting');return false;" type="submit" name="submit" value="ثبت تغييرات" class="inp"></td>
+<td>&nbsp;</td>
+</tr>
+</table></form>
+
+</div>
+<div id="div_6" style="display:none"> 
+<form onsubmit="Mform('rezash');return false;">
+<table border="0" width="100%" class="tbl" id="tabs_4_content">
+<tr>
+<td colspan=2 id="ajax_tabs_4_content"></td>
+</tr>
+<tr>
+<td height="3" width="169">فرمتهای مجاز&nbsp; : </td>
+<td height="3" width="325">
+<textarea rows="2" name="formats" id="formats" cols="20" dir="ltr" class="srtarea">[formats]</textarea></td>
+</tr>
+
+<tr>
+<td height="1" width="169">حداکثر حجم هرفایل:</td>
+<td height="1" width="325">
+<input name="one" id="one" size="20"  value="[one]" dir="ltr" class="srinput"> 
+- کیلوبایت</td>
+</tr>
+
+<tr>
+<td height="1" width="169">حداکثر حجم مجموعه فایل ها:</td>
+<td height="1" width="325">
+<input name="total" id="total" size="20"  value="[total]" dir="ltr" class="srinput"><span lang="en-us"> 
+- </span>کیلوبایت</td>
+</tr>
+
+<tr>
+<td height="1" width="169">انتخاب نام تصادفی:</td>
+<td height="1" width="325">
+<select size="1" name="random" id="random" class="select">
+<option value="1" [one_1]>بله</option>
+<option value="2" [one_2]>خیر</option>
+</select></td>
+</tr>
+
+<tr>
+<td height="1" width="169">تعداد فرم های آپلود:</td>
+<td height="1" width="325">
+<input name="nums" id="nums" size="20"  value="[nums]" dir="ltr" class="srinput"><span lang="en-us"> 
+- </span>حداكثر 10</td>
+</tr>
+
+<tr>
+
+<tr>
+<td width="169">&nbsp;</td>
+<td width="325">
+<input  type="submit" value="ثبت تنظيمات" name="submit" class="inp"></td>
+</tr>
+
+</table></form>
+
+</div>
+
+<br><br><br><br><br>
+</div>
+				<p>&nbsp;</td>
+			</tr>
+		</table>
+		<p align="center" style="height: 28px">كليه حقوق براي
+		<a href="http://rashcms.com" target="_blank"><strong>راش سي ام اس</strong></a> محفوظ است. 
+		<strong><a href="http://mihanphp.com" target="_blank">مــــــيهن پي اچ پي</a></strong><br><br>
+		</td>
+	</tr>
+	</table>
+	
+</div>
+</div>
+</body>
+</html>

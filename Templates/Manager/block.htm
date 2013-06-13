@@ -1,0 +1,309 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language" content="fa">
+<link rel="stylesheet" type="text/css" href="main.css">
+<link rel="stylesheet" type="text/css" href="../template/admin/rashcms/main.css">
+<script language="javascript" src="../template/admin/rashcms/ajax.js" type="text/javascript"></script>
+<script type="text/javascript">_editor_url="htmlarea/";_editor_lang="en";</script>
+<script type="text/javascript" src="htmlarea/htmlarea.js"></script>
+<title>RashCMS:: بلوك ها</title>
+<script>
+var CurrentStep = 1;
+var rashcmsfirst = false;
+function SetCurrent(val)
+{
+	hideid("editing_area");
+
+	 if(CurrentStep!=val)
+	 {
+	 if(val== 3 && editing==false)
+		{
+			alert("ابتدا يك بلوك را جهت ويرايش انتخاب كنيد.");
+			return false;
+		}
+	 editing = false;
+	 gi('div_'+CurrentStep).style.display = 'none';
+	 gi('a_title_'+CurrentStep).className = '';
+	 gi('div_'+val).style.display = 'block';
+	 gi('a_title_'+val).className = 'current';
+	 }
+	 if(val == 2)
+	 connect('pages/listblock.php',"task=listing",'ajax_tabs_1_content',loadingt,'');
+	CurrentStep = val;
+}
+//function setup(){HTMLArea.loadPlugin("ContextMenu");HTMLArea.onload=function() { var config=new HTMLArea.Config();config.width='100%';config.height='100%';config.pageStyle ='body { background-color: white; color: black; font-family: Tahoma,verdana,sans-serif ;font-size: 8pt;direction: rtl } p { font-size: 8pt; font-family: Tahoma; direction: rtl; line-height: 130%;margin-top: 2; margin-bottom: 2 }';var editor =new HTMLArea("post");var editor2 =new HTMLArea("editpost");editor.registerPlugin(ContextMenu);editor2.registerPlugin(ContextMenu);HTMLArea.replace('text', config);HTMLArea.replace('edit_text', config);};HTMLArea.init();}
+function setup(){HTMLArea.loadPlugin("ContextMenu");HTMLArea.onload=function() { var config=new HTMLArea.Config();config.width='100%';config.height='100%';config.pageStyle ='body { background-color: white; color: black; font-family: Tahoma,verdana,sans-serif ;font-size: 8pt;direction: rtl } p { font-size: 8pt; font-family: Tahoma; direction: rtl; line-height: 130%;margin-top: 2; margin-bottom: 2 }';var editor =new HTMLArea("post");editor.registerPlugin(ContextMenu);HTMLArea.replace('text', config);};HTMLArea.init();}
+function setup2(){HTMLArea.loadPlugin("ContextMenu");HTMLArea.onload=function() { var config=new HTMLArea.Config();config.width='100%';config.height='100%';config.pageStyle ='body { background-color: white; color: black; font-family: Tahoma,verdana,sans-serif ;font-size: 8pt;direction: rtl } p { font-size: 8pt; font-family: Tahoma; direction: rtl; line-height: 130%;margin-top: 2; margin-bottom: 2 }';var editor2 =new HTMLArea("editpost");editor2.registerPlugin(ContextMenu);HTMLArea.replace('edit_text', config);};HTMLArea.init();}
+
+function Mform(action){
+if(action == "new_block")
+{
+
+var title     = gv("block_title");
+var position  = gv("block_pos");
+var show	  = gv("block_show");
+var module	  = gv("module");
+var text	  = rajax(parent.rezash_text.document.body.innerHTML);
+connect('pages/block.php',"task=add_block&title="+title+"&position="+position+"&show="+show+"&rezash_text="+text+"&module="+module,'ajax_tabs_0_content',loadingt,'');
+}
+
+if(action == "edit_block")
+{
+
+var title     = gi("edit_block_title").value;
+var position  = gi("edit_block_pos").value;
+var show	  = gi("edit_block_show").value;
+var text	  = rajax(parent.rezash_edit_text.document.body.innerHTML);
+var id		  = gi("edit_block_id").value;
+var module	  = gv("edit_block_module");
+connect('pages/block.php',"task=edit_block&title="+title+"&position="+position+"&show="+show+"&rezash_text="+text+"&id="+id+"&module="+module,'ajax_tabs_2_content',loadingt,'');
+editing = false;
+}
+}
+function editblock(id)
+{
+editing = true;
+SetCurrent(3);
+if(rashcmsfirst == false)
+setup2();
+rashcmsfirst = true;
+var title   = gv("ajax_edit_title_"+id);
+var pos 	= gv("ajax_edit_pos_"+id);
+var show 	= gv("ajax_edit_users_"+id);
+var text 	= gi("ajax_edit_text_"+id).value;
+var module 	= gv("ajax_edit_module_"+id);
+gi("edit_block_title").value = title;
+gi("edit_block_id").value = id;
+parent.rezash_edit_text.document.body.innerHTML = text;
+gi("edit_block_pos_"+pos).selected = true;
+gi("edit_block_show_"+show).selected = true;
+gi("edit_block_module_"+module).selected = true;
+editing = false;
+}
+function delblock(id){
+hideid("editing_area");
+var msg = "آيا از حذف اين بلوك اطمينان داريد؟\nعمليات حذف برگشت پذير نميباشد.";
+if(confirm(msg))
+{
+connect('pages/block.php',"task=delete_block&id="+id,'ajax_tabs_1_content_1',loadingt,'edit_block');
+}
+}
+function down(id){
+document.location = '?movedown='+id;
+//window.location = '?movedown='+id;
+}
+function up(id){
+document.location = '?moveup='+id;
+//window.location = '?moveup='+id;
+}
+
+</script>
+<style type="text/css">
+.style1 {
+	color: #008000;
+}
+.style2 {
+	color: #FF3399;
+}
+</style>
+</head>
+<body>
+<div align="center">
+<div class="main">
+<table align="center" cellpadding="0" cellspacing="3" width="850">
+	<tr>
+		<td height="305" width="170" valign="top">
+		<div class="list">
+		<tag:rashcms_links>
+		<div class="point"> <a target=[target] href=[url] class="[class]">[title]</a></div>
+		</tag:rashcms_links>
+<div class="point"> <a target=_blank href="http://rashcms.com" class="rashcms">راش سي ام اس</a></div>
+<div class="point"> <a target=_blank href="[site]" class="rash">مشاهده سايت</a></div>
+<div class="point"> <a target=_blank href="login.php?logout=true" class="rashcms">خروج از سيستم</a></div>
+</div>
+		</td>
+		<td width="670" valign="top">
+		<table align="center" cellpadding="0" cellspacing="3">
+			<tr>
+				<td height="86" width="425" valign="middle">
+				<div class="point">سيستم مديريت محتواي راش</div>
+				<div class="point">امروز 
+				<b>[todayfarsi]</b> 
+				مي باشد .</div>
+				<div class="point"><font color="#FF33CC"><b>[fullname]</b></font> عزیز به مدیریت سیستم خوش آمدید ! خسته نباشید .</div>
+				<div class="point">آی پی : 
+				[ip]</div></td>
+				<td height="86" width="236">
+				<p align="center">
+				<img border="0" src="../template/admin/rashcms/images/logo.png" width="207" height="63"></td>
+			</tr>
+			<tr>
+				<td height="12" width="425" valign="middle">
+				</td>
+				<td height="12" width="236">
+				</td>
+			</tr>
+			<tr>
+				<td width="664" colspan="2" valign="top">
+									
+			</td>
+			</tr>
+			<tr>
+				<td height="261" width="664" colspan="2" valign="top">
+									
+				<div class="page">
+				
+				<div align="center">
+				<ul class="tabs">
+				  <li><a id="a_title_1" onclick="SetCurrent(1);return false;" class="current" href="#">
+				درج بلوك</a></li>
+					
+				  <li><a id="a_title_2" onclick="SetCurrent(2);return false;" href="#">
+				مديريت بلوك ها</a></li>
+		<li><a id="a_title_3" onclick="SetCurrent(3);return false;" href="#">
+			ويرايش بلوك</a></li>
+
+				</ul>
+				</div>
+				
+<div id="div_1"> 
+<form onsubmit="Mform('new_block');return false" method=post>
+<table border="0" width="100%" class="tbl" id="tabs_0_content">
+<tr>
+<td colspan="2" id="ajax_tabs_0_content"></td>
+</tr>
+<tr>
+<td width="29%">عنوان بلاك :</td>
+<td width="69%"><input class="rinput" type="text" name="block_title" id="block_title"></td>
+</tr>
+<tr>
+<td width="29%">موقعيت :</td>
+<td width="69%">
+<select name="block_pos" id="block_pos" class="select" size="1">
+<option selected value="1">بالای صفحه</option>
+<option value="2">پایین صفحه</option>
+<option value="3">سمت راست</option>
+<option value="4">سمت چپ</option>
+<option value="5">مخفي</option>
+
+
+</select>
+</td>
+</tr>
+<tr>
+<td width="29%">قابل نمایش برای: </td>
+<td width="69%">
+<select name="block_show" id="block_show" class="select" size="1">
+<option selected value="2">برای عموم کاربران</option>
+<option value="3">فقط کاربران مهمان</option>
+<option value="1">فقط برای کاربران عضو</option>
+</select>
+</td>
+</tr>
+<tr>
+<td width="29%">ماژول :</td>
+<td width="69%">
+<select name="module" id="module" class="select" size="1">
+<option id='module_none' value="none">هيچ كدام</option>
+<tag:modules>
+<option value="[name]">[title]</option>
+</tag:modules>
+</select></td>
+</tr>
+<tr>
+<td width="99%" id="nofull" colspan="2"  class=""><textarea dir=rtl class="inp" name="text" id="text" style="height: 193; width: 428;" cols="10" rows="10"></textarea></td>
+</tr>
+
+<tr>
+<td colspan="2">
+<center>
+<input onclick="Mform('new_block');return false;" type="submit" name="submit" value="ايجاد بلوك" class="inp"></center>
+</td>
+</tr>
+</table></form>
+
+</div>
+<div id="div_2" style="display:none">
+<table border="0" width="100%" id="tabs_1_content">
+<tr>
+<td id="ajax_tabs_1_content_1"></td>
+</tr><tr>
+<td id="ajax_tabs_1_content"></td>
+</tr>
+</table>
+</div>
+<div id="div_3" style="display:none">
+<form onsubmit="Mform('edit_block');return false" method=post>
+<table border="0" width="100%" class="tbl" id="tabs_2_content">
+<tr>
+<td colspan="2" id="ajax_tabs_2_content"></td>
+</tr>
+<tr>
+<td width="29%">عنوان بلاك :</td>
+<td width="69%"><input class="rinput" type="text" name="edit_block_title" id="edit_block_title"></td>
+</tr>
+<tr>
+<td width="29%">موقعيت :</td>
+<td width="69%">
+<select name="edit_block_pos" id="edit_block_pos" class="select" size="1">
+<option selected value="1" id="edit_block_pos_1">بالای صفحه</option>
+<option value="2" id="edit_block_pos_2">پایین صفحه</option>
+<option value="3" id="edit_block_pos_3">سمت راست</option>
+<option value="4" id="edit_block_pos_4">سمت چپ</option>
+<option value="5" id="edit_block_pos_5">مخفي</option>
+
+
+</select>
+</td>
+</tr>
+<tr>
+<td width="29%">قابل نمایش برای: </td>
+<td width="69%">
+<select name="edit_block_show" id="edit_block_show" class="select" size="1">
+<option value="1" id="edit_block_show_1">فقط برای کاربران عضو</option>
+<option selected value="2" id="edit_block_show_2">برای عموم کاربران</option>
+<option value="3" id="edit_block_show_3">فقط کاربران مهمان</option>
+
+</select>
+</td>
+</tr>
+<tr>
+<td width="29%">ماژول :</td>
+<td width="69%">
+<select name="edit_block_module" id="edit_block_module" class="select" size="1">
+<option id='edit_block_module_none' value="none">هيچ كدام</option>
+<tag:modules>
+<option id='edit_block_module_[name]' value="[name]">[title]</option>
+</tag:modules>
+</select></td>
+</tr>
+<tr>
+<td width="99%" colspan="2"><textarea dir=rtl class="inp" name="edit_text" id="edit_text" style="height: 193; width: 428;" cols="10" rows="10"></textarea></td>
+</tr>
+<tr>
+<td colspan="2"><center>
+<input onclick="Mform('edit_block');return false;" type="submit" name="submit" value="ويرايش بلوك" class="inp"></center></td>
+</tr>
+</table><input type="hidden" name="edit_block_id" id="edit_block_id" value=""></form>
+
+
+</div>
+
+<br><br><br><br><br>
+</div>
+				<p>&nbsp;</td>
+			</tr>
+		</table>
+		<p align="center" style="height: 28px">كليه حقوق براي
+		<a href="http://rashcms.com" target="_blank"><strong>راش سي ام اس</strong></a> محفوظ است. 
+		<strong><a href="http://mihanphp.com" target="_blank">مــــــيهن پي اچ پي</a></strong><br><br>
+		</td>
+	</tr>
+	</table>
+	
+</div>
+</div>
+<script>setup();</script>
+</body>
+</html>

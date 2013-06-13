@@ -1,0 +1,512 @@
+﻿@CHARSET "UTF-8";
+
+div.hero_head div.image img.HeroEye0 {
+	background:url(../../../../img/hero/head/254x330/eye/eye0.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEye1 {
+	background:url(../../../../img/hero/head/254x330/eye/eye1.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEye2 {
+	background:url(../../../../img/hero/head/254x330/eye/eye2.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEye3 {
+	background:url(../../../../img/hero/head/254x330/eye/eye3.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEye4 {
+	background:url(../../../../img/hero/head/254x330/eye/eye4.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEar0 {
+	background:url(../../../../img/hero/head/254x330/ear/ear0.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEar1 {
+	background:url(../../../../img/hero/head/254x330/ear/ear1.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEar2 {
+	background:url(../../../../img/hero/head/254x330/ear/ear2.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEar3 {
+	background:url(../../../../img/hero/head/254x330/ear/ear3.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEar4 {
+	background:url(../../../../img/hero/head/254x330/ear/ear4.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroBeard0#black {
+	background:url(../../../../img/hero/head/254x330/beard/beard0-black.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroBeard1#black {
+	background:url(../../../../img/hero/head/254x330/beard/beard1-black.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroBeard2#black {
+	background:url(../../../../img/hero/head/254x330/beard/beard2-black.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroBeard3#black {
+	background:url(../../../../img/hero/head/254x330/beard/beard3-black.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroBeard4#black {
+	background:url(../../../../img/hero/head/254x330/beard/beard4-black.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroBeard0#brown {
+	background:url(../../../../img/hero/head/254x330/beard/beard0-brown.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroBeard1#brown {
+	background:url(../../../../img/hero/head/254x330/beard/beard1-brown.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroBeard2#brown {
+	background:url(../../../../img/hero/head/254x330/beard/beard2-brown.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroBeard3#brown {
+	background:url(../../../../img/hero/head/254x330/beard/beard3-brown.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroBeard4#brown {
+	background:url(../../../../img/hero/head/254x330/beard/beard4-brown.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroBeard0#darkbrown {
+	background:url(../../../../img/hero/head/254x330/beard/beard0-darkbrown.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroBeard1#darkbrown {
+	background:url(../../../../img/hero/head/254x330/beard/beard1-darkbrown.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroBeard2#darkbrown {
+	background:url(../../../../img/hero/head/254x330/beard/beard2-darkbrown.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroBeard3#darkbrown {
+	background:url(../../../../img/hero/head/254x330/beard/beard3-darkbrown.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroBeard4#darkbrown {
+	background:url(../../../../img/hero/head/254x330/beard/beard4-darkbrown.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroBeard0#red {
+	background:url(../../../../img/hero/head/254x330/beard/beard0-red.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroBeard1#red {
+	background:url(../../../../img/hero/head/254x330/beard/beard1-red.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroBeard2#red {
+	background:url(../../../../img/hero/head/254x330/beard/beard2-red.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroBeard3#red {
+	background:url(../../../../img/hero/head/254x330/beard/beard3-red.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroBeard4#red {
+	background:url(../../../../img/hero/head/254x330/beard/beard4-red.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroBeard0#yellow {
+	background:url(../../../../img/hero/head/254x330/beard/beard0-yellow.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroBeard1#yellow {
+	background:url(../../../../img/hero/head/254x330/beard/beard1-yellow.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroBeard2#yellow {
+	background:url(../../../../img/hero/head/254x330/beard/beard2-yellow.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroBeard3#yellow {
+	background:url(../../../../img/hero/head/254x330/beard/beard3-yellow.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroBeard4#yellow {
+	background:url(../../../../img/hero/head/254x330/beard/beard4-yellow.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroBeardNone {
+	background:url(../../../../img/hero/head/254x330/beard/beard5-yellow.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEyebrow0#black {
+	background:url(../../../../img/hero/head/254x330/eyebrow/eyebrow0-black.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEyebrow1#black {
+	background:url(../../../../img/hero/head/254x330/eyebrow/eyebrow1-black.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEyebrow2#black {
+	background:url(../../../../img/hero/head/254x330/eyebrow/eyebrow2-black.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEyebrow3#black {
+	background:url(../../../../img/hero/head/254x330/eyebrow/eyebrow3-black.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEyebrow4#black {
+	background:url(../../../../img/hero/head/254x330/eyebrow/eyebrow4-black.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEyebrow0#brown {
+	background:url(../../../../img/hero/head/254x330/eyebrow/eyebrow0-brown.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEyebrow1#brown {
+	background:url(../../../../img/hero/head/254x330/eyebrow/eyebrow1-brown.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEyebrow2#brown {
+	background:url(../../../../img/hero/head/254x330/eyebrow/eyebrow2-brown.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEyebrow3#brown {
+	background:url(../../../../img/hero/head/254x330/eyebrow/eyebrow3-brown.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEyebrow4#brown {
+	background:url(../../../../img/hero/head/254x330/eyebrow/eyebrow4-brown.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEyebrow0#darkbrown {
+	background:url(../../../../img/hero/head/254x330/eyebrow/eyebrow0-darkbrown.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEyebrow1#darkbrown {
+	background:url(../../../../img/hero/head/254x330/eyebrow/eyebrow1-darkbrown.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEyebrow2#darkbrown {
+	background:url(../../../../img/hero/head/254x330/eyebrow/eyebrow2-darkbrown.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEyebrow3#darkbrown {
+	background:url(../../../../img/hero/head/254x330/eyebrow/eyebrow3-darkbrown.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEyebrow4#darkbrown {
+	background:url(../../../../img/hero/head/254x330/eyebrow/eyebrow4-darkbrown.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEyebrow0#red {
+	background:url(../../../../img/hero/head/254x330/eyebrow/eyebrow0-red.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEyebrow1#red {
+	background:url(../../../../img/hero/head/254x330/eyebrow/eyebrow1-red.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEyebrow2#red {
+	background:url(../../../../img/hero/head/254x330/eyebrow/eyebrow2-red.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEyebrow3#red {
+	background:url(../../../../img/hero/head/254x330/eyebrow/eyebrow3-red.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEyebrow4#red {
+	background:url(../../../../img/hero/head/254x330/eyebrow/eyebrow4-red.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEyebrow0#yellow {
+	background:url(../../../../img/hero/head/254x330/eyebrow/eyebrow0-yellow.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEyebrow1#yellow {
+	background:url(../../../../img/hero/head/254x330/eyebrow/eyebrow1-yellow.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEyebrow2#yellow {
+	background:url(../../../../img/hero/head/254x330/eyebrow/eyebrow2-yellow.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEyebrow3#yellow {
+	background:url(../../../../img/hero/head/254x330/eyebrow/eyebrow3-yellow.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEyebrow4#yellow {
+	background:url(../../../../img/hero/head/254x330/eyebrow/eyebrow4-yellow.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroEyebrowNone {
+	background:url(../../../../img/hero/head/254x330/eyebrow/eyebrow5-yellow.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroFace0 {
+	background:url(../../../../img/hero/head/254x330/face/face0.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroFace1 {
+	background:url(../../../../img/hero/head/254x330/face/face1.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroFace2 {
+	background:url(../../../../img/hero/head/254x330/face/face2.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroFace3 {
+	background:url(../../../../img/hero/head/254x330/face/face3.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroFace4 {
+	background:url(../../../../img/hero/head/254x330/face/face4.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroHair0#black {
+	background:url(../../../../img/hero/head/254x330/hair/hair0-black.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroHair1#black {
+	background:url(../../../../img/hero/head/254x330/hair/hair1-black.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroHair2#black {
+	background:url(../../../../img/hero/head/254x330/hair/hair2-black.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroHair3#black {
+	background:url(../../../../img/hero/head/254x330/hair/hair3-black.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroHair4#black {
+	background:url(../../../../img/hero/head/254x330/hair/hair4-black.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroHair0#brown {
+	background:url(../../../../img/hero/head/254x330/hair/hair0-brown.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroHair1#brown {
+	background:url(../../../../img/hero/head/254x330/hair/hair1-brown.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroHair2#brown {
+	background:url(../../../../img/hero/head/254x330/hair/hair2-brown.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroHair3#brown {
+	background:url(../../../../img/hero/head/254x330/hair/hair3-brown.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroHair4#brown {
+	background:url(../../../../img/hero/head/254x330/hair/hair4-brown.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroHair0#darkbrown {
+	background:url(../../../../img/hero/head/254x330/hair/hair0-darkbrown.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroHair1#darkbrown {
+	background:url(../../../../img/hero/head/254x330/hair/hair1-darkbrown.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroHair2#darkbrown {
+	background:url(../../../../img/hero/head/254x330/hair/hair2-darkbrown.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroHair3#darkbrown {
+	background:url(../../../../img/hero/head/254x330/hair/hair3-darkbrown.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroHair4#darkbrown {
+	background:url(../../../../img/hero/head/254x330/hair/hair4-darkbrown.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroHair0#red {
+	background:url(../../../../img/hero/head/254x330/hair/hair0-red.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroHair1#red {
+	background:url(../../../../img/hero/head/254x330/hair/hair1-red.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroHair2#red {
+	background:url(../../../../img/hero/head/254x330/hair/hair2-red.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroHair3#red {
+	background:url(../../../../img/hero/head/254x330/hair/hair3-red.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroHair4#red {
+	background:url(../../../../img/hero/head/254x330/hair/hair4-red.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroHair0#yellow {
+	background:url(../../../../img/hero/head/254x330/hair/hair0-yellow.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroHair1#yellow {
+	background:url(../../../../img/hero/head/254x330/hair/hair1-yellow.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroHair2#yellow {
+	background:url(../../../../img/hero/head/254x330/hair/hair2-yellow.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroHair3#yellow {
+	background:url(../../../../img/hero/head/254x330/hair/hair3-yellow.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroHair4#yellow {
+	background:url(../../../../img/hero/head/254x330/hair/hair4-yellow.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroHairNone {
+	background:url(../../../../img/hero/head/254x330/hair/hair5-yellow.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroMouth0 {
+	background:url(../../../../img/hero/head/254x330/mouth/mouth0.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroMouth1 {
+	background:url(../../../../img/hero/head/254x330/mouth/mouth1.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroMouth2 {
+	background:url(../../../../img/hero/head/254x330/mouth/mouth2.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroMouth3 {
+	background:url(../../../../img/hero/head/254x330/mouth/mouth3.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroNose0 {
+	background:url(../../../../img/hero/head/254x330/nose/nose0.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroNose1 {
+	background:url(../../../../img/hero/head/254x330/nose/nose1.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroNose2 {
+	background:url(../../../../img/hero/head/254x330/nose/nose2.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroNose3 {
+	background:url(../../../../img/hero/head/254x330/nose/nose3.png);
+	width:254px;
+	height:330px;
+}
+div.hero_head div.image img.HeroNose4 {
+	background:url(../../../../img/hero/head/254x330/nose/nose4.png);
+	width:254px;
+	height:330px;
+}

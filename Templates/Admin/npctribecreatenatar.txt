@@ -1,0 +1,23 @@
+<?php
+#################################################################################
+##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
+## --------------------------------------------------------------------------- ##
+##  Filename       natarnature.tpl                                             ##
+##  Developed by:  aggenkeech                                                  ##
+##  License:       TravianX Project                                            ##
+##  Copyright:     TravianX (c) 2010-2012. All rights reserved.                ##
+##                                                                             ##
+#################################################################################
+?>
+<table id="member" cellpadding="1" cellspacing="1" >
+	<thead>
+		<tr>
+			<th colspan="2">NPC Tribe Control Center</th>
+		</tr> 
+	</thead>
+	<tbody> 
+		<tr>
+			<td class="hab"><center><a href="dsfakln"><img src="../img/admin/b/ok1.gif"></a></center></td>
+		</tr>
+	</tbody>
+</table>

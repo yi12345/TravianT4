@@ -1,0 +1,326 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language" content="fa">
+<link rel="stylesheet" type="text/css" href="main.css">
+<link rel="stylesheet" type="text/css" href="../template/admin/rashcms/main.css">
+<script language="javascript" src="../template/admin/rashcms/ajax.js" type="text/javascript"></script>
+<title>RashCMS:: خبرنامه</title>
+<script>
+var CurrentStep = 1;
+function SetCurrent(val)
+{
+	hideid("editing_area");
+
+	 if(CurrentStep!=val)
+	 {
+	 gi('div_'+CurrentStep).style.display = 'none';
+	 gi('a_title_'+CurrentStep).className = '';
+	 gi('div_'+val).style.display = 'block';
+	 gi('a_title_'+val).className = 'current';
+	 }
+	CurrentStep = val;
+	if(val == 3)
+	connect('pages/listnls.php',"r",'ajax_tabs_2_content',loadingt,'');
+
+}
+function Mform(action){
+if(action == 'smtp'){
+if(gi("UseSmtpChk").checked){
+var host= gv("SmtpHost");
+var user= gv("SmtpUser");
+var pass= gv("SmtpPassword");
+}
+else{var host = '';var user='';var pass='';}
+if(gi("UsePack").checked){
+var mailppack = gv("mailperpack");
+var msppack = gv("msperpack");
+}else{var mailppack= '';var msppack='';}
+connect('pages/nl.php','task=setting&host='+host+'&user='+user+'&pass='+pass+'&mailppack='+mailppack+'&msppack='+msppack,'ajax_tabs_0_content',loadingt,"");
+}
+
+if(action == 'newmail')
+{
+var mails = gv("listmails");
+connect('pages/nl.php','task=new&mails='+mails,'ajax_tabs_1_content',loadingt,"");
+}
+if(action == 'send')
+{
+var title = gv("title");
+var text = gv("text");
+connect('pages/nl.php','task=send&title='+title+"&mail_text="+text,'ajax_tabs_3_content',loadingt,"");
+}
+
+}
+function EnableSmtpFields(Status)
+{
+SMTP.SmtpHost.disabled = !Status;
+SMTP.SmtpUser.disabled = !Status;
+SMTP.SmtpPassword.disabled = !Status;
+
+if(Status)
+SMTP.SmtpHost.focus();
+}
+function EnablePackFields(Status)
+{
+SMTP.mailperpack.disabled = !Status;
+SMTP.msperpack.disabled = !Status;
+
+if(Status)
+SMTP.mailperpack.focus();
+}
+
+function dellmail(id)
+{
+if(confirm("آيا از حذف اين ايميل اطمينان داريد؟"))
+connect('pages/nl.php','task=delete&id='+id,'ajax_tabs_2_content',loadingt,"");
+}
+
+</script>
+<style type="text/css">
+.style1 {
+	color: #008000;
+}
+.style2 {
+	color: #FF3399;
+}
+</style>
+</head>
+<body>
+<div align="center">
+<div class="main">
+<table align="center" cellpadding="0" cellspacing="3" width="850">
+	<tr>
+		<td height="305" width="170" valign="top">
+		<div class="list">
+		<tag:rashcms_links>
+		<div class="point"> <a target=[target] href=[url] class="[class]">[title]</a></div>
+		</tag:rashcms_links>
+<div class="point"> <a target=_blank href="http://rashcms.com" class="rashcms">راش سي ام اس</a></div>
+<div class="point"> <a target=_blank href="[site]" class="rash">مشاهده سايت</a></div>
+<div class="point"> <a target=_blank href="login.php?logout=true" class="rashcms">خروج از سيستم</a></div>
+</div>
+		</td>
+		<td width="670" valign="top">
+		<table align="center" cellpadding="0" cellspacing="3">
+			<tr>
+				<td height="86" width="425" valign="middle">
+				<div class="point">سيستم مديريت محتواي راش</div>
+				<div class="point">امروز 
+				<b>[todayfarsi]</b> 
+				مي باشد .</div>
+				<div class="point"><font color="#FF33CC"><b>[fullname]</b></font> عزیز به مدیریت سیستم خوش آمدید ! خسته نباشید .</div>
+				<div class="point">آی پی : 
+				[ip]</div></td>
+				<td height="86" width="236">
+				<p align="center">
+				<img border="0" src="../template/admin/rashcms/images/logo.png" width="207" height="63"></td>
+			</tr>
+			<tr>
+				<td height="12" width="425" valign="middle">
+				</td>
+				<td height="12" width="236">
+				</td>
+			</tr>
+			<tr>
+				<td width="664" colspan="2" valign="top">
+									
+			</td>
+			</tr>
+			<tr>
+				<td height="261" width="664" colspan="2" valign="top">
+									
+				<div class="page">
+				
+				<div align="center">
+				<ul class="tabs">
+				  <li><a id="a_title_1" onclick="SetCurrent(1);return false;" class="current" href="#">
+				تنظيمات</a></li>
+					
+				  <li><a id="a_title_2" onclick="SetCurrent(2);return false;" href="#">
+				درج ايميل جديد</a></li>
+				 <li><a id="a_title_3" onclick="SetCurrent(3);return false;" href="#">
+				مديريت اعضا</a></li>
+				 <li><a id="a_title_4" onclick="SetCurrent(4);return false;" href="#">
+				ارسال ايميل</a></li>
+
+
+		
+				</ul>
+				</div>
+				
+<div id="div_1"> 
+<form onsubmit="Mform('smtp');return false;" name="SMTP" autocomplete=off>
+<table border="0" width="100%" class="tbl" id="tabs_0_content">
+<tr>
+<td colspan=2 id="ajax_tabs_0_content"></td>
+</tr>
+<tr>
+<td colspan="2">
+<input type="checkbox" name="UseSmtpChk" value="1" id="UseSmtpChk" onclick="EnableSmtpFields(this.checked);" tabindex="1" [SmtpChk_stat]><label for="UseSmtpChk" class="hand">&nbsp; استفاده از SMTP برای ارسال ایمیل.
+</label></td>
+
+</tr>
+<tr>
+<td width="41%">نام هاست <span lang="en-us">SMTP </span>:</td>
+<td width="56%">
+<input type="text" class=srinput name="SmtpHost" id="SmtpHost" size="27" dir="ltr" disabled value="[SmtpHost]" onfocus="this.select();" tabindex="2"></td>
+</tr>
+<tr>
+
+<td width="41%">نام کاربری <span lang="en-us">SMTP </span>:</td>
+<td width="56%">
+<input type="text" class=srinput name="SmtpUser" id="SmtpUser" size="27" dir="ltr" disabled value="[SmtpUser]" onfocus="this.select();" tabindex="3"></td>
+</tr>
+<tr>
+<td width="41%">کلمه عبور&nbsp; <span lang="en-us">SMTP </span>:</td>
+
+<td width="56%">
+<input type="password" class=srinput name="SmtpPassword" id="SmtpPassword" size="27" dir="ltr" disabled value="[SmtpPassword]" onfocus="this.select();" tabindex="4"></td>
+</tr>
+<tr>
+<td width="41%">&nbsp;</td>
+<td width="56%">&nbsp;</td>
+</tr>
+
+<tr>
+<td width="97%" colspan="2">در صورتي كه براي ارسال از
+<span lang="en-us">SMTP</span> استفاده نمي كنيد توصيه مي شود جهت 
+جلوگيري از اسپم شدن ايميل ها از تنظيمات زير استفاده كنيد.</td>
+</tr>
+
+<tr>
+<td width="41%">
+<input type="checkbox" name="UsePack" value="1" id="UsePack" onclick="EnablePackFields(this.checked);" tabindex="5" [PackUse_stat]><label for="UsePack" class="hand"> ارسال ايميل ها به صورت بسته بندي شده
+</label>
+</td>
+<td width="56%">&nbsp;</td>
+</tr>
+
+<tr>
+<td height="1" width="169">تعدا ايميل ها در هر بسته :</td>
+<td height="1" width="325">
+<input name="mailperpack" id="mailperpack" size="20"  value="[mailperpack]" dir="ltr" class="srinput" disabled tabindex="6" > </td>
+</tr>
+
+<tr>
+<td height="1" width="169">فاصله زماني بين ارسال بسته ها:</td>
+<td height="1" width="325">
+<input name="msperpack" id="msperpack" size="20"  value="[msperpack]" dir="ltr" class="srinput" disabled tabindex="7" ><span lang="en-us"> 
+- </span>ثانيه</td>
+</tr>
+
+<tr>
+<td width="169">&nbsp;</td>
+<td width="325">
+&nbsp;</td>
+</tr>
+
+<tr>
+<td width="169">&nbsp;</td>
+<td width="325">
+<input  type="submit" value="ثبت تنظيمات" name="submit" class="inp"></td>
+</tr>
+
+</table></form>
+
+</div>
+<div id="div_2"  style="display:none">
+<form onsubmit="Mform('newmail');return false;" name="newmail" autocomplete=off>
+<table border="0" width="100%" class="tbl" id="tabs_1_content">
+<tr>
+<td id="ajax_tabs_1_content" colspan="2"></td>
+</tr>
+<tr>
+<td width="25%" valign=top>پست الكترونيك :
+</td>
+<td width="73%"><textarea rows="5" name="listmails" id="listmails" class="srtarea" dir="rtl"></textarea></td>
+</tr>
+<tr>
+<td width="98%" valign=top colspan="2">براي ثبت بيش از يك ايميل ، ايميل ها را با <span lang="en-us">,</span> از يكديگر 
+جدا كنيد.</td>
+</tr>
+<tr>
+<td width="25%">&nbsp;</td>
+<td width="73%"><input  type="submit" value="درج ايميل ها" name="submit" class="inp"></td>
+</tr>
+</table></form>
+
+
+</div>
+<div id="div_3"  style="display:none">
+<table border="0" width="100%" class="tbl" id="tabs_2_content">
+<tr>
+<td>
+
+<div id="ajax_tabs_2_content_2"></div>
+</tr><tr>
+</td>
+<td id="ajax_tabs_2_content">
+</td>
+
+</tr>
+
+</table>
+
+
+</div>
+<div id="div_4"  style="display:none">
+<table border="0" width="100%" class="tbl" id="tabs_3_content">
+<tr>
+<td colspan="2">
+
+<div id="ajax_tabs_3_content"></div>
+</tr><tr>
+</td>
+<td>
+عنوان :</td>
+
+<td id="ajax_tabs_3_content">
+<input type="text" class=rinput name="title" id="title" size="27" dir="ltr" value="" tabindex="2"></td>
+
+</tr>
+
+							<tr>
+<td id="ajax_tabs_3_content">
+متن :</td>
+
+<td id="ajax_tabs_3_content">
+<textarea rows="5" name="text" id="text" class="srtarea" dir="rtl"></textarea></td>
+
+</tr>
+
+							<tr>
+<td id="ajax_tabs_3_content">
+&nbsp;</td>
+
+<td id="ajax_tabs_3_content" class="style1">
+<input  type="button" value="ارسال" name="submit" onclick="Mform('send');return false;"></td>
+
+</tr>
+
+</table>
+
+
+</div>
+
+<br><br><br><br><br>
+</div>
+				<p>&nbsp;</td>
+			</tr>
+		</table>
+		<p align="center" style="height: 28px">كليه حقوق براي
+		<a href="http://rashcms.com" target="_blank"><strong>راش سي ام اس</strong></a> محفوظ است. 
+		<strong><a href="http://mihanphp.com" target="_blank">مــــــيهن پي اچ پي</a></strong><br><br>
+		</td>
+	</tr>
+	</table>
+<script><tag:smptjs>
+EnableSmtpFields(true);</tag:smptjs><tag:Packjs>
+EnablePackFields(true);</tag:Packjs>
+</script>
+
+</div>
+</div>
+</body>
+</html>

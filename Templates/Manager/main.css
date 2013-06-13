@@ -1,0 +1,148 @@
+﻿body, html {
+background-attachment:fixed;
+background-image:url('images/bg2.gif');
+background-repeat:repeat-x;
+color:#333333;
+font-family:Tahoma;
+font-size:8pt;
+margin:0;
+padding:0
+}
+#tab_1       { font-size: 8pt; font-family: Tahoma; color: #FFFFFF; background-image: 
+               url('images/buttom.gif'); background-repeat: repeat-x; 
+               background-attachment: scroll }
+input {
+border:1px solid #0B5393;
+color:#666666;
+direction:rtl;
+font-family:Tahoma;
+font-size:8pt;
+margin-top:2px;
+}
+table, tr, td, div {
+direction:rtl;
+font-family:Tahoma;
+font-size:8pt;
+}
+p {
+direction:rtl;
+font-family:Tahoma;
+font-size:8pt;
+line-height:130%;
+margin-bottom:2px;
+margin-top:2px;
+}
+img {
+border-style:solid;
+border-width:0;
+}
+a {
+color:#666666;
+font-family:Tahoma;
+font-size:8pt;
+text-decoration:none;
+}
+a:hover      { color: #0099FF }
+.left {
+color:#FF33CC;
+float:left;
+font-family:Tahoma;
+font-size:8pt;
+padding:2px;
+}
+code {color: #FFFFFF;}
+table {border-collapse: collapse;}
+table td { }
+i {color:#000000;}
+ul.tabs {margin:0 10px; padding:5px; text-align:right; background-image:url('images/buttom_1.gif'); background-repeat:repeat-x; background-attachment:scroll; font-size:8pt; font-family:Tahoma;-moz-border-radius:10px; color:#FFFFFF}
+ul.tabs li {display:inline;padding:5px;}
+ul.tabs a {padding:5px; font-size:8pt; text-decoration:none; font-family:Tahoma; color:#FFFFFF; background-image:url('images/buttom_1.gif'); background-repeat:repeat-x; background-attachment:scroll}
+ul.tabs a:hover {padding:5px; text-decoration:none; color:#FFFFFF; font-size:8pt; font-family:Tahoma; background-image:url('images/buttom.gif'); background-repeat:repeat; background-attachment:scroll; background-color:#23B5FF}
+ul.tabs a.current {padding:5px; color:#FFFFFF; font-size:8pt; font-family:Tahoma; background-image:url('images/buttom.gif'); background-repeat:repeat; background-attachment:scroll; border-left-width:1px; border-right-width:1px; border-top-width:1px; border-bottom-style:solid; border-bottom-width:1px; background-color:#4CB8F7}
+#div_1, #div_2, #div_3, #div_4, #div_5 {padding:5px; margin-top:2px; font-size:8pt; font-family:Tahoma}
+.login       { width: 400; margin-top: 100; margin-bottom: 100; padding: 3px; 
+               background-color: #FFFFFF;-moz-border-radius:10px; background-image:url('images/bg_main.gif'); background-repeat:repeat-x; background-position-y:top; direction:rtl }
+.main        { background:#FFFFFF url('images/bg_main.gif') repeat-x center top; width: 850; font-size: 8pt; font-family: Tahoma; margin-top:13; margin-bottom:10;-moz-border-radius:10px }
+.list        { font-size: 8pt; font-family: Tahoma; padding-left: 5px; 
+               padding-right: 12px; padding-top: 8px; background-image: 
+               url('images/bg.png'); background-repeat: no-repeat; 
+               background-attachment: scroll; background-position-y: top }
+.page        { background-image: url('images/main.png'); background-repeat: no-repeat; 
+               background-attachment: scroll; background-position-y: top; font-size:8pt; font-family:Tahoma; direction:rtl; padding-left:10px; padding-right:10px; padding-top:10px; padding-bottom:5px }
+.bar         { border-bottom:2px solid #97DCFF; font-size: 8pt; font-family: Tahoma; color: #FFFFFF; 
+               padding-right: 5px; padding-top: 10px; background-image: 
+               url('images/bg_bar.png'); background-repeat: no-repeat; 
+               background-attachment: scroll; margin-top:10; width:500; padding-bottom:8px; margin-bottom:5 }.point       { direction: rtl; padding-right: 16px; background-image: 
+               url('images/breadcrumb_separator_arrow_1_dot.png'); 
+               background-repeat: no-repeat; background-attachment: scroll; 
+               background-position: right bottom }
+.rashcms{
+
+}
+a.rashcms { COLOR: #008000; TEXT-DECORATION: none}
+a.rashcms:visited { COLOR: #008000; TEXT-DECORATION: none}
+a.rashcms:hover { COLOR: #FF3300; TEXT-DECORATION: none}
+.info {
+	direction: rtl;
+	background: #ECF5FF; 
+	border-color: #266AAD;
+	color: #000;
+}
+.success {
+	direction: rtl;
+	color: #000;
+	border-color: #249224;
+	background:#8CDA5C;
+}
+.error {
+	direction: rtl;
+	background: #F4DE64; 
+	color: #000;
+	border-color: #D49E34;
+}
+.MsgBody{
+	padding:10px 50px 10px 10px;direction:rtl;
+}
+.error .MsgBody{
+	background: #FFF url(images/merror.gif) no-repeat 99% 50%; direction:rtl;	
+}
+.success .MsgBody{
+	background: #FFF url(images/msuccess.gif) no-repeat 99% 50%; direction:rtl;	
+}
+.info .MsgBody{
+	background: #FFF url(images/minfo.gif) no-repeat 99% 50%; direction:rtl;	
+}
+.hideclass{display:none;}
+.reply{
+border-top:1px solid #aaa;
+background:#F4F4F4;
+margin: 5px;
+padding: 5px;
+}
+.hand {cursor:pointer;cursor:hand;}
+.red{
+	border:1px solid red;color:red;font-weight:bold;padding:8px;background:#FFDADA;text-align:center;margin-bottom:6px;;line-height:1.5em
+}
+.green{
+	border:1px solid green;color:green;font-weight:bold;padding:8px;background:#DCFFD2;text-align:center;margin-bottom:6px;line-height:1.5em
+}
+.MsgHead{
+	border-width: 1px;
+	border-style: solid;
+	padding:7px;
+	text-align:right;
+	margin: 5px 0px;
+}
+.delimg      { margin-left: 0; background-image: url('images/delete.gif');background-repeat: no-repeat;cursor:hand;cursor:pointer;}
+.rinput{background-color:inherit;background:url('images/url_input.gif');border:0px solid;width:277px; height:20px;font-size:8pt; margin-top:0px;padding:3px 3px 0 5px;font-family:Tahoma;color:#676767;font-size: 8pt;}
+.srinput{background-color:inherit;background:url('images/surl_input.gif');border:0px solid;width:139px; height:20px;font-size:8pt; margin-top:0px;padding:3px 3px 0 5px;font-family:Tahoma;color:#676767;font-size: 8pt;}
+.srtarea{background-color:inherit;background:url('images/surl_tarea.gif');border:0px solid;width:277px; height:110px;font-size:8pt; margin-top:0px;padding:3px 3px 0 5px;font-family:Tahoma;color:#676767;font-size: 8pt;}
+.inp{
+	font-family: tahoma;font-size: 8pt;border:1px solid #779FB4;;color:#666;
+}
+select {
+	font-family: tahoma;font-size: 8pt;background:#EAF4F6;border:0px;border:1px solid #779FB4;color:#00627E
+}
+.bold{
+font-weight:bold;
+}

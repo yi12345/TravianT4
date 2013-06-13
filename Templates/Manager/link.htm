@@ -1,0 +1,216 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language" content="fa">
+<link rel="stylesheet" type="text/css" href="main.css">
+<link rel="stylesheet" type="text/css" href="../template/admin/rashcms/main.css">
+<script language="javascript" src="../template/admin/rashcms/ajax.js" type="text/javascript"></script>
+<title>RashCMS:: لينك ها</title>
+<script>
+var CurrentStep = 1;
+function SetCurrent(val)
+{
+	hideid("editing_area");
+
+	 if(CurrentStep!=val)
+	 {
+	 gi('div_'+CurrentStep).style.display = 'none';
+	 gi('a_title_'+CurrentStep).className = '';
+	 gi('div_'+val).style.display = 'block';
+	 gi('a_title_'+val).className = 'current';
+	 }
+	CurrentStep = val;
+	if(val == 2)
+	connect('pages/listlinks.php',"r",'ajax_tabs_1_content',loadingt,'');
+
+}
+function Mform(action){
+if(action == "new_link")
+{
+hideid("editing_area");
+var title   = gi("link_title").value;
+var url = gi("link_url").value;
+var desc = gi("link_desc").value;
+connect('pages/link.php',"task=add_link&title="+title+"&url="+url+"&desc="+desc,'ajax_tabs_0_content',loadingt,'');
+}
+if(action == "edit_link")
+{
+showid("editing_link");
+var edit_title   = gi("edit1").value;
+var edit_url = gi("edit2").value;
+var edit_desc = gi("edit3").value;
+var editing_id = gi("edit_id").value;
+connect('pages/link.php',"task=edit_link&edit_title="+edit_title+"&edit_url="+edit_url+"&edit_desc="+edit_desc+"&editing_id="+editing_id,'ajax_tabs_1_content_1',loadingt,'edit_link');
+}
+}
+function editlink(id)
+{
+showid("editing_area");
+var title   = gi("ajax_edit_title_"+id).value;
+var url = gi("ajax_edit_url_"+id).value;
+var desc = gi("ajax_edit_desc_"+id).value;
+gi("edit1").value = title;
+gi("edit2").value = url;
+gi("edit3").value = desc;
+gi("edit_id").value = id;
+}
+
+function dellink(id){
+hideid("editing_area");
+var msg = "آيا از حذف اين لينك اطمينان داريد؟\nعمليات حذف برگشت پذير نميباشد.";
+if(confirm(msg))
+{
+connect('pages/link.php',"task=delete_link&id="+id,'ajax_tabs_1_content_1',loadingt,'delete_link');
+}
+}
+
+</script>
+<style type="text/css">
+.style1 {
+	color: #008000;
+}
+.style2 {
+	color: #FF3399;
+}
+</style>
+</head>
+<body>
+<div align="center">
+<div class="main">
+<table align="center" cellpadding="0" cellspacing="3" width="850">
+	<tr>
+		<td height="305" width="170" valign="top">
+		<div class="list">
+		<tag:rashcms_links>
+		<div class="point"> <a target=[target] href=[url] class="[class]">[title]</a></div>
+		</tag:rashcms_links>
+<div class="point"> <a target=_blank href="http://rashcms.com" class="rashcms">راش سي ام اس</a></div>
+<div class="point"> <a target=_blank href="[site]" class="rash">مشاهده سايت</a></div>
+<div class="point"> <a target=_blank href="login.php?logout=true" class="rashcms">خروج از سيستم</a></div>
+</div>
+		</td>
+		<td width="670" valign="top">
+		<table align="center" cellpadding="0" cellspacing="3">
+			<tr>
+				<td height="86" width="425" valign="middle">
+				<div class="point">سيستم مديريت محتواي راش</div>
+				<div class="point">امروز 
+				<b>[todayfarsi]</b> 
+				مي باشد .</div>
+				<div class="point"><font color="#FF33CC"><b>[fullname]</b></font> عزیز به مدیریت سیستم خوش آمدید ! خسته نباشید .</div>
+				<div class="point">آی پی : 
+				[ip]</div></td>
+				<td height="86" width="236">
+				<p align="center">
+				<img border="0" src="../template/admin/rashcms/images/logo.png" width="207" height="63"></td>
+			</tr>
+			<tr>
+				<td height="12" width="425" valign="middle">
+				</td>
+				<td height="12" width="236">
+				</td>
+			</tr>
+			<tr>
+				<td width="664" colspan="2" valign="top">
+									
+			</td>
+			</tr>
+			<tr>
+				<td height="261" width="664" colspan="2" valign="top">
+									
+				<div class="page">
+				
+				<div align="center">
+				<ul class="tabs">
+				  <li><a id="a_title_1" onclick="SetCurrent(1);return false;" class="current" href="#">
+				درج لينك</a></li>
+					
+				  <li><a id="a_title_2" onclick="SetCurrent(2);return false;" href="#">
+				مديريت لينك ها</a></li>
+		
+				</ul>
+				</div>
+				
+<div id="div_1"> 
+<form onsubmit="Mform('new_link');return false" method=post>
+<table border="0" width="100%" class="tbl" id="tabs_0_content">
+<tr>
+<td colspan="2" id="ajax_tabs_0_content"></td>
+</tr>
+<tr>
+<td width="25%">عنوان لينك :</td>
+<td width="73%"><input class="rinput" type="text" name="link_title" id="link_title" size="59"></td>
+</tr>
+<tr>
+<td width="25%">آدرس لينك :</td>
+<td width="73%">
+<input class="rinput" type="text" name="link_url" id="link_url" size="59" dir="ltr"></td>
+</tr>
+<tr>
+<td width="25%">توضيح لينك : </td>
+<td width="73%">
+<input class="rinput" type="text" name="link_desc" id="link_desc" size="59" dir="rtl"></td>
+</tr>
+<tr>
+<td colspan="2"><center>
+<input onclick="Mform('new_link');return false;" type="submit" name="submit" value="ثبت لينك" class="inp"></center></td>
+</tr>
+</table></form>
+
+</div>
+<div id="div_2" style="display:none" >
+
+<table border="0" width="100%" class="tbl" id="tabs_1_content">
+<tr>
+<td>
+<div id=edit>
+<div id="ajax_tabs_1_content_1"></div>
+<form onsubmit="Mform('edit_link');return false" method=post>
+<table border="0" width="100%" class="tbl" id="editing_area">
+<tr>
+<td width="25%">عنوان لينك :</td>
+<td width="74%"><input  class="rinput" type="text" name="edit1" id="edit1" size="59"></td>
+</tr>
+<tr>
+<td width="25%">آدرس لينك :</td>
+<td width="74%">
+<input  class="rinput" type="text" name="edit2" id="edit2" size="59" dir="ltr"></td>
+</tr>
+<tr>
+<td width="25%">توضيح لينك : </td>
+<td width="74%">
+<input  class="rinput" type="text" name="edit3" id="edit3" size="59" dir="rtl"></td>
+</tr>
+<tr>
+<td colspan="2"><center>
+<input type="hidden" name="edit_id" id="edit_id" value="">
+<input onclick="Mform('edit_link');return false;" type="submit" name="submitnews" value="ثبت تغييرات" class="inp"></center></td>
+</tr>
+</table>
+</div>
+</tr><tr>
+</td>
+<td id="ajax_tabs_1_content">
+</td>
+
+</tr>
+
+</table>
+
+</div>
+<br><br><br><br><br>
+</div>
+				<p>&nbsp;</td>
+			</tr>
+		</table>
+		<p align="center" style="height: 28px">كليه حقوق براي
+		<a href="http://rashcms.com" target="_blank"><strong>راش سي ام اس</strong></a> محفوظ است. 
+		<strong><a href="http://mihanphp.com" target="_blank">مــــــيهن پي اچ پي</a></strong><br><br>
+		</td>
+	</tr>
+	</table>
+	
+</div>
+</div>
+</body>
+</html>
