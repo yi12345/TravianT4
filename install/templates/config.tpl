@@ -61,7 +61,7 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
     	<tr class="hover">
 			<td>Language:</td>
 			<td><select name="lang" dir="ltr" class="text">
-		<option value="en" selected="selected">English</option><option value="fa">Persian</option></select></td>
+		<option value="en" selected="selected">English</option><option value="fa">Persian</option><option value="es">Spanish</option><option value="de">German</option></select></td>
 		</tr>
     	<tr class="hover">
 			<td>Beginners Protection:</td>
