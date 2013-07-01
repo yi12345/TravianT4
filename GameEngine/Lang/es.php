@@ -79,8 +79,6 @@ define("B4_DESC","La comida de tu pobleci&oacute;n se produce aqu&iacute;. Incre
 
 //DORF1
 define("WOOD","Madera");
-define("LUMBER","Madera");
-
 define("CLAY","Arcilla");
 define("IRON","Hierro");
 define("CROP","Grano");

@@ -30,13 +30,6 @@ if($bindicate == 1) {
     <span class="resources r5"><img class="r5" src="img/x.gif" title="Crop consumption"><?php echo $uprequire['pop']; ?></span>
     <div class="clear"></div>
     <span class="clocks"><img class="clock" src="img/x.gif" title="Duration">
-    <span class="resources r1 little_res"><img class="r1" src="img/x.gif" title="چوب"><?php echo $uprequire['wood']; ?></span>
-    <span class="resources r2 little_res"><img class="r2" src="img/x.gif" title="خشت"><?php echo $uprequire['clay']; ?></span>
-    <span class="resources r3 little_res"><img class="r3" src="img/x.gif" title="آهن"><?php echo $uprequire['iron']; ?></span>
-    <span class="resources r4"><img class="r4" src="img/x.gif" title="گندم"><?php echo $uprequire['crop']; ?></span>
-    <span class="resources r5"><img class="r5" src="img/x.gif" title="مصرف گندم"><?php echo $uprequire['pop']; ?></span>
-    <div class="clear"></div>
-    <span class="clocks"><img class="clock" src="img/x.gif" title="مدت زمان">
 
     <?php echo $generator->getTimeFormat($uprequire['time']);
 		echo "</span>";

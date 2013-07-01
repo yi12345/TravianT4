@@ -4370,7 +4370,7 @@ $info_cata=" damaged from level <b>".$tblevel."</b> to level <b>".$totallvl."</b
 			unlink("GameEngine/Prevention/climbers.txt");
 		}
 			global $database, $ranking;
-					$users = "SELECT * FROM " . TB_PREFIX . "users WHERE access < " . (INCLUDE_ADMIN ? "10" : "8") . "";
+					$users = "SELECT * FROM " . TB_PREFIX . "users WHERE access < " . (INCLUDE_ADMIN ? "10" : "8") . " and tribe <= 3";
 					if(mysql_num_rows(mysql_query($users)) > 0){
 					$q = "SELECT * FROM ".TB_PREFIX."medal order by week DESC LIMIT 0, 1";
 					$result = mysql_query($q);
@@ -4380,12 +4380,12 @@ $info_cata=" damaged from level <b>".$tblevel."</b> to level <b>".$totallvl."</b
 					} else {
 						$week='1';
 					}
-					$q = "SELECT * FROM ".TB_PREFIX."users where oldrank = 0 and id > 5";
+					$q = "SELECT * FROM ".TB_PREFIX."users where oldrank = 0 and id > 4";
 					$array = $database->query_return($q);
 					foreach($array as $user){
 					$newrank = $ranking->getUserRank($user['id']);
 					if($week > 1){
-							for($i=$newrank+1;$i<=mysql_num_rows(mysql_query($users));$i++) {
+							for($i=$newrank;$i<=mysql_num_rows(mysql_query($users));$i++) {
 							$q2 = mysql_query("SELECT * FROM ".TB_PREFIX."users where oldrank = ".$i);
 							$climber2 = mysql_fetch_array($q2);
 							$oldrank = $ranking->getUserRank($climber2['id']);
@@ -4398,7 +4398,7 @@ $info_cata=" damaged from level <b>".$tblevel."</b> to level <b>".$totallvl."</b
 							$totalpoints = mysql_num_rows(mysql_query($users)) - $newrank;
 							$database->setclimberrankpop($user['id'], $totalpoints+1);
 							$database->updateoldrank($user['id'], $newrank);
-							for($i=1;$i<$newrank;$i++){
+							for($i=1;$i<=$newrank;$i++){
 							$q2 = mysql_query("SELECT * FROM ".TB_PREFIX."users where oldrank = ".$i);
 							$climber2 = mysql_fetch_array($q2);
 							$oldrank = $ranking->getUserRank($climber2['id']);
@@ -4406,7 +4406,7 @@ $info_cata=" damaged from level <b>".$tblevel."</b> to level <b>".$totallvl."</b
 							$database->setclimberrankpop($climber2['id'], $totalpoints+1);
 							$database->updateoldrank($climber2['id'], $oldrank);
 							}
-							for($i=$newrank+1;$i<mysql_num_rows(mysql_query($users));$i++){
+							for($i=$newrank;$i<mysql_num_rows(mysql_query($users));$i++){
 							$q2 = mysql_query("SELECT * FROM ".TB_PREFIX."users where oldrank = ".$i);
 							$climber2 = mysql_fetch_array($q2);
 							$oldrank = $ranking->getUserRank($climber2['id']);
@@ -4424,7 +4424,7 @@ $info_cata=" damaged from level <b>".$tblevel."</b> to level <b>".$totallvl."</b
 
 	private function procClimbers($uid) {
 			global $database, $ranking;
-					$users = "SELECT * FROM " . TB_PREFIX . "users WHERE access < " . (INCLUDE_ADMIN ? "10" : "8") . "";
+					$users = "SELECT * FROM " . TB_PREFIX . "users WHERE access < " . (INCLUDE_ADMIN ? "10" : "8") . " and tribe <= 3";
 					$climber = $database->getUserArray($uid,1);
 					if(mysql_num_rows(mysql_query($users)) > 0){
 					$q = "SELECT * FROM ".TB_PREFIX."medal order by week DESC LIMIT 0, 1";
@@ -4437,7 +4437,7 @@ $info_cata=" damaged from level <b>".$tblevel."</b> to level <b>".$totallvl."</b
 					}
 					$myrank = $ranking->getUserRank($uid);
 					if($climber['oldrank'] > $myrank){
-					for($i=$myrank+1;$i<=$climber['oldrank'];$i++) {
+					for($i=$myrank;$i<=$climber['oldrank'];$i++) {
 					$q2 = mysql_query("SELECT * FROM ".TB_PREFIX."users where oldrank = ".$i);
 					$climber2 = mysql_fetch_array($q2);
 					$oldrank = $ranking->getUserRank($climber2['id']);
@@ -4461,7 +4461,7 @@ $info_cata=" damaged from level <b>".$tblevel."</b> to level <b>".$totallvl."</b
 							$database->updateoldrank($climbers[$myrank]['id'], $myrank);
 					}
 					}else if($climber['oldrank'] < $myrank){
-					for($i=$climber['oldrank'];$i<$myrank;$i++) {
+					for($i=$climber['oldrank'];$i<=$myrank;$i++) {
 					$q2 = mysql_query("SELECT * FROM ".TB_PREFIX."users where oldrank = ".$i);
 					$climber2 = mysql_fetch_array($q2);
 					$oldrank = $ranking->getUserRank($climber2['id']);

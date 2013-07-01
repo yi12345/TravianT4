@@ -147,8 +147,6 @@ define("B4_DESC","Your population`s food is produced here. By increasing the far
 
 //DORF1
 define("WOOD","Wood");
-define("LUMBER","Lumber");
-
 define("CLAY","Clay");
 define("IRON","Iron");
 define("CROP","Crop");

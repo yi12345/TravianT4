@@ -83,11 +83,13 @@
 							echo $users-4; ?></div>
                             <div class="clear"></div>
 							<div class="stat type"><?php echo PLAYERS_ACTIVE; ?>:</div>
-                            <div class="stat value"><?php $active = mysql_num_rows(mysql_query("SELECT * FROM " . TB_PREFIX . "users WHERE " . time() . "-timestamp < (3600*24) AND tribe!=5 AND tribe!=0"));
+                            <div class="stat value"><?php $time = time() - 3600*24;
+							$active = mysql_num_rows(mysql_query("SELECT * FROM " . TB_PREFIX . "users WHERE timestamp > $time AND tribe!=0 AND tribe!=4 AND tribe!=5"));							
 							echo $active; ?></div>
 							<div class="clear"></div>
                             <div class="stat type"><?php echo PLAYERS_ONLINE; ?>:</div>
-                            <div class="stat value"><?php $online = mysql_num_rows(mysql_query("SELECT * FROM " . TB_PREFIX . "users WHERE " . time() . "-timestamp < (60*5) AND tribe!=5 AND tribe!=0"));
+                            <div class="stat value"><?php $time = time() - 60*10;
+							$online = mysql_num_rows(mysql_query("SELECT * FROM " . TB_PREFIX . "users WHERE timestamp > $time AND tribe!=0 AND tribe!=4 AND tribe!=5"));
 							echo $online; ?></div>
 							<div class="clear"></div>
 	                	</div>

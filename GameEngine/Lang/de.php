@@ -260,7 +260,7 @@ define("B41","Pferdetr&auml;nke");
 define("B41_DESC","Die Pferdetr&auml;nke k&uuml;mmert sich um das Wohlbefinden deiner Pferde, beschleunigt die Ausbildung von berittenen Einheiten und verringert deren Getreideverbrauch.");
 
 //DORF1
-define("LUMBER","Holz");
+define("WOOD","Holz");
 define("CLAY","Lehm");
 define("IRON","Eisen");
 define("CROP","Getreide");

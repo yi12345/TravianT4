@@ -9,8 +9,10 @@
 
         	function register($username, $password, $email, $tribe, $locate, $act) {
         		$time = time();
-				if(strtotime(START_TIME) > time()){
-				$time = strtotime(START_TIME);
+				$timep = time() + PROTECTION;
+				$stime = strtotime(START_DATE)+strtotime(START_TIME)-time();
+				if($stime > time()){
+				$time = $stime;
 				}
         		$timep = ($time + PROTECTION);
         		$q = "INSERT INTO " . TB_PREFIX . "users (username,password,access,email,timestamp,tribe,location,act,protect,fquest,cp) VALUES ('$username', '$password', " . USER . ", '$email', $time, $tribe, $locate, '$act', $timep, '0,0,0,0,0,0,0,0,0,0,0', 1)";

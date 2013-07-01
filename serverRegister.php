@@ -23,7 +23,8 @@ header("Location: install/");
        include ("GameEngine/Database.php");
        include ("GameEngine/Lang/".$result['lang'].".php");
 	   $users = mysql_num_rows(mysql_query("SELECT * FROM " . TB_PREFIX . "users"));
-	   $online = mysql_num_rows(mysql_query("SELECT * FROM " . TB_PREFIX . "users WHERE " . time() . "-timestamp < (60*5) AND tribe!=5 AND tribe!=0"));
+	   $time = time() - 60*10;
+	   $online = mysql_num_rows(mysql_query("SELECT * FROM " . TB_PREFIX . "users WHERE timestamp > $time AND tribe!=0 AND tribe!=4 AND tribe!=5"));
 ?>
 <h3 class="pop popgreen bold">Welcome to the new TRAVIAN 4!</h3>
 <h3>Please choose a server.</h3>

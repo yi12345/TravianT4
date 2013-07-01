@@ -2,8 +2,6 @@
 <div class="build_desc">
 	<a href="#" onclick="return Travian.Game.iPopup(30,4);" class="build_logo">
 		<img class="building big white g30" src="img/x.gif" alt="Great Stable">
-		<img class="building big white g30" src="img/x.gif" alt="اصطبل بزرگ">
-
 	</a>
 	The great stable allows the training of additional cavalry. These troops cost three times as much, howeve.</div>
 		<?php

@@ -2,8 +2,6 @@
 <div class="build_desc">
 	<a href="#" onclick="return Travian.Game.iPopup(28,4);" class="build_logo">
 		<img class="building big white g28" src="img/x.gif" alt="Trade Office">
-		<img class="building big white g28" src="img/x.gif" alt="دفتر تجارت">
-
 	</a>
 	The trade carts of your marketplace can be improved in the trade office. The higher the level, the more each merchant can carry.</div>
 		<?php

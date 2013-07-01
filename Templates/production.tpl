@@ -14,10 +14,6 @@
 			</td>
 			<td class="res">
 				<?php echo WOOD; ?>:
-				<img class="r1" src="img/x.gif" alt="<?php echo LUMBER; ?>" title="<?php echo LUMBER; ?>" />
-			</td>
-			<td class="res">
-				<?php echo LUMBER; ?>:
 			</td>
 			<td class="num">
 				<?php echo $village->getProd("wood"); ?>			</td>

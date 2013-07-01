@@ -150,8 +150,6 @@ define("B4_DESC","غذای مصرفی مردم در اینجا تولید می �
 
 //DORF1
 define("WOOD","چوب");
-define("LUMBER","چوب");
-
 define("CLAY","خشت");
 define("IRON","آهن");
 define("CROP","گندم");

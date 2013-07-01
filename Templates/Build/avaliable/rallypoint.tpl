@@ -2,8 +2,6 @@
 <div class="build_desc">
 	<a href="#" onclick="return Travian.Game.iPopup(16,4);" class="build_logo">
 		<img class="building big white g16" src="img/x.gif" alt="Rally Point">
-		<img class="building big white g16" src="img/x.gif" alt="اردوگاه">
-
 	</a>
 	The village's troops meet at the rally point. From here you can send them out to reinforce, raid, or conquer another village..</div>
 		<?php

@@ -10,15 +10,12 @@ $totalproduction += $heroData['r0']*3*SPEED*$heroData['product'];
 		<li class="r1" title="<div style=color:#FFF><b><?php echo WOOD; ?></b></div>Production: <?php echo $village->getProd("wood"); ?>"> 
 		<p> 
         	<img src="img/x.gif" alt="<?php echo WOOD; ?>"/> 
-		<li class="r1" title="<div style=color:#FFF><b><?php echo LUMBER; ?></b></div>Production: <?php echo $village->getProd("wood"); ?>"> 
-		<p> 
-        	<img src="img/x.gif" alt="<?php echo LUMBER; ?>"/> 
 
 			<span id="l1" class="value "><?php echo round($village->awood)."/".$village->maxstore; ?></span> 
-        </p>
         <div class="bar-bg">
 	     	 <div id="lbar1" class="bar" style="width: 0%; background-color: rgb(0, 105, 0); "></div>
       	</div>
+	    </p>
         </li> 
         
 		<li class="r2" title="<div style=color:#FFF><b><?php echo CLAY; ?></b></div>Production: <?php echo $village->getProd("clay"); ?>"> 

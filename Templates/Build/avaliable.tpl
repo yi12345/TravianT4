@@ -476,3 +476,4 @@ window.addEvent('domready', function()
 }
 ?>
 </div>
+</div>
