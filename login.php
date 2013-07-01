@@ -77,16 +77,12 @@ Element.implement({
 });
 </script>
 <?php
-if(START_DATE > date('Y.m.d.')){
+$stime = strtotime(START_DATE)-strtotime(date('m/d/Y'))+strtotime(START_TIME);
+if($stime > time()){
 	$loginform = "hide";
-}elseif(START_DATE == date('Y.m.d.')){
-	
-	if(START_TIME > date('H:i')){
-	$loginform = "hide";
-	}elseif(START_TIME <= date('H:i')) {
-	$startin = "hide";	
-	}
-}else{ $startin = "hide"; }
+}else{
+	$startin = "hide";
+}
 ?>
 <script type="text/javascript">
 Element.implement({
@@ -226,7 +222,7 @@ function CountBack(secs) {
     return;
   }
   DisplayStr = DisplayFormat.replace(/%%D%%/g, calcage(secs,86400,100000));
-  DisplayStr = DisplayStr.replace(/%%H%%/g, calcage(secs,3600,24));
+  DisplayStr = DisplayStr.replace(/%%H%%/g, calcage(secs,3600,100000));
   DisplayStr = DisplayStr.replace(/%%M%%/g, calcage(secs,60,60));
   DisplayStr = DisplayStr.replace(/%%S%%/g, calcage(secs,1,60));
 
