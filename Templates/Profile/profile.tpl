@@ -156,7 +156,7 @@ $prefix = "".TB_PREFIX."vdata";
 
 	while($row = mysql_fetch_array($sql)){ 
     echo "<tr>";
-    echo "<td class=\"name\"><input tabindex=\"6\" type=\"text\" name=\"dname$name\" value=\"".$row['name']."\" maxlength=\"20\" class=\"text\"> ";
+    echo "<td class=\"name\"><input tabindex=\"6\" type=\"text\" name=\"dname$name\" value=\"".$row['name']."\" maxlength=\"30\" class=\"text\"> ";
     if($row['capital'] == 1) {
         echo "<span class=\"mainVillage\">(Capital)</span>";
     }

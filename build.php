@@ -285,9 +285,11 @@ if(isset($_GET['id'])) {
 		}
 	}
 }
+if($id < 39 || $village->resarray['f'.$id.'t'] > 0){
 ?>
 <div class="clear">&nbsp;</div>
 </div>
+<?php } ?>
 <div class="clear"></div>
 </div>
 <div class="contentFooter">&nbsp;</div>

@@ -36,16 +36,11 @@ if(isset($_POST['ft'])=='check' && $allres!=0 && $allres <= $canSend && ($_POST[
 <input type="hidden" name="ft" value="mk1">
 <input type="hidden" name="id" value="<?php echo $id; ?>">
 <input type="hidden" name="send3" value="<?php echo $_POST['send3']; ?>">
-<input type="hidden" name="x" value="<?php echo $_POST['x']; ?>">
-<input type="hidden" name="y" value="<?php echo $_POST['y']; ?>">
-<input type="hidden" name="dname" value="<?php echo $_POST['dname']; ?>">
+<input type="hidden" name="vid" value="<?php echo $getwref; ?>">
 <table id="send_select" class="send_res" cellpadding="1" cellspacing="1">
 	<tr>
 		<td class="ico"><img class="r1" src="img/x.gif" alt="Wood" title="Wood" /></td> 
 		<td class="nam"> Wood</td> 
-		<td class="ico"><img class="r1" src="img/x.gif" alt="Lumber" title="Lumber" /></td> 
-		<td class="nam"> Lumber</td> 
-
 		<td class="val"><input class="text disabled" type="text" name="r1" id="r1" value="<?php echo $_POST['r1']; ?>" readonly="readonly"></td> 
 		<td class="max"> / <span class="none"><B><?php echo $market->maxcarry; ?></B></span> </td> 
 	</tr>
@@ -64,7 +59,7 @@ if(isset($_POST['ft'])=='check' && $allres!=0 && $allres <= $canSend && ($_POST[
 	</tr>
     <tr> 
 		<td class="ico"><img class="r4" src="img/x.gif" alt="Crop" title="Crop" /></td> 
-		<td class="nam"> Wheat</td> 
+		<td class="nam"> Crop</td> 
 		<td class="val"> <input class="text disabled" type="text" name="r4" id="r4" value="<?php echo $_POST['r4']; ?>" readonly="readonly"> 
 		</td> 
 		<td class="max"> / <span class="none"><B><?php echo $market->maxcarry; ?></B></span></td> 
@@ -129,11 +124,6 @@ if(isset($_POST['ft'])=='check' && $allres!=0 && $allres <= $canSend && ($_POST[
 		</td> 
 		<td class="nam"> 
 			Wood
-			<a href="#" onClick="upd_res(1,1); return Lumberlse;"><img class="r1" src="img/x.gif" alt="Lumber" title="Lumber" /></a> 
-		</td> 
-		<td class="nam"> 
-			Lumber
-
 		</td> 
 		<td class="val"> 
 			<input class="text" type="text" name="r1" id="r1" value="<?php echo $_POST['r1']; ?>" maxlength="5" onKeyUp="upd_res(1)" tabindex="1"> 
@@ -143,12 +133,7 @@ if(isset($_POST['ft'])=='check' && $allres!=0 && $allres <= $canSend && ($_POST[
 		</td> 
 	</tr><tr> 
 		<td class="ico"> 
-			<a href="#" onClick="upd_res(2,1); return false;"><img class="r2" src="img/x.gif" alt="Iron" title="Iron" /></a> 
-			/ <a href="#" onMouseUp="add_res(1);" onClick="return Lumberlse;"><?php echo $market->maxcarry; ?></a> 
-		</td> 
-	</tr><tr> 
-		<td class="ico"> 
-			<a href="#" onClick="upd_res(2,1); return Lumberlse;"><img class="r2" src="img/x.gif" alt="Iron" title="Iron" /></a> 
+			<a href="#" onClick="upd_res(2,1); return false;"><img class="r2" src="img/x.gif" alt="Clay" title="Clay" /></a> 
 
 		</td> 
 		<td class="nam"> 
@@ -163,11 +148,6 @@ if(isset($_POST['ft'])=='check' && $allres!=0 && $allres <= $canSend && ($_POST[
 	</tr><tr> 
 		<td class="ico"> 
 			<a href="#" onClick="upd_res(3,1); return false;"><img class="r3" src="img/x.gif" alt="Iron" title="Iron" /></a> 
-			/ <a href="#" onMouseUp="add_res(2);" onClick="return Lumberlse;"><?php echo$market->maxcarry; ?></a> 
-		</td> 
-	</tr><tr> 
-		<td class="ico"> 
-			<a href="#" onClick="upd_res(3,1); return Lumberlse;"><img class="r3" src="img/x.gif" alt="Iron" title="Iron" /></a> 
 
 		</td> 
 		<td class="nam"> 
@@ -182,22 +162,16 @@ if(isset($_POST['ft'])=='check' && $allres!=0 && $allres <= $canSend && ($_POST[
 	</tr><tr> 
 		<td class="ico"> 
 			<a href="#" onClick="upd_res(4,1); return false;"><img class="r4" src="img/x.gif" alt="Crop" title="Crop" /></a> 
-			/ <a href="#" onMouseUp="add_res(3);" onClick="return Lumberlse;"><?php echo $market->maxcarry; ?></a> 
-		</td> 
-	</tr><tr> 
-		<td class="ico"> 
-			<a href="#" onClick="upd_res(4,1); return Lumberlse;"><img class="r4" src="img/x.gif" alt="Crop" title="Crop" /></a> 
 
 		</td> 
 		<td class="nam"> 
-			Wheat
+			Crop
 		</td> 
 		<td class="val"> 
 			<input class="text" type="text" name="r4" id="r4" value="<?php echo $_POST['r4']; ?>" maxlength="5" onKeyUp="upd_res(4)" tabindex="4"> 
 		</td> 
 		<td class="max"> 
-			/ <a href="#" onMouseUp="add_res(4);" onClick="return false;"><?php echo $market->maxcarry; ?></a> 
-			/ <a href="#" onMouseUp="add_res(4);" onClick="return Lumberlse;"><?php echo $market->maxcarry; ?></a> 
+			/ <a href="#" onMouseUp="add_res(4);" onClick="return false;"><?php echo $market->maxcarry; ?></a>  
 
 		</td> 
 	</tr></table> 
@@ -210,7 +184,7 @@ if(isset($_POST['ft'])=='check' && $allres!=0 && $allres <= $canSend && ($_POST[
 							<span>Village Name:</span>
 						</td>
 						<td class="compactInput">
-                        	<input class="text village" type="text" name="dname" value="<?php echo $_POST['dname']; ?>" maxlength="20" tabindex="5">
+                        	<input class="text village" type="text" name="dname" value="<?php echo stripslashes($_POST['dname']); ?>" maxlength="30" tabindex="5">
 						</td>
 					</tr>
 				</tbody>
@@ -287,7 +261,7 @@ if(isset($_POST['ft'])=='check'){
 	{
 		$('r1').focus();
 	});
-	var haendler = 4;
+	var haendler = <?php echo $market->merchantAvail(); ?>;
 	var carry = <?php echo $market->maxcarry; ?>;
 	var merchantRes = new Array(0,0,0,0,0);
 	function add_res(resNr)
@@ -360,8 +334,6 @@ echo "<h4>Incoming Merchants</h4>";
     echo $datetime[1]."</div>";
     echo "</td></tr></tbody> <tr class=\"res\"> <th>Resources</th> <td colspan=\"2\"><span class=\"f10\">";
     echo "<img class=\"r1\" src=\"img/x.gif\" alt=\"Wood\" title=\"Wood\" /> ".$recieve['wood']
-    echo "<img class=\"r1\" src=\"img/x.gif\" alt=\"Lumber\" title=\"Lumber\" /> ".$recieve['wood']
-
     ." <img class=\"r2\" src=\"img/x.gif\" alt=\"Clay\" title=\"Clay\" /> ".$recieve['clay']
     ." <img class=\"r3\" src=\"img/x.gif\" alt=\"Iron\" title=\"Iron\" /> ".$recieve['iron']
     ." <img class=\"r4\" src=\"img/x.gif\" alt=\"Crop\" title=\"Crop\" /> ".$recieve['crop']."</td></tr></tbody>";
@@ -386,8 +358,6 @@ if(count($market->sending) > 0) {
         echo $datetime[1]."</div>";
         echo "</td> </tr> <tr class=\"res\"> <th>Resources</th><td>";
         echo "<img class=\"r1\" src=\"img/x.gif\" alt=\"Wood\" title=\"Wood\" /> ".$send['wood']
-        echo "<img class=\"r1\" src=\"img/x.gif\" alt=\"Lumber\" title=\"Lumber\" /> ".$send['wood']
-
         ." <img class=\"r2\" src=\"img/x.gif\" alt=\"Clay\" title=\"Clay\" /> ".$send['clay']
         ." <img class=\"r3\" src=\"img/x.gif\" alt=\"Iron\" title=\"Iron\" /> ".$send['iron'].
         " <img class=\"r4\" src=\"img/x.gif\" alt=\"Crop\" title=\"Crop\" /> ".$send['crop']."</td></tr></tbody>";
@@ -415,8 +385,6 @@ if(count($market->return) > 0) {
         echo $datetime[1]."</div>";
         echo "</td> </tr> <tr class=\"res\"> <th>Resources</th><td>";
                 echo "<img class=\"r1\" src=\"img/x.gif\" alt=\"Wood\" title=\"Wood\" /> ".$return['wood']."<img class=\"r2\" src=\"img/x.gif\" alt=\"Clay\" title=\"Clay\" /> ".$return['clay']."<img class=\"r3\" src=\"img/x.gif\" alt=\"Iron\" title=\"Iron\" /> ".$return['iron']."<img class=\"r4\" src=\"img/x.gif\" alt=\"Crop\" title=\"Crop\" />".$return['crop']."</td></tr></tbody>";
-                echo "<img class=\"r1\" src=\"img/x.gif\" alt=\"Lumber\" title=\"Lumber\" /> ".$return['wood']."<img class=\"r2\" src=\"img/x.gif\" alt=\"Clay\" title=\"Clay\" /> ".$return['clay']."<img class=\"r3\" src=\"img/x.gif\" alt=\"Iron\" title=\"Iron\" /> ".$return['iron']."<img class=\"r4\" src=\"img/x.gif\" alt=\"Crop\" title=\"Crop\" />".$return['crop']."</td></tr></tbody>";
-
 
         echo "</tbody></table>";
         $timer += 1;

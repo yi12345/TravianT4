@@ -93,14 +93,7 @@ class Market {
         $reqMerc = ceil((array_sum($resource)-0.1)/$this->maxcarry); 
 
         if($this->merchantAvail() != 0 && $reqMerc <= $this->merchantAvail()) { 
-                if(isset($post['dname']) && $post['dname'] != "") { 
-                    $id = $database->getVillageByName($post['dname']); 
-                    $coor = $database->getCoor($id); 
-                } 
-                if(isset($post['x']) && isset($post['y']) && $post['x'] != "" && $post['y'] != "") { 
-                    $coor = array('x'=>$post['x'], 'y'=>$post['y']); 
-                    $id = $generator->getBaseID($coor['x'],$coor['y']); 
-                } 
+                    $coor = $database->getCoor($post['vid']); 
                 if($database->getVillageState($id)) {
 					$resdata = "".$resource[0].",".$resource[1].",".$resource[2].",".$resource[3]."";
 					$timetaken = $generator->procDistanceTime($coor,$village->coor,$session->tribe,0); 
