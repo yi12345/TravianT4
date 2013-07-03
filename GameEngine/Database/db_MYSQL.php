@@ -1752,7 +1752,6 @@
             }
 
         	function getVillageByName($name) {
-        		$name = mysql_real_escape_string($name, $this->connection);
         		$q = "SELECT wref FROM " . TB_PREFIX . "vdata where name = '$name' limit 1";
         		$result = mysql_query($q, $this->connection);
         		$dbarray = mysql_fetch_array($result);
