@@ -1752,6 +1752,7 @@
             }
 
         	function getVillageByName($name) {
+        		$name = mysql_real_escape_string($name, $this->connection);
         		$q = "SELECT wref FROM " . TB_PREFIX . "vdata where name = '$name' limit 1";
         		$result = mysql_query($q, $this->connection);
         		$dbarray = mysql_fetch_array($result);
@@ -2678,7 +2679,7 @@ break;
 }
         			$basearray = $this->getOMInfo($wid);				
         			//We switch type of oasis and instert record with apropriate infomation.
-        			$q = "INSERT into " . TB_PREFIX . "odata VALUES ('" . $basearray['id'] . "'," . $basearray['oasistype'] . ",0,".$tt."," . time() . ",100,3,'Unoccupied oasis')";
+        			$q = "INSERT into " . TB_PREFIX . "odata VALUES ('" . $basearray['id'] . "'," . $basearray['oasistype'] . ",0,".$tt."," . time() .",".time(). ",100,3,'Unoccupied oasis')";
         			$result = mysql_query($q, $this->connection);
         		}
         	}
