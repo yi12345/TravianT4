@@ -7,7 +7,7 @@ $uprequire = $building->resourceRequired($id,$bid);
 <div class="build_desc">
 	<a href="#" onclick="return Travian.Game.iPopup(37,4);" class="build_logo">
 		<img class="building big white g37" src="img/x.gif" alt="Hero's Mansion">
-		<img class="building big white g37" src="img/x.gif" alt="عمارت قهرمان">
+
 
 	</a>
 	At levels 10, 15 and 20 of the hero's mansion, you can occupy an abandoned valley (oases) using your hero, allowing up to three oases per village. Depending on the annexed oasis, you will get an increase of production for a certain resource (or even two with with some oases).</div>
@@ -22,13 +22,7 @@ $uprequire = $building->resourceRequired($id,$bid);
     <span class="resources r5"><img class="r5" src="img/x.gif" alt="Crop consumption"><?php echo $uprequire['pop']; ?></span>
     <div class="clear"></div>
     <span class="clocks"><img class="clock" src="img/x.gif" alt="Duration">
-    <span class="resources r1 little_res"><img class="r1" src="img/x.gif" alt="چوب"><?php echo $uprequire['wood']; ?></span>
-    <span class="resources r2 little_res"><img class="r2" src="img/x.gif" alt="خشت"><?php echo $uprequire['clay']; ?></span>
-    <span class="resources r3 little_res"><img class="r3" src="img/x.gif" alt="آهن"><?php echo $uprequire['iron']; ?></span>
-    <span class="resources r4"><img class="r4" src="img/x.gif" alt="گندم"><?php echo $uprequire['crop']; ?></span>
-    <span class="resources r5"><img class="r5" src="img/x.gif" alt="مصرف گندم"><?php echo $uprequire['pop']; ?></span>
-    <div class="clear"></div>
-    <span class="clocks"><img class="clock" src="img/x.gif" alt="مدت زمان">
+
 
     <?php echo $generator->getTimeFormat($uprequire['time']); ?>
 	</span>
