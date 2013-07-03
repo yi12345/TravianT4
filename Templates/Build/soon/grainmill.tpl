@@ -7,7 +7,7 @@ $uprequire = $building->resourceRequired($id,$bid);
 <div class="build_desc">
 	<a href="#" onclick="return Travian.Game.iPopup(8,4);" class="build_logo">
 		<img class="building big white g8" src="img/x.gif" alt="Grain Mill">
-		<img class="building big white g8" src="img/x.gif" alt="آسیاب">
+
 
 	</a>
 	Here your grain is milled in order to produce flour. Based on its level your grain mill can increase your crop production by up to 25 percent.</div>
@@ -22,13 +22,6 @@ $uprequire = $building->resourceRequired($id,$bid);
     <span class="resources r5"><img class="r5" src="img/x.gif" alt="Crop consumption"><?php echo $uprequire['pop']; ?></span>
     <div class="clear"></div>
     <span class="clocks"><img class="clock" src="img/x.gif" alt="Duration">
-    <span class="resources r1 little_res"><img class="r1" src="img/x.gif" alt="چوب"><?php echo $uprequire['wood']; ?></span>
-    <span class="resources r2 little_res"><img class="r2" src="img/x.gif" alt="خشت"><?php echo $uprequire['clay']; ?></span>
-    <span class="resources r3 little_res"><img class="r3" src="img/x.gif" alt="آهن"><?php echo $uprequire['iron']; ?></span>
-    <span class="resources r4"><img class="r4" src="img/x.gif" alt="گندم"><?php echo $uprequire['crop']; ?></span>
-    <span class="resources r5"><img class="r5" src="img/x.gif" alt="مصرف گندم"><?php echo $uprequire['pop']; ?></span>
-    <div class="clear"></div>
-    <span class="clocks"><img class="clock" src="img/x.gif" alt="مدت زمان">
 
     <?php echo $generator->getTimeFormat($uprequire['time']); ?>
 	</span>

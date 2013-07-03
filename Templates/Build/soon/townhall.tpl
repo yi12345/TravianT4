@@ -7,7 +7,7 @@ $uprequire = $building->resourceRequired($id,$bid);
 <div class="build_desc">
 	<a href="#" onclick="return Travian.Game.iPopup(24,4);" class="build_logo">
 		<img class="building big white g24" src="img/x.gif" alt="Town Hall">
-		<img class="building big white g24" src="img/x.gif" alt="تالار">
+
 
 	</a>
 	You can hold pompous celebrations in the town hall. Such a celebration increases your culture points. Building up your town hall to a higher level will decrease the length of the celebration..</div>
@@ -22,13 +22,7 @@ $uprequire = $building->resourceRequired($id,$bid);
     <span class="resources r5"><img class="r5" src="img/x.gif" alt="Crop consumption"><?php echo $uprequire['pop']; ?></span>
     <div class="clear"></div>
     <span class="clocks"><img class="clock" src="img/x.gif" alt="Duration">
-    <span class="resources r1 little_res"><img class="r1" src="img/x.gif" alt="چوب"><?php echo $uprequire['wood']; ?></span>
-    <span class="resources r2 little_res"><img class="r2" src="img/x.gif" alt="خشت"><?php echo $uprequire['clay']; ?></span>
-    <span class="resources r3 little_res"><img class="r3" src="img/x.gif" alt="آهن"><?php echo $uprequire['iron']; ?></span>
-    <span class="resources r4"><img class="r4" src="img/x.gif" alt="گندم"><?php echo $uprequire['crop']; ?></span>
-    <span class="resources r5"><img class="r5" src="img/x.gif" alt="مصرف گندم"><?php echo $uprequire['pop']; ?></span>
-    <div class="clear"></div>
-    <span class="clocks"><img class="clock" src="img/x.gif" alt="مدت زمان">
+   
 
     <?php echo $generator->getTimeFormat($uprequire['time']); ?>
 	</span>

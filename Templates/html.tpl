@@ -11,6 +11,8 @@
 		<link href="gpack/travian_Travian_4.0_41/lang/ir/compact.css?asd423" rel="stylesheet" type="text/css" />
         <link href="gpack/travian_Travian_4.0_41/lang/ir/lang.css?asd423" rel="stylesheet" type="text/css" />										
         <link href="img/travian_basics.css" rel="stylesheet" type="text/css" />
-        <script src="unx.js" type="text/javascript"></script>
-        <script src="crypt.js?<?php echo time(); ?>" type="text/javascript"></script>
+		<script src="jquery-1.10.1.min.js" type="text/javascript"></script>
+		<script src="sandwich.js" type="text/javascript"></script>
+		<script src="unx.js" type="text/javascript"></script>
+		<script src="crypt.js?<?php echo time(); ?>" type="text/javascript"></script>
 </head>
