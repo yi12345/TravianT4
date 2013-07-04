@@ -174,13 +174,17 @@ $paginationDisplay .=  '<img alt="Utolsó oldal" src="img/x.gif" class="last dis
 }
 
 	$limit = 'LIMIT ' .($page - 1) * $itemsPerPage .',' .$itemsPerPage; 
+	if ($page - 1 < 0) {
+		$limit = "LIMIT 0,20";
+	}
 	$sql2 = mysql_query("SELECT * FROM ".TB_PREFIX."alidata WHERE id != '' $limit");
     if(isset($_GET['page']) && $_GET['page'] > 1){
 		$rank = ($_GET['page']-1)*20+1;
     }else{
     	$rank = 1;
     }
-	while($row = mysql_fetch_array($sql2)){ 
+	
+	while($row = mysql_fetch_array($sql2) && $row != false){ 
 		$memberlist = $database->getAllMember($row['id']);
 		$totalusers = 0;
 		$totalpoints = 0;
@@ -194,10 +198,10 @@ $paginationDisplay .=  '<img alt="Utolsó oldal" src="img/x.gif" class="last dis
 			echo "<tr class=\"hover\"><td class=\"ra \" >".$rank.".</td>";
 		}
 		echo "<td class=\"al \" ><a href=\"allianz.php?aid=".$row['id']."\">".$database->getAllianceName($row['id'])."</a></td>";
-       
+	   
 		echo "<td class=\"pla \" >".$totalusers."</td>";
-        echo "<td class=\"av \">".round($totalpoints/$totalusers)."</td>";
-    	echo "<td class=\"po lc\">".$totalpoints."</td></tr>";
+		echo "<td class=\"av \">".round($totalpoints/$totalusers)."</td>";
+		echo "<td class=\"po lc\">".$totalpoints."</td></tr>";
 		$rank++;
 	}
 
