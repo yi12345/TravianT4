@@ -62,6 +62,7 @@ class Village {
 		$this->abarray = $database->getABTech($this->wid);
 		$this->researching = $database->getResearching($this->wid);
 		$this->capital = $this->infoarray['capital'];
+		$this->natar = $this->infoarray['natar'];
 		$this->currentcel = $this->infoarray['celebration'];
 		$this->wid = $this->infoarray['wref'];
 		$this->vname = $this->infoarray['name'];
