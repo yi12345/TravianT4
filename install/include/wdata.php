@@ -2,6 +2,12 @@
 
 include("database.php");
 
+function isgrayfield($x, $y) {
+	$result = round(sqrt(pow($x,2)+pow($y,2)));
+	if ($result <= 22)
+		return true;
+	return false;
+}
 
 $xyas=(1+(2*WORLD_MAX));
 
@@ -12,10 +18,15 @@ $y=(WORLD_MAX-$i);
 	$x=((WORLD_MAX*-1)+$j);
 	
 	//choose a field type
-	if($x == 0 & $y == 0){
+	if($x == 1 & $y == 0){
 		$typ='3';
 		$otype='0';
-	}else{
+	}
+	else if ($x == 0 & $y == 0) {
+		$typ='1';
+		$otype='0';
+	}
+	else{
 	$rand=rand(1, 1000);
 		if("10" >= $rand){
 		$typ='1';
