@@ -218,8 +218,6 @@ break;
     $targettitle = "<font color='white'><b>occupied oasis</b></font><br /> (".$maparray[$index]['x']."|".$maparray[$index]['y'].")<br />".$tt."<br>Player: ".$uinfo."<br>Alliance: ".$allyname."<br>Tribe: ".$tribename."";
     }
     
-    
-    
     if(!$maparray[$index]['fieldtype'] && $maparray[$index]['oasistype'] && $maparray[$index]['occupied']){
     	$occupied = "-s";
     }else{ $occupied = ""; }
@@ -263,10 +261,10 @@ break;
 </div>
 </div>
 		<div class="navigation">
-			<a href="karte.php?x=<?php echo $y-1; ?>&y=<?php echo $x; ?>" id="navigationMoveLeft" class="moveLeft"><img src="img/x.gif" title="move left"></a>
-            <a href="karte.php?x=<?php echo $y+1; ?>&y=<?php echo $x; ?>" id="navigationMoveRight" class="moveRight"><img src="img/x.gif" title="move right"></a>
-			<a href="karte.php?x=<?php echo $y; ?>&y=<?php echo $x+1; ?>" id="navigationMoveUp" class="moveUp"><img src="img/x.gif" title="move up"></a>
-			<a href="karte.php?x=<?php echo $y; ?>&y=<?php echo $x-1; ?>" id="navigationMoveDown" class="moveDown"><img src="img/x.gif" title="move down"></a>
+			<a href="karte.php?x=<?php echo $x-1; ?>&y=<?php echo $y; ?>" id="navigationMoveLeft" class="moveLeft"><img src="img/x.gif" title="move left"></a>
+            <a href="karte.php?x=<?php echo $x+1; ?>&y=<?php echo $y; ?>" id="navigationMoveRight" class="moveRight"><img src="img/x.gif" title="move right"></a>
+			<a href="karte.php?x=<?php echo $x; ?>&y=<?php echo $y+1; ?>" id="navigationMoveUp" class="moveUp"><img src="img/x.gif" title="move up"></a>
+			<a href="karte.php?x=<?php echo $x; ?>&y=<?php echo $y-1; ?>" id="navigationMoveDown" class="moveDown"><img src="img/x.gif" title="move down"></a>
             <?php if($session->plus) { ?>
             <a href="karte2.php?x=<?php echo $y ?>&y=<?php echo $x; ?>" id="navigationFullScreen" class="viewFullScreen full"><img src="img/x.gif" alt="view fullscreen" title="view fullscreen"></a>
             <?php } ?>

@@ -172,6 +172,9 @@ $paginationDisplay .=  '<img alt="Utolsó oldal" src="img/x.gif" class="last dis
 }
 
 	$limit = 'LIMIT ' .($page - 1) * $itemsPerPage .',' .$itemsPerPage; 
+	if ($page - 1 < 0) {
+		$limit = "LIMIT 0,20";
+	}
 	$sql2 = mysql_query("SELECT * FROM ".TB_PREFIX."alidata WHERE id != '' order by Adp Desc $limit");
     if(isset($_GET['page']) && $_GET['page'] > 1){
 		$rank = ($_GET['page']-1)*20+1;

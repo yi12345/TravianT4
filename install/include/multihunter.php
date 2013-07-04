@@ -18,7 +18,7 @@
         	$password = $_POST['mhpw'];
         	mysql_query("UPDATE " . TB_PREFIX . "users SET password = '" . md5($password) . "' WHERE username = 'Multihunter'");
 			mysql_query("UPDATE " . TB_PREFIX . "users SET password = '" . md5($password) . "' WHERE username = 'Support'");
-        	$wid = $admin->getWref(0, 0);
+        	$wid = $admin->getWref(1, 0);
         	$uid = 4;
         	$status = $database->getVillageState($wid);
         	if($status == 0) {
@@ -41,7 +41,7 @@ if($StartNatars){
 
         mysql_query("INSERT INTO " . TB_PREFIX . "users (id,username,password,access,email,timestamp,desc2,tribe,location,act,protect,quest,fquest) VALUES ('$uid', 'Natars', '" . md5($password) . "', 2, '$email', ".time().", '$desc', 5, '', '', 0, 25, 35)");
         
-        $wid = $admin->getWref(0, 1);
+        $wid = $admin->getWref(0, 0);
         $status = $database->getVillageState($wid);
         if($status == 0) {
         	$database->setFieldTaken($wid);
@@ -60,8 +60,61 @@ if($StartNatars){
         mysql_query("UPDATE " . TB_PREFIX . "units SET u41 = " . (94700 * $speed) . ", u42 = " . (295231 * $speed) . ", u43 = " . (180747 * $speed) . ", u44 = " . (1048 * $speed) . ", u45 = " . (364401 * $speed) . ", u46 = " . (217602 * $speed) . ", u47 = " . (2034 * $speed) . ", u48 = " . (1040 * $speed) . " , u49 = " . (1 * $speed) . ", u50 = " . (9 * $speed) . " WHERE vref = " . $wid['wref'] . "") or die(mysql_error());
 
 	for($i=1;$i<=14;$i++){
-		$x = rand(0,100);
-		$y = rand(0,100);
+		switch ($i) {
+			case 1:
+				$x=0;
+				$y=-21;
+				break;
+			case 2:
+				$x=15;
+				$y=15;
+				break;
+			case 3:
+				$x=21;
+				$y=0;
+				break;
+			case 4:
+				$x=-2;
+				$y=12;
+				break;
+			case 5:
+				$x=-12;
+				$y=2;
+				break;
+			case 6:
+				$x=-5;
+				$y=-11;
+				break;
+			case 7:
+				$x=15;
+				$y=-15;
+				break;
+			case 8:
+				$x=11;
+				$y=6;
+				break;
+			case 9:
+				$x=0;
+				$y=21;
+				break;
+			case 10:
+				$x=-15;
+				$y=15;
+				break;
+			case 11:
+				$x=-21;
+				$y=0;
+				break;
+			case 12:
+				$x=-15;
+				$y=-15;
+				break;
+			case 13:
+				$x=9;
+				$y=-8;
+				break;
+		}
+		
 		$wid = $admin->getWref($x, $y);
         $status = $database->getVillageState($wid);
         if($status == 0) {
