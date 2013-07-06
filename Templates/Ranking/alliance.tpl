@@ -184,7 +184,7 @@ $paginationDisplay .=  '<img alt="Utolsó oldal" src="img/x.gif" class="last dis
     	$rank = 1;
     }
 	
-	while($row = mysql_fetch_array($sql2) && $row != false){ 
+	while($row = mysql_fetch_array($sql2)){
 		$memberlist = $database->getAllMember($row['id']);
 		$totalusers = 0;
 		$totalpoints = 0;
