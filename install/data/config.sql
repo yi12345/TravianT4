@@ -48,6 +48,9 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%config` (
   `newsbox1` int(1) NOT NULL,
   `newsbox2` int(1) NOT NULL,
   `newsbox3` int(1) NOT NULL,
+  `home1` int(1) NOT NULL,
+  `home2` int(1) NOT NULL,
+  `home3` int(1) NOT NULL,
   `admin_email` varchar(45) NOT NULL,
   `server_url` varchar(60) NOT NULL
   

@@ -218,6 +218,24 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 	  <option value="1">Enable</option>
 	  <option value="0" selected="selected">Disable</option></select></td>
 		</tr>
+    	<tr class="hover">
+			<td>Home News Box 1 :</td>
+			<td><select name="home1" dir="ltr" class="text">
+	  <option value="1">Enable</option>
+	  <option value="0" selected="selected">Disable</option></select></td>
+		</tr>
+    	<tr class="hover">
+			<td>Home News Box 2 :</td>
+			<td><select name="home2" dir="ltr" class="text">
+	  <option value="1">Enable</option>
+	  <option value="0" selected="selected">Disable</option></select></td>
+		</tr>
+    	<tr class="hover">
+			<td>Home News Box 3 :</td>
+			<td><select name="home3" dir="ltr" class="text">
+	  <option value="1">Enable</option>
+	  <option value="0" selected="selected">Disable</option></select></td>
+		</tr>
 <tr class="empty"><td></td><td></td></tr>
     	<tr class="hover">
 			<td>Log Building:</td>

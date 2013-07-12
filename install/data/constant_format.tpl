@@ -172,10 +172,17 @@ define("LOG_ILLEGAL",$log_illegal);
 if($result['newsbox1']==1){ $newsbox1 = true; }else{ $newsbox1 = false; }
 if($result['newsbox2']==1){ $newsbox2 = true; }else{ $newsbox2 = false; }
 if($result['newsbox3']==1){ $newsbox3 = true; }else{ $newsbox3 = false; }
+if($result['home1']==1){ $home1 = true; }else{ $home1 = false; }
+if($result['home2']==1){ $home2 = true; }else{ $home2 = false; }
+if($result['home3']==1){ $home3 = true; }else{ $home3 = false; }
 
 define("NEWSBOX1",$newsbox1);
 define("NEWSBOX2",$newsbox2);
 define("NEWSBOX3",$newsbox3);
+
+define("HOME1",$home1);
+define("HOME2",$home2);
+define("HOME3",$home3);
 
 
 ////////////////////////////////////
