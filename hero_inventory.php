@@ -183,7 +183,7 @@ if(isset($_GET['inventory'])){
 		$database->setHeroInventory($uid, "bag", 0);
 		$database->editProcItem($_GET['bag'], 0);
 		$itemdata = $database->getItemData($_GET['bag']);
-		if($itemdata['btype']==9){
+		if($itemdata['btype'] >= 7 && $itemdata['btype']<=9){
 		$database->editHeroType($itemdata['id'], 0, 2);
 		}
 	}
@@ -355,12 +355,12 @@ if($gi['horse']!=0){
 
 if($gi['bag']!=0){
 	$data = $database->getItemData($gi['bag']);
-	if($data['btype'] != 9){
+	if($data['btype'] < 7 && $data['btype'] > 9){
 	$item = '<a href="?inventory&bag='.$gi['bag'].'"><div id="item_'.$gi['bag'].'" class="item item_'.$data['type'].' onHero" style="position: relative; left: 0px; top: 0px; "><div class="amount">'.$data['num'].'</div></div></a>';
 	echo '<div id="bag" class="draggable">'.$item.'</div>';
 	}else{
 	$data = $database->getItemData($gi['bag']);
-	$item = '<a href="?inventory&bag='.$gi['bag'].'"><div id="item_'.$gi['bag'].'" class="item item_114 onHero" style="position: relative; left: 0px; top: 0px; "><div class="amount">'.$data['type'].'</div></div></a>';
+	$item = '<a href="?inventory&bag='.$gi['bag'].'"><div id="item_'.$gi['bag'].'" class="item item_'.($data['btype']+105).' onHero" style="position: relative; left: 0px; top: 0px; "><div class="amount">'.$data['type'].'</div></div></a>';
 	echo '<div id="bag" class="draggable">'.$item.'</div>';
 	}
 }else{
@@ -387,7 +387,7 @@ if($gi['bag']!=0){
     <div id="itemsToSale"><?php
 $prefix = "".TB_PREFIX."heroitems";
 
-$sql = mysql_query("SELECT * FROM ".TB_PREFIX."heroitems WHERE (proc = 0 OR (btype = 9 && num - type != 0)) AND uid = $session->uid");
+$sql = mysql_query("SELECT * FROM ".TB_PREFIX."heroitems WHERE (proc = 0 OR ((btype = 7 OR btype = 8 OR btype = 9) && num - type != 0)) AND uid = $session->uid");
 $query = mysql_num_rows($sql);
 
 $outputList = '';
@@ -409,10 +409,10 @@ include "Templates/Auction/alt.tpl";
 		$dis = '';
 		$deadTitle = '';
 	}
-	if($btype == 9){
+	if($btype >= 7 && $btype <= 9){
 	$amount = '('.$num-$type.') ';
 	$outputList .= "<div id=\"inventory_".$inv."\" class=\"inventory draggable\">";
-	$outputList .= "<div id=\"item_".$id."\" title=\"".$amount."".$name."||".$deadTitle."".$title."\" class=\"item item_114".$dis."\" style=\"position:relative;left:0px;top:0px;\">";
+	$outputList .= "<div id=\"item_".$id."\" title=\"".$amount."".$name."||".$deadTitle."".$title."\" class=\"item item_".($btype+105)."".$dis."\" style=\"position:relative;left:0px;top:0px;\">";
 	$outputList .= "<div class=\"amount\">".($num-$type)."</div>";
 	$outputList .= "</div>";
 	$outputList .= '</div>';

@@ -25,6 +25,10 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 			<td><input type="text" dir="ltr" class="text" name="evaspeed" id="evaspeed" value="1"></td>
 		</tr>
 		<tr class="hover">
+			<td>Heal Speed</td>
+			<td><input type="text" dir="ltr" class="text" name="healspeed" id="healspeed" value="1"></td>
+		</tr>
+		<tr class="hover">
 			<td>Add Adventure Speed</td>
 			<td><input type="text" dir="ltr" class="text" name="advspeed" id="advspeed" value="1"></td>
 		</tr>

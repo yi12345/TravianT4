@@ -68,6 +68,10 @@ define("INCREASE_SPEED",$result['increase']);
 // Values: 1 (normal), 3 (3x speed) etc...
 define("EVASION_SPEED",$result['evasion']);
 
+// ***** Heal Speed
+// Values: 1 (normal), 3 (3x speed) etc...
+define("HEAL_SPEED",$result['heal']);
+
 // ***** Add Adventure Speed
 // Values: 1 (normal), 3 (3x speed) etc...
 define("ADVENTURE_SPEED",$result['adventure']);

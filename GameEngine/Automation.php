@@ -1574,7 +1574,87 @@ class Automation {
             //top 10 attack and defence update
             $totaldead_att = $dead1+$dead2+$dead3+$dead4+$dead5+$dead6+$dead7+$dead8+$dead9+$dead10+$dead11;
 			$totalattackdead += $totaldead_att;
-			
+						if($totaldead_att > 0 && $dead11 == 0){
+						$smallbandageID = $database->getHeroItemID($AttackerID, 7);
+						if($smallbandageID != 0){
+						$smallbandage = $database->getItemData($smallbandageID);
+						$healmax = floor($totalsend_att/4);
+						$totalheal = 0;
+						for($i=1;$i<=10;$i++){
+						${heal.$i} = 0;
+						}
+						while($smallbandage['type'] > 0 && $totalheal < $healmax && $totalheal < $totaldead_att){
+						for($i=1;$i<=10;$i++){
+						if(${heal.$i} < ${dead.$i} && $totalheal < $healmax && $totalheal < $totaldead_att){
+						${heal.$i}++;
+						$smallbandage['type']--;
+						$smallbandage['num']--;
+						$totalheal++;
+						}
+						}
+						}
+						$database->editHeroType($smallbandageID, $smallbandage['type'], 2);
+						$database->editHeroNum2($smallbandageID, $smallbandage['num'], 2);
+						if($smallbandage['type'] == 0){
+						$database->setHeroInventory($AttackerID,"bag",0);
+						$database->editProcItem($smallbandageID, 0);
+						}
+						if($smallbandage['num'] == 0){
+						$q = "DELETE FROM ".TB_PREFIX."heroitems where id = ".$smallbandageID;
+						$database->query($q);
+						}
+						}
+						$bandageID = $database->getHeroItemID($AttackerID, 8);
+						if($bandageID != 0){
+						$bandage = $database->getItemData($bandageID);
+						$healmax = floor($totalsend_att/100*33);
+						$totalheal = 0;
+						for($i=1;$i<=10;$i++){
+						${heal.$i} = 0;
+						}
+						while($bandage['type'] > 0 && $totalheal < $healmax && $totalheal < $totaldead_att){
+						for($i=1;$i<=10;$i++){
+						if(${heal.$i} < ${dead.$i} && $totalheal < $healmax && $totalheal < $totaldead_att){
+						${heal.$i}++;
+						$bandage['type']--;
+						$bandage['num']--;
+						$totalheal++;
+						}
+						}
+						}
+						$database->editHeroType($bandageID, $bandage['type'], 2);
+						$database->editHeroNum2($bandageID, $bandage['num'], 2);
+						if($bandage['type'] == 0){
+						$database->setHeroInventory($AttackerID,"bag",0);
+						$database->editProcItem($bandageID, 0);
+						}
+						if($bandage['num'] == 0){
+						$q = "DELETE FROM ".TB_PREFIX."heroitems where id = ".$bandageID;
+						$database->query($q);
+						}
+						}
+						if($totalheal > 0){
+
+						$speeds = array();
+						
+						//find slowest unit.
+						$tribeunit = ($targettribe-1)*10;
+						for($i=1;$i<=10;$i++){
+						if(${heal.$i} > 0){
+						if($unitarray) { reset($unitarray); }
+						$unitarray = $GLOBALS["u".($tribeunit+$i)];
+						$speeds[] = $unitarray['speed'];
+						}
+						}
+						$time = $this->procDistanceTime($from['wref'],$to['wref'],min($speeds),1);
+						if($time < (86400 / HEAL_SPEED)){
+						$time = 86400 / HEAL_SPEED;
+						}
+						$reference = $database->addAttack($to['wref'],$heal1,$heal2,$heal3,$heal4,$heal5,$heal6,$heal7,$heal8,$heal9,$heal10,0,3,0,0,0,0);
+						$datar = "0,0,0,0,0";
+						$database->addMovement(4,$from['wref'],$from['wref'],$reference,$datar,($time+time()));
+						}
+						}
 			for($i=1;$i<=50;$i++) {
             	$totalsend_def += $Defender[''.$i.''];
             }
@@ -2828,7 +2908,7 @@ $info_cata=" damaged from level <b>".$tblevel."</b> to level <b>".$totallvl."</b
 							$unitarray = $GLOBALS["u".(30+$i)];
 							$speeds[] = $unitarray['speed'];
 				}
-				$time = $this->procDistanceTime($from['wref'],$to['wref'],min($speeds),999);
+				$time = $this->procDistanceTime($from['wref'],$to['wref'],min($speeds),1);
 				$reference = $database->addAttack($to['wref'],$captured1,$captured2,$captured3,$captured4,$captured5,$captured6,$captured7,$captured8,$captured9,$captured10,0,2,0,0,0,0);
 				$database->addMovement(3,0,$from['wref'],$reference,$datar,($time+time()));
 
@@ -3830,11 +3910,15 @@ $info_cata=" damaged from level <b>".$tblevel."</b> to level <b>".$totallvl."</b
         }
         else {
             $speed = $ref;
-			if($mode != 999){
-            if($this->getsort_typeLevel(14,$resarray) != 0) {
-                $speed = $distance <= TS_THRESHOLD ? $speed : $speed * ( ( TS_THRESHOLD + ( $distance - TS_THRESHOLD ) * $bid14[$this->getsort_typeLevel(14,$resarray)]['attri'] / 100 ) / $distance ) ;
-            }
+			for($i=19;$i<=40;$i++){
+			if($resarray['f'.$i.'t'] == 14){
+			$ts_level = $resarray['f'.$i];
+			$ts_attri = $bid14[$ts_level]['attri'];
 			}
+			}
+            if($ts_attri > 0) {
+                $speed = $distance <= TS_THRESHOLD ? $speed : $speed * ( ( TS_THRESHOLD + ( $distance - TS_THRESHOLD ) * $ts_attri / 100 ) / $distance ) ;
+            }
         }
         
         return round(($distance/$speed) * 3600 / INCREASE_SPEED);

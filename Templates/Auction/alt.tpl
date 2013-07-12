@@ -252,238 +252,238 @@
     
 		if($type==16){
         	$name = "Short sword of the Legionnaire";
-        	$title = "+500 to hero strength&lt;br /&gt;For every Legionnaire: +3 attack and +3 defence";
+        	$title = "+500 to hero strength For every Legionnaire: +3 attack and +3 defence";
             $item = "16";
             $effect = "500";
 		}elseif($type==17){
         	$name = "Sword of the Legionnaire";
-        	$title = "+1000 to hero strength&lt;br /&gt;For every Legionnaire: +4 attack and +4 defence";
+        	$title = "+1000 to hero strength For every Legionnaire: +4 attack and +4 defence";
             $item = "17";
             $effect = "1000";
 		}elseif($type==18){
         	$name = "Long sword of the Legionnaire";
-        	$title = "+1500 to hero strength&lt;br /&gt;For every Legionnaire: +5 attack and +5 defence";
+        	$title = "+1500 to hero strength For every Legionnaire: +5 attack and +5 defence";
             $item = "18";
             $effect = "1500";
 		}
         if($type==19){
         	$name = "Short sword of the Praetorian";
-        	$title = "+500 to hero strength;br /&gt;For every Praetorian: +3 attack and +3 defence";
+        	$title = "+500 to hero strength For every Praetorian: +3 attack and +3 defence";
             $item = "19";
             $effect = "500";
         }elseif($type==20){
         	$name = "Sword of the Praetorian";
-        	$title = "+1000 to hero strength&lt;br /&gt;For every Praetorian: +4 attack and +4 defence";
+        	$title = "+1000 to hero strength For every Praetorian: +4 attack and +4 defence";
             $item = "20";
             $effect = "1000";
         }elseif($type==21){
         	$name = "Long sword of the Praetorian";
-        	$title = "+1500 to hero strength&lt;br /&gt;For every Praetorian: +5 attack and +5 defence";
+        	$title = "+1500 to hero strength For every Praetorian: +5 attack and +5 defence";
             $item = "21";
             $effect = "1500";
         }
         if($type==22){
         	$name = "Short sword of the Imperian";
-			$title = "+500 to hero strength&lt;br /&gt;For every Imperian: +3 attack and +3 defence";
+			$title = "+500 to hero strength For every Imperian: +3 attack and +3 defence";
             $item = "22";
             $effect = "500";
 		}elseif($type==23){
         	$name = "Sword of the Imperian";
-			$title = "+1000 to hero strength&lt;br /&gt;For every Imperian: +4 attack and +4 defence";
+			$title = "+1000 to hero strength For every Imperian: +4 attack and +4 defence";
             $item = "23";
             $effect = "1000";
 		}elseif($type==24){
         	$name = "Long sword of the Imperian";
-			$title = "+1500 to hero strength&lt;br /&gt;For every Imperian: +5 attack and +5 defence";
+			$title = "+1500 to hero strength For every Imperian: +5 attack and +5 defence";
             $item = "24";
             $effect = "1500";
 		}
         if($type==25){
         	$name = "Short sword of the Imperatoris";
-			$title = "+500 to hero strength&lt;br /&gt;For every Equites Imperatoris: +9 attack and +9 defence";
+			$title = "+500 to hero strength For every Equites Imperatoris: +9 attack and +9 defence";
             $item = "25";
             $effect = "500";
 		}elseif($type==26){
         	$name = "Sword of the Imperatoris";
-			$title = "+1000 to hero strength&lt;br /&gt;For every Equites Imperatoris: +12 attack and +12 defence";
+			$title = "+1000 to hero strength For every Equites Imperatoris: +12 attack and +12 defence";
             $item = "26";
             $effect = "1000";
 		}elseif($type==27){
         	$name = "Long sword of the Imperatoris";
-			$title = "+1500 to hero strength&lt;br /&gt;For every Equites Imperatoris: +15 attack and +15 defence";
+			$title = "+1500 to hero strength For every Equites Imperatoris: +15 attack and +15 defence";
             $item = "27";
             $effect = "1500";
 		}
         if($type==28){
         	$name = "Light lance of the Caesaris";
-        	$title = "+500 to hero strength&lt;br /&gt;For every Equites Caesaris: +12 attack and +12 defence";
+        	$title = "+500 to hero strength For every Equites Caesaris: +12 attack and +12 defence";
             $item = "28";
             $effect = "500";
         }elseif($type==29){
         	$name = "Lance of the Caesaris";
-        	$title = "+1000 to hero strength&lt;br /&gt;For every Equites Caesaris: +16 attack and +16 defence";
+        	$title = "+1000 to hero strength For every Equites Caesaris: +16 attack and +16 defence";
             $item = "29";
             $effect = "1000";
         }elseif($type==30){
         	$name = "Heavy lance of the Caesaris";
-        	$title = "+1500 to hero strength&lt;br /&gt;For every Equites Caesaris: +20 attack and +20 defence";
+        	$title = "+1500 to hero strength For every Equites Caesaris: +20 attack and +20 defence";
             $item = "30";
             $effect = "1500";
         }
         if($type==31){
         	$name = "Spear of the Phalanx";
-			$title = "+500 to hero strength&lt;br /&gt;For every Phalanx: +3 attack and +3 defence";
+			$title = "+500 to hero strength For every Phalanx: +3 attack and +3 defence";
             $item = "31";
             $effect = "500";
 		}elseif($type==32){
         	$name = "Pike of the Phalanx";
-			$title = "+1000 to hero strength&lt;br /&gt;For every Phalanx: +4 attack and +4 defence";
+			$title = "+1000 to hero strength For every Phalanx: +4 attack and +4 defence";
             $item = "32";
             $effect = "1000";
 		}elseif($type==33){
         	$name = "Lance of the Phalanx";
-			$title = "+1500 to hero strength&lt;br /&gt;For every Phalanx: +5 attack and +5 defence";
+			$title = "+1500 to hero strength For every Phalanx: +5 attack and +5 defence";
             $item = "33";
             $effect = "1500";
 		}
         if($type==34){
         	$name = "Short sword of the Swordsman";
-        	$title = "+500 to hero strength&lt;br /&gt;For every Swordsman: +3 attack and +3 defence";
+        	$title = "+500 to hero strength For every Swordsman: +3 attack and +3 defence";
             $item = "34";
             $effect = "500";
         }elseif($type==35){
         	$name = "Sword of the Swordsman";
-        	$title = "+1000 to hero strength&lt;br /&gt;For every Swordsman: +4 attack and +4 defence";
+        	$title = "+1000 to hero strength For every Swordsman: +4 attack and +4 defence";
             $item = "35";
             $effect = "1000";
         }elseif($type==36){
         	$name = "Long sword of the Swordsman";
-        	$title = "+1500 to hero strength&lt;br /&gt;For every Swordsman: +5 attack and +5 defence";
+        	$title = "+1500 to hero strength For every Swordsman: +5 attack and +5 defence";
             $item = "36";
             $effect = "1500";
         }
         if($type==37){
         	$name = "Short-bow of the Theutates";
-			$title = "+500 to hero strength&lt;br /&gt;For every Theutates Thunder: +6 attack and +6 defence";
+			$title = "+500 to hero strength For every Theutates Thunder: +6 attack and +6 defence";
             $item = "37";
             $effect = "500";
 		}elseif($type==38){
         	$name = "Bow of the Theutates";
-			$title = "+1000 to hero strength&lt;br /&gt;For every Theutates Thunder: +8 attack and +8 defence";
+			$title = "+1000 to hero strength For every Theutates Thunder: +8 attack and +8 defence";
             $item = "38";
             $effect = "1000";
 		}elseif($type==39){
         	$name = "Long-bow of the Theutates";
-			$title = "+1500 to hero strength&lt;br /&gt;For every Theutates Thunder: +10 attack and +10 defence";
+			$title = "+1500 to hero strength For every Theutates Thunder: +10 attack and +10 defence";
             $item = "39";
             $effect = "1500";
 		}
         if($type==40){
         	$name = "Staff of the Druidrider";
-			$title = "+500 to hero strength&lt;br /&gt;For every Druidrider: +6 attack and +6 defence";
+			$title = "+500 to hero strength For every Druidrider: +6 attack and +6 defence";
             $item = "40";
             $effect = "500";
 		}elseif($type==41){
         	$name = "Great staff of the Druidrider";
-			$title = "+1000 to hero strength&lt;br /&gt;For every Druidrider: +8 attack and +8 defence";
+			$title = "+1000 to hero strength For every Druidrider: +8 attack and +8 defence";
             $item = "41";
             $effect = "1000";
 		}elseif($type==42){
         	$name = "Fighting-staff of the Druidrider";
-			$title = "+1500 to hero strength&lt;br /&gt;For every Druidrider: +10 attack and +10 defence";
+			$title = "+1500 to hero strength For every Druidrider: +10 attack and +10 defence";
             $item = "42";
             $effect = "1500";
 		}
         if($type==43){
         	$name = "Light lance of the Haeduan";
-        	$title = "+500 to hero strength&lt;br /&gt;For every Haeduan: +9 attack and +9 defence";
+        	$title = "+500 to hero strength For every Haeduan: +9 attack and +9 defence";
             $item = "43";
             $effect = "500";
         }elseif($type==44){
         	$name = "Lance of the Haeduan";
-        	$title = "+1000 to hero strength&lt;br /&gt;For every Haeduan: +12 attack and +12 defence";
+        	$title = "+1000 to hero strength For every Haeduan: +12 attack and +12 defence";
             $item = "44";
             $effect = "1000";
         }elseif($type==45){
         	$name = "Heavy lance of the Haeduan";
-        	$title = "+1500 to hero strength&lt;br /&gt;For every Haeduan: +15 attack and +15 defence";
+        	$title = "+1500 to hero strength For every Haeduan: +15 attack and +15 defence";
             $item = "45";
             $effect = "1500";
         }
         if($type==46){
         	$name = "Club of the Clubswinger";
-			$title = "+500 to hero strength&lt;br /&gt;For every Maceman: +3 attack and +3 defence";
+			$title = "+500 to hero strength For every Maceman: +3 attack and +3 defence";
             $item = "46";
             $effect = "500";
 		}elseif($type==47){
         	$name = "Mace of the Clubswinger";
-			$title = "+1000 to hero strength&lt;br /&gt;For every Maceman: +4 attack and +4 defence";
+			$title = "+1000 to hero strength For every Maceman: +4 attack and +4 defence";
             $item = "47";
             $effect = "1000";
 		}elseif($type==48){
         	$name = "Morning star of the Clubswinger";
-			$title = "+1500 to hero strength&lt;br /&gt;For every Maceman: +5 attack and +5 defence";
+			$title = "+1500 to hero strength For every Maceman: +5 attack and +5 defence";
             $item = "48";
             $effect = "1500";
 		}
         if($type==49){
         	$name = "Spear of the Spearman";
-        	$title = "+500 to hero strength&lt;br /&gt;For every Spearman: +3 attack and +3 defence";
+        	$title = "+500 to hero strength For every Spearman: +3 attack and +3 defence";
             $item = "49";
             $effect = "500";
         }elseif($type==50){
         	$name = "Spike of the Spearman";
-        	$title = "+1000 to hero strength&lt;br /&gt;For every Spearman: +4 attack and +4 defence";
+        	$title = "+1000 to hero strength For every Spearman: +4 attack and +4 defence";
             $item = "50";
             $effect = "1000";
         }elseif($type==51){
         	$name = "Lance of the Spearman";
-        	$title = "+1500 to hero strength&lt;br /&gt;For every Spearman: +5 attack and +5 defence";
+        	$title = "+1500 to hero strength For every Spearman: +5 attack and +5 defence";
             $item = "51";
             $effect = "1500";
         }
         if($type==52){
         	$name = "Hatchet of the Axeman";
-			$title = "+500 to hero strength&lt;br /&gt;For every Axeman: +3 attack and +3 defence";
+			$title = "+500 to hero strength For every Axeman: +3 attack and +3 defence";
             $item = "52";
             $effect = "500";
 		}elseif($type==53){
         	$name = "Axe of the Axeman";
-			$title = "+1000 to hero strength&lt;br /&gt;For every Axeman: +4 attack and +4 defence";
+			$title = "+1000 to hero strength For every Axeman: +4 attack and +4 defence";
             $item = "53";
             $effect = "1000";
 		}elseif($type==54){
         	$name = "Battle axe of the Axeman";
-			$title = "+1500 to hero strength&lt;br /&gt;For every Axeman: +5 attack and +5 defence";
+			$title = "+1500 to hero strength For every Axeman: +5 attack and +5 defence";
             $item = "54";
             $effect = "1500";
 		}
         if($type==55){
         	$name = "Light hammer of the Paladin";
-			$title = "+500 to hero strength&lt;br /&gt;For every Paladin: +6 attack and +6 defence";
+			$title = "+500 to hero strength For every Paladin: +6 attack and +6 defence";
             $item = "55";
 		}elseif($type==56){
         	$name = "Hammer of the Paladin";
-			$title = "+1000 to hero strength&lt;br /&gt;For every Paladin: +8 attack and +8 defence";
+			$title = "+1000 to hero strength For every Paladin: +8 attack and +8 defence";
             $item = "56";
 		}elseif($type==57){
         	$name = "Heavy hammer of the Paladin";
-			$title = "+1500 to hero strength&lt;br /&gt;For every Paladin: +10 attack and +10 defence";
+			$title = "+1500 to hero strength For every Paladin: +10 attack and +10 defence";
             $item = "57";
 		}
         if($type==58){
         	$name = "Short sword of the Teutonic Knight";
-        	$title = "+500 to hero strength&lt;br /&gt;For every Teutonic Knight: +9 attack and +9 defence";
+        	$title = "+500 to hero strength For every Teutonic Knight: +9 attack and +9 defence";
             $item = "58";
             $effect = "500";
         }elseif($type==59){
         	$name = "Sword of the Teutonic Knight";
-        	$title = "+1000 to hero strength&lt;br /&gt;For every Teutonic Knight: +12 attack and +12 defence";
+        	$title = "+1000 to hero strength For every Teutonic Knight: +12 attack and +12 defence";
             $item = "59";
             $effect = "1000";
         }elseif($type==60){
         	$name = "Long sword of the Teutonic Knight";
-        	$title = "+1500 to hero strength&lt;br /&gt;For every Teutonic Knight: +15 attack and +15 defence";
+        	$title = "+1500 to hero strength For every Teutonic Knight: +15 attack and +15 defence";
             $item = "60";
             $effect = "1500";
         }
@@ -559,23 +559,23 @@
         
 	}elseif($btype==7){
     	$name = " Small bandage";
-		$title = "Heals 1 troop each, max 25% &lt;br /&gt;Stackable";
+		$title = "Heals 1 troop each, max 25%  Stackable";
 		$item = "112";
 	}elseif($btype==8){
     	$name = "Bandage";
-		$title = "Heals 1 troop each, max 33%&lt;br /&gt;Stackable";
+		$title = "Heals 1 troop each, max 33% Stackable";
 		$item = "113";
 	}elseif($btype==9){
     	$name = "Cage";
-		$title = "1 animal can be caught in oasis&lt;br /&gt;Stackable";
+		$title = "1 animal can be caught in oasis Stackable";
 		$item = "114";
 	}elseif($btype==10){
     	$name = "Scroll";
-		$title = "Gives hero 10 experience&lt;br /&gt;Stackable";
+		$title = "Gives hero 10 experience Stackable";
 		$item = "107";
 	}elseif($btype==11){
     	$name = "Ointment";
-		$title = "Instantly heals hero by 1%&lt;br /&gt;Stackable";
+		$title = "Instantly heals hero by 1% Stackable";
 		$item = "106";
 	}elseif($btype==12){
     	$name = "Bucket";
@@ -587,11 +587,11 @@
         $item = "110";
 	}elseif($btype==14){
     	$name = "Tablet of Law";
-		$title = "+1% loyalty in village, max 125%&lt;br /&gt;Stackable";
+		$title = "+1% loyalty in village, max 125% Stackable";
 		$item = "109";
 	}elseif($btype==15){
     	$name = "Artwork";
-		$title = "Instantly gives amount of CP, equal to daily production, but not more than 5000&lt;br /&gt;Stackable";
+		$title = "Instantly gives amount of CP, equal to daily production, but not more than 5000 Stackable";
         $item = "111";
 	}
 

@@ -102,7 +102,6 @@ if($hero['r3']!=0){echo $hero['r3']*10*SPEED;}else if($hero['r4']!=0){echo $hero
 			<input type="radio" onclick="window.location.href = '?product=r1';" name="resource" value="1" id="resourceHero1" <?php if($hero['r1']!=0){ echo $checked="checked"; } ?> <?php echo $form->getRadio('resource',1); ?>>
 			<label for="resourceHero1">
 				<img title="Wood" class="r1" src="img/x.gif">
-				<img title="Lumber" class="r1" src="img/x.gif">
                 <span class="current"> <?php echo $hero['product']*10*SPEED; ?></span>
 			</label>
 		</div>

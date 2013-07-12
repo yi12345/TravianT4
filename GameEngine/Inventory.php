@@ -362,40 +362,39 @@ if($_POST && $_POST['a']=='inventory'){
 			$database->modifyHero2('speed', $value, $uid, 1);
 	}
 
-	/*elseif($data['btype']==7){
+	elseif($data['btype']==7){
+	if($data['amount'] <= $itemData['num']-$itemData['type']){
 		$database->editProcItem($data['id'], 1);
+		$database->editHeroType($data['id'], $data['amount'], 1);
 		if($hero['bag']!=0){
-			$database->modifyHeroFace($uid, 'bag', $data['type']);
 			$id = $database->getHeroItemID2($uid, 7, $hero['bag']);
 			$database->editProcItem($id, 0);
-		}else{
-			$database->modifyHeroFace($uid, 'bag', $data['type']);
 		}
-	}*/
+			$database->setHeroInventory($uid, 'bag', $data['id']);
+		}
+	}
 
-	/*elseif($data['btype']==8){
+	elseif($data['btype']==8){
+		if($data['amount'] <= $itemData['num']-$itemData['type']){
 		$database->editProcItem($data['id'], 1);
+		$database->editHeroType($data['id'], $data['amount'], 1);
 		if($hero['bag']!=0){
-			$database->modifyHeroFace($uid, 'bag', $data['type']);
 			$id = $database->getHeroItemID2($uid, 8, $hero['bag']);
 			$database->editProcItem($id, 0);
-		}else{
-			$database->modifyHeroFace($uid, 'bag', $data['type']);
 		}
-	}*/
+			$database->setHeroInventory($uid, 'bag', $data['id']);
+		}
+	}
 
 	elseif($data['btype']==9){
 		if($data['amount'] <= $itemData['num']-$itemData['type']){
 		$database->editProcItem($data['id'], 1);
 		$database->editHeroType($data['id'], $data['amount'], 1);
-		$database->setHeroInventory($uid, 'bag', $data['id']);
-		if($hero['bag']!=0 && $hero['bag']!=114){
+		if($hero['bag']!=0){
 			$id = $database->getHeroItemID2($uid, 9, $hero['bag']);
 			$database->editProcItem($id, 0);
-			$database->modifyHeroFace($uid, 'bag', 114);
-		}else{
-			$database->modifyHeroFace($uid, 'bag', 114);
 		}
+		$database->setHeroInventory($uid, 'bag', $data['id']);
 		}
 	}
 
