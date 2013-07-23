@@ -523,7 +523,7 @@ $getvID = $database->getVillageID($session->uid);
 $nvillage = $database->getFieldDistance($getvID);
 $ncoor = $database->getCoor($nvillage);
 $nvillagename = $database->getVillageField($nvillage,"name");
-if ($x!=$ncoor['y'] or $y!=$ncoor['x']){
+if ($x!=$ncoor['x'] or $y!=$ncoor['y']){
 
 ?>
 
