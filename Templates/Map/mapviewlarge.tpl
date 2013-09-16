@@ -232,7 +232,7 @@ break;
     if(!$maparray[$index]['fieldtype'] && $maparray[$index]['oasistype'] && $maparray[$index]['occupied']){
     	$occupied = "-s";
     }else{ $occupied = ""; }
-    echo "<a href=\"karte.php?d=".$maparray[$index]['id']."&c=".$generator->getMapCheck($maparray[$index]['id'])."\" style=\"cursor:deLumberult;\"><div class=\"tile tile-".$i."-row".$row1." ".$image."".$occupied."\" title=\"".$targettitle."\">";
+    echo "<a href=\"karte.php?d=".$maparray[$index]['id']."&c=".$generator->getMapCheck($maparray[$index]['id'])."\" style=\"cursor:default;\"><div class=\"tile tile-".$i."-row".$row1." ".$image."".$occupied."\" title=\"".$targettitle."\">";
     if($session->plus) {
     echo $att;
     }
@@ -314,8 +314,8 @@ break;
 		window.addEvent('domready', function()
 	{
 		
-		Travian.Game.Map.LowRes.Options.DeLumberult.tileDisplayInformation.type = 'dialog';
-		new Travian.Game.Map.LowRes.Container($merge(Travian.Game.Map.LowRes.Options.DeLumberult,
+		Travian.Game.Map.LowRes.Options.default.tileDisplayInformation.type = 'dialog';
+		new Travian.Game.Map.LowRes.Container($merge(Travian.Game.Map.LowRes.Options.default,
 		{
 			fullScreen:	true,
 			mapInitialPosition:

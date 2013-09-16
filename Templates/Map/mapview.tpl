@@ -221,7 +221,7 @@ break;
     if(!$maparray[$index]['fieldtype'] && $maparray[$index]['oasistype'] && $maparray[$index]['occupied']){
     	$occupied = "-s";
     }else{ $occupied = ""; }
-    echo "<a href=\"position_details.php?x=".$maparray[$index]['x']."&y=".$maparray[$index]['y']."\" style=\"cursor:deLumberult;\"><div class=\"tile tile-".$i."-row".$row1." ".$image."".$occupied."\" title=\"".$targettitle."\">";
+    echo "<a href=\"position_details.php?x=".$maparray[$index]['x']."&y=".$maparray[$index]['y']."\" style=\"cursor:default;\"><div class=\"tile tile-".$i."-row".$row1." ".$image."".$occupied."\" title=\"".$targettitle."\">";
     if($session->plus) {
     	$wref = $village->wid;
         $toWref = $maparray[$index]['id'];
@@ -305,8 +305,8 @@ break;
 		window.addEvent('domready', function()
 	{
 		
-		Travian.Game.Map.LowRes.Options.DeLumberult.tileDisplayInformation.type = 'dialog';
-		new Travian.Game.Map.LowRes.Container($merge(Travian.Game.Map.LowRes.Options.DeLumberult,
+		Travian.Game.Map.LowRes.Options.default.tileDisplayInformation.type = 'dialog';
+		new Travian.Game.Map.LowRes.Container($merge(Travian.Game.Map.LowRes.Options.default,
 		{
 			fullScreen:	false,
 			mapInitialPosition:

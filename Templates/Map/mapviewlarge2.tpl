@@ -264,5 +264,5 @@ for($h=0;$h<=12;$h++) {
             <span>y </span><input id="mcy" class="text" name="yp" value="" maxlength="4"/>
             <input type="image" id="btn_ok" class="dynamic_img" value="ok" name="s1" src="img/x.gif" alt="OK" />
 
-            </form></div><table cellpadding="1" cellspacing="1" id="map_infobox" class="deLumberult"><thead><tr><th colspan="2">Részlet:</th></tr></thead><tbody><tr><th>Player:</th><td>-</td></tr><tr><th>Population:</th><td>-</td></tr><tr><th>Alliance:</th><td>-</td></tr></tbody></table></div>
+            </form></div><table cellpadding="1" cellspacing="1" id="map_infobox" class="default"><thead><tr><th colspan="2">Részlet:</th></tr></thead><tbody><tr><th>Player:</th><td>-</td></tr><tr><th>Population:</th><td>-</td></tr><tr><th>Alliance:</th><td>-</td></tr></tbody></table></div>
 </div>
