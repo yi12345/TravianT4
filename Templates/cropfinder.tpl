@@ -102,7 +102,7 @@
 foreach($rows as $dist => $row) {
 echo "<tr>";
 echo "<td class=\"dist\">".getDistance($coor['x'], $coor['y'], $row['x'], $row['y'])."</td>";
-echo "<td class=\"coords\"><a href=\"karte.php?x=".$row['y']."&y=".$row['x']."\">(".$row['x']."|".$row['y'].")</a></td>";
+echo "<td class=\"coords\"><a href=\"karte.php?x=".$row['x']."&y=".$row['y']."\">(".$row['x']."|".$row['y'].")</a></td>";
 echo "<td class=\"typ\">15 Cropper</td>";
 if($row['occupied'] == 0) {
 echo "<td class=\"oase\"><img src=\"img/x.gif\" class=\"r4\"> <b><font color=\"green\">Oasis</font></b></td>";
@@ -152,7 +152,7 @@ echo "</tr>";
 
 echo "<tr>";
 echo "<td class=\"dist\">".getDistance($coor['x'], $coor['y'], $row['x'], $row['y'])."</td>";
-echo "<td class=\"coords\"><a href=\"karte.php?x=".$row['y']."&y=".$row['x']."\">(".$row['x']."|".$row['y'].")</a></td>";
+echo "<td class=\"coords\"><a href=\"karte.php?x=".$row['x']."&y=".$row['y']."\">(".$row['x']."|".$row['y'].")</a></td>";
 echo "<td class=\"typ\">9 Cropper</td>";
 if($row['occupied'] == 0) {
 echo "<td class=\"oase\"><img src=\"img/x.gif\" class=\"r4\"> <b><font color=\"green\">Oasis</font></b></td>";
@@ -207,7 +207,7 @@ echo "</tr>";
    
 echo "<tr>";
 echo "<td class=\"dist\">".getDistance($coor['x'], $coor['y'], $row['x'], $row['y'])."</td>";
-echo "<td class=\"coords\"><a href=\"karte.php?x=".$row['y']."&y=".$row['x']."\">(".$row['x']."|".$row['y'].")</a></td>";
+echo "<td class=\"coords\"><a href=\"karte.php?x=".$row['x']."&y=".$row['y']."\">(".$row['x']."|".$row['y'].")</a></td>";
 echo "<td class=\"typ\">" . $field . "</td>";
 if($row['occupied'] == 0) {
 echo "<td class=\"oase\"><img src=\"img/x.gif\" class=\"r4\"> <b><font color=\"green\">Oasis</font></b></td>";
