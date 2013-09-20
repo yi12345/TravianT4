@@ -178,8 +178,6 @@ if(!$checkT){
         	<div class="showCosts">
             	<span class="resources r1 little_res" title="Wood">
                 	<img class="r1" src="img/x.gif" title="Wood" />
-            	<span class="resources r1 little_res" title="Lumber">
-                	<img class="r1" src="img/x.gif" title="Lumber" />
 					<?php echo $hero_t[$hero['level']]['wood']; ?>
                 </span>
                 <span class="resources r2 little_res" title="Clay">
