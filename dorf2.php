@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 include("GameEngine/Village.php");
 $start = $generator->pageLoadTimeStart();
@@ -83,7 +83,7 @@ if($message->unread) {
 </div> 
 </div>
 					<div id="mid"> 
-
+<a id="ingameManual" href="help.php"><img class="question" alt="Help" src="img/x.gif"></a>
 					<div class="clear"></div> 
 						<div id="contentOuterContainer"> 
 							<div class="contentTitle">&nbsp;</div> 
@@ -114,4 +114,3 @@ include("Templates/quest.tpl");
 </div>
 </body>
 </html>
-
