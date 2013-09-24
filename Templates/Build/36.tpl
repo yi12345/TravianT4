@@ -71,8 +71,6 @@ include("upgrade.tpl");
 
 			<div class="showCosts">
 			<span class="resources r1"><img class="r1" src="img/x.gif" alt="Wood">35</span>
-			<span class="resources r1"><img class="r1" src="img/x.gif" alt="Lumber">35</span>
-
 			<span class="resources r2"><img class="r2" src="img/x.gif" alt="Clay">30</span>
 			<span class="resources r3"><img class="r3" src="img/x.gif" alt="Iron">10</span>
 			<span class="resources r4"><img class="r4" src="img/x.gif" alt="Crop">20</span>
