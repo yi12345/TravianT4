@@ -67,7 +67,7 @@ if($vil['capital'] == 1){$class = 'hl';}else{$class = 'hover';}
     echo '<td class="'.$cl.'">'.$unit['u'.$i].'</td>';
 
   }       
-  echo '<td class="'.$cl.'">'.$unit['u50'].'</td>';
+  echo '<td class="'.$cl.'">'.$unit['hero'].'</td>';
   echo '</tr>';    
 
 }
@@ -89,7 +89,7 @@ if($u !=0){$cl = '';}else{$cl = 'none';}
 echo '<td class="'.$cl.'">'.$u.'</td>';
 
 }
-if($unit['u50'] == 0){
+if($unit['hero'] == 0){
 echo '<td class="none">0</td>';
 }else{
 echo '<td class="">1</td>';
