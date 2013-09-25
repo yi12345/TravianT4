@@ -169,9 +169,9 @@ break;
         echo "<td class=\"inhabitants\">".$vil['pop']."</td><td class=\"coords\">";
         echo "<a href=\"position_details.php?x=".$coor['x']."&amp;y=".$coor['y']."\">
         <span class=\"coordinates coordinatesAligned\">
-        <span class=\"coordinateY\">(".$coor['x']."</span>
+        <span class=\"coordinateY\">(".$coor['y']."</span>
         <span class=\"coordinatePipe\">|</span>
-        <span class=\"coordinateX\">".$coor['y'].")</span>
+        <span class=\"coordinateX\">".$coor['x'].")</span>
         </span><span class=\"clear\">‎</span>
         </td></tr>";
     }
