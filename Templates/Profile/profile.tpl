@@ -199,7 +199,7 @@ break;
     $prefix = "".TB_PREFIX."wdata";
     $sql2 = mysql_query("SELECT * FROM $prefix WHERE id = ".$row['wref']."");
     $coords = mysql_fetch_array($sql2);
-    echo "<td class=\"coords\"><a href=\"karte.php?x=".$coords['y']."&y=".$coords['x']."\">
+    echo "<td class=\"coords\"><a href=\"karte.php?x=".$coords['x']."&y=".$coords['y']."\">
     	  <span class=\"coordinates coordinatesAligned\">
           	<span class=\"coordinatesWrapper\">
           		<span class=\"coordinateY\">(".$coords['y']."</span>
