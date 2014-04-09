@@ -26,6 +26,9 @@ for($i=35;$i<=36;$i++) {
                         <div class=\"clear\"></div>
                         <span class=\"clocks\"><img class=\"clock\" src=\"img/x.gif\" alt=\"óra\">";
                         echo $generator->getTimeFormat(round(${'u'.$i}['time'] * ($bid20[$village->resarray['f'.$id]]['attri'] / 100) / SPEED));
+if($session->userinfo['gold'] >= 3 && $building->getTypeLevel(17) >= 1) {
+echo "&nbsp;&nbsp;<button type=\"button\" value=\"npc\" class=\"icon\" onclick=\"window.location.href = 'build.php?gid=17&t=3&r1=".((${'u'.$i}['wood'])*$technology->maxUnitPlus($i))."&r2=".((${'u'.$i}['clay'])*$technology->maxUnitPlus($i))."&r3=".((${'u'.$i}['iron'])*$technology->maxUnitPlus($i))."&r4=".((${'u'.$i}['crop'])*$technology->maxUnitPlus($i))."'; return false;\">&nbsp;<img src=\"img/x.gif\" style=\"margin-top:6px;\" class=\"npc\" alt=\"npc\"></button>";
+} 
 						echo "</span><div class=\"clear\"></div></div><span class=\"value\"></span>
 						<input type=\"text\" class=\"text\" name=\"t$i\" value=\"0\" maxlength=\"4\">
                         <span class=\"value\"> / </span>
