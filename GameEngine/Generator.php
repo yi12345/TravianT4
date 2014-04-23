@@ -9,7 +9,7 @@
 ##                                                                             ##
 #################################################################################
 
-class Generator {
+class MyGenerator {
 	
 	public function generateRandID(){
 		return md5($this->generateRandStr(16));
@@ -152,4 +152,4 @@ class Generator {
 	}
 	
 };
-$generator = new Generator;
+$generator = new MyGenerator;
