@@ -7,7 +7,7 @@
 // example. sql106.000space.com / localhost
 // If you host server on own PC than this value is: localhost
 // If you use online hosting, value must be written in host cpanel
-if(!define("SQL_SERVER") define("SQL_SERVER", "%SSERVER%");
+if(!define("SQL_SERVER")) define("SQL_SERVER", "%SSERVER%");
 
 // ***** Database Username
 if(!define("SQL_USER")) define("SQL_USER", "%SUSER%");
