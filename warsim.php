@@ -118,7 +118,24 @@ if(count($target) > 0) {
 			<tr>
 				<td>
 					<div class="fighterType">
-						<div class="boxes boxesColor red"><div class="boxes-tl"></div><div class="boxes-tr"></div><div class="boxes-tc"></div><div class="boxes-ml"></div><div class="boxes-mr"></div><div class="boxes-mc"></div><div class="boxes-bl"></div><div class="boxes-br"></div><div class="boxes-bc"></div><div class="boxes-contents">Támadók	</div>
+						<div class="boxes boxesColor red"><div class="boxes-tl"></div><div class="boxes-tr"></div><div class="boxes-tc"></div><div class="boxes-ml"></div><div class="boxes-mr"></div><div class="boxes-mc"></div><div class="boxes-bl"></div><div class="boxes-br"></div><div class="boxes-bc"></div><div class="boxes-contents">
+						<?php echo $lang['WARSIM']['Battle_Type']; ?>
+						</div>
+				</div>
+					</div>
+					<div class="clear"></div>
+
+					<div class="choice">
+                    <label><input class="radio" type="radio" name="a1_v" value="1" <?php if($tribe == 1) { echo "checked"; } ?>> <?php echo TRIBE1; ?></label><br/>
+        <label><input class="radio" type="radio" name="a1_v" value="2" <?php if($tribe == 2) { echo "checked"; } ?>> <?php echo TRIBE2; ?></label><br/>
+        <label><input class="radio" type="radio" name="a1_v" value="3" <?php if($tribe == 3) { echo "checked"; } ?>> <?php echo TRIBE3; ?></label>
+					</div>
+				</td>
+
+				<td>
+					<div class="fighterType">
+						<div class="boxes boxesColor green"><div class="boxes-tl"></div><div class="boxes-tr"></div><div class="boxes-tc"></div><div class="boxes-ml"></div><div class="boxes-mr"></div><div class="boxes-mc"></div><div class="boxes-bl"></div><div class="boxes-br"></div><div class="boxes-bc"></div><div class="boxes-contents">
+						<?php echo $lang['WARSIM']['Defender']; ?>	</div>
 				</div>
 					</div>
 					<div class="clear"></div>
