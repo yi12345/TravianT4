@@ -553,4 +553,13 @@ $lang['HELP1']['Text_5'] ="On the forum, chat with other players.";
 $lang['HELP1']['Partie_6'] = "Quick information";
 $lang['HELP1']['Text_6'] ="Here you can find short and quick information about the troops and buildings Travian";
 
+
+//added by Stoakes
+//warsim.php
+$lang['WARSIM']['Attacker'] = "Attacker";
+$lang['WARSIM']['Defender'] = "Defender";
+$lang['WARSIM']['Battle_Type'] = "Battle Type";
+$lang['WARSIM']['Normal'] = "Normal";
+$lang['WARSIM']['Raid'] = "Raid";
+$lang['WARSIM']['Simulate_Attack'] = "Simulate attack";
 ?>
