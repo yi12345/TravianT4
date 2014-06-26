@@ -104,8 +104,8 @@ $target = isset($_POST['target'])? $_POST['target'] : array();
 $tribe = isset($_POST['mytribe'])? $_POST['mytribe'] : $session->tribe;
 if(count($target) > 0) {
     include("Templates/Simulator/att_".$tribe.".tpl");
-	echo '<div id="defender"><div class="fighterType"><div class="boxes boxesColor green"><div class="boxes-tl"></div><div class="boxes-tr"></div><div class="boxes-tc"></div><div class="boxes-ml"></div><div class="boxes-mr"></div><div class="boxes-mc"></div><div class="boxes-bl"></div><div class="boxes-br"></div><div class="boxes-bc"></div><div class="boxes-contents">Védők</div></div></div><div class="clear"></div>';
-
+	echo '<div id="defender"><div class="fighterType"><div class="boxes boxesColor green"><div class="boxes-tl"></div><div class="boxes-tr"></div><div class="boxes-tc"></div><div class="boxes-ml"></div><div class="boxes-mr"></div><div class="boxes-mc"></div><div class="boxes-bl"></div><div class="boxes-br"></div><div class="boxes-bc"></div><div class="boxes-contents">'.$lang['WARSIM']['Defender'].'</div></div></div><div class="clear"></div>';
+    
     foreach($target as $tar) {
         include("Templates/Simulator/def_".$tar.".tpl");
     }
@@ -118,44 +118,47 @@ if(count($target) > 0) {
 			<tr>
 				<td>
 					<div class="fighterType">
-						<div class="boxes boxesColor red"><div class="boxes-tl"></div><div class="boxes-tr"></div><div class="boxes-tc"></div><div class="boxes-ml"></div><div class="boxes-mr"></div><div class="boxes-mc"></div><div class="boxes-bl"></div><div class="boxes-br"></div><div class="boxes-bc"></div><div class="boxes-contents">Támadók	</div>
+						<div class="boxes boxesColor red"><div class="boxes-tl"></div><div class="boxes-tr"></div><div class="boxes-tc"></div><div class="boxes-ml"></div><div class="boxes-mr"></div><div class="boxes-mc"></div><div class="boxes-bl"></div><div class="boxes-br"></div><div class="boxes-bc"></div><div class="boxes-contents">
+						<?php echo $lang['WARSIM']['Battle_Type']; ?>
+						</div>
 				</div>
 					</div>
 					<div class="clear"></div>
 
 					<div class="choice">
-                    <label><input class="radio" type="radio" name="a1_v" value="1" <?php if($tribe == 1) { echo "checked"; } ?>> Római</label><br/>
-        <label><input class="radio" type="radio" name="a1_v" value="2" <?php if($tribe == 2) { echo "checked"; } ?>> Germán </label><br/>
-        <label><input class="radio" type="radio" name="a1_v" value="3" <?php if($tribe == 3) { echo "checked"; } ?>> Gall</label>
+                    <label><input class="radio" type="radio" name="a1_v" value="1" <?php if($tribe == 1) { echo "checked"; } ?>> <?php echo TRIBE1; ?></label><br/>
+        <label><input class="radio" type="radio" name="a1_v" value="2" <?php if($tribe == 2) { echo "checked"; } ?>> <?php echo TRIBE2; ?></label><br/>
+        <label><input class="radio" type="radio" name="a1_v" value="3" <?php if($tribe == 3) { echo "checked"; } ?>> <?php echo TRIBE3; ?></label>
 					</div>
 				</td>
 
 				<td>
 					<div class="fighterType">
-						<div class="boxes boxesColor green"><div class="boxes-tl"></div><div class="boxes-tr"></div><div class="boxes-tc"></div><div class="boxes-ml"></div><div class="boxes-mr"></div><div class="boxes-mc"></div><div class="boxes-bl"></div><div class="boxes-br"></div><div class="boxes-bc"></div><div class="boxes-contents">Védők	</div>
+						<div class="boxes boxesColor green"><div class="boxes-tl"></div><div class="boxes-tr"></div><div class="boxes-tc"></div><div class="boxes-ml"></div><div class="boxes-mr"></div><div class="boxes-mc"></div><div class="boxes-bl"></div><div class="boxes-br"></div><div class="boxes-bc"></div><div class="boxes-contents">
+						<?php echo $lang['WARSIM']['Defender']; ?>	</div>
 				</div>
 					</div>
 					<div class="clear"></div>
 
 					<div class="choice">
-						<label><input class="check" type="checkbox" name="a2_v1" value="1" <?php if(in_array(1,$target)) { echo "checked"; } ?>> Római</label><br>
-						<label><input class="check" type="checkbox" name="a2_v2" value="1" <?php if(in_array(2,$target)) { echo "checked"; } ?>> Germán</label><br>
-						<label><input class="check" type="checkbox" name="a2_v3" value="1" <?php if(in_array(3,$target)) { echo "checked"; } ?>> Gall</label><br>
-						<label><input class="check" type="checkbox" name="a2_v4" value="1" <?php if(in_array(4,$target)) { echo "checked"; } ?>> Természet</label>
+						<label><input class="check" type="checkbox" name="a2_v1" value="1" <?php if(in_array(1,$target)) { echo "checked"; } ?>> <?php echo TRIBE1; ?></label><br>
+						<label><input class="check" type="checkbox" name="a2_v2" value="1" <?php if(in_array(2,$target)) { echo "checked"; } ?>> <?php echo TRIBE2; ?></label><br>
+						<label><input class="check" type="checkbox" name="a2_v3" value="1" <?php if(in_array(3,$target)) { echo "checked"; } ?>> <?php echo TRIBE3; ?></label><br>
+						<label><input class="check" type="checkbox" name="a2_v4" value="1" <?php if(in_array(4,$target)) { echo "checked"; } ?>> <?php echo TRIBE4; ?></label>
 					</div>
 				</td>
 
 				<td>
 					<div class="fighterType">
-						<div class="boxes boxesColor darkgray"><div class="boxes-tl"></div><div class="boxes-tr"></div><div class="boxes-tc"></div><div class="boxes-ml"></div><div class="boxes-mr"></div><div class="boxes-mc"></div><div class="boxes-bl"></div><div class="boxes-br"></div><div class="boxes-bc"></div><div class="boxes-contents">Harctípus	</div>
+						<div class="boxes boxesColor darkgray"><div class="boxes-tl"></div><div class="boxes-tr"></div><div class="boxes-tc"></div><div class="boxes-ml"></div><div class="boxes-mr"></div><div class="boxes-mc"></div><div class="boxes-bl"></div><div class="boxes-br"></div><div class="boxes-bc"></div><div class="boxes-contents"><?php echo $lang['WARSIM']['Battle_Type']; ?>	</div>
 				</div>
 					</div>
 					<div class="clear"></div>
 
 					<div class="choice">
-                    <label><input class="radio" type="radio" name="ktyp" value="0" <?php if($form->getValue('ktyp') == 0 || $form->getValue('ktyp') == "") { echo "checked"; } ?>> Normál</label><br/>
+                    <label><input class="radio" type="radio" name="ktyp" value="0" <?php if($form->getValue('ktyp') == 0 || $form->getValue('ktyp') == "") { echo "checked"; } ?>> <?php echo $lang['WARSIM']['Normal']; ?></label><br/>
 
-        <label><input class="radio" type="radio" name="ktyp" value="1" <?php if($form->getValue('ktyp') == 1) { echo "checked"; } ?>> Rablótámadás</label><br/>
+        <label><input class="radio" type="radio" name="ktyp" value="1" <?php if($form->getValue('ktyp') == 1) { echo "checked"; } ?>> <?php echo $lang['WARSIM']['Raid']; ?></label><br/>
 						<input type="hidden" name="uid" value="<?php echo $session->uid; ?>">
 					</div>
 				</td>
@@ -163,8 +166,8 @@ if(count($target) > 0) {
 		</tbody>
 	</table>
 
+<p class="btn"><button type="submit" value="<?php echo $lang['WARSIM']['Simulate_Attack']; ?>" name="s1" id="btn_ok"><div class="button-container"><div class="button-position"><div class="btl"><div class="btr"><div class="btc"></div></div></div><div class="bml"><div class="bmr"><div class="bmc"></div></div></div><div class="bbl"><div class="bbr"><div class="bbc"></div></div></div></div><div class="button-contents"><?php echo $lang['WARSIM']['Simulate_Attack']; ?></div></div></button></p>
 
-<p class="btn"><button type="submit" value="Támadás szimulálása" name="s1" id="btn_ok"><div class="button-container"><div class="button-position"><div class="btl"><div class="btr"><div class="btc"></div></div></div><div class="bml"><div class="bmr"><div class="bmc"></div></div></div><div class="bbl"><div class="bbr"><div class="bbc"></div></div></div></div><div class="button-contents">Támadás szimulálása</div></div></button></p>
 </form>
 </div>
 <div class="clear">&nbsp;</div>
