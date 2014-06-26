@@ -9,7 +9,7 @@
 ##                                                                             ##
 #################################################################################
 
-class Generator {
+class Generator2 { // naming issue, adding a 2 solve the issue  /!\ cf last line
 	
 	public function generateRandID(){
 		return md5($this->generateRandStr(16));
@@ -152,4 +152,4 @@ class Generator {
 	}
 	
 };
-$generator = new Generator;
+$generator = new Generator2; // Also renaming the Call

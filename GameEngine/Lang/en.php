@@ -79,7 +79,9 @@ define("REGISTER_USERINFO","Register");
 define("REGISTER_USERNAME","Name");
 define("REGISTER_EMAIL","Email");
 define("REGISTER_PASSWORD","Password");
-define("REGISTER_STARTER","");
+define("REGISTER_STARTER","<b>Gauls</b> : Low time requirements, better loot protection and good defense available early on,very good cavalry, fastest units in the game, good fit for new players.<br/>
+<b>Romans</b> : Time requirements are moderate, may develop villages the fastes, very strong but expensive troops, good infantry, has hardly any advantages during the game's initial stage, not recommended for new players.<br/>
+<b>Teutons</b> : Sufficient time needed for offensive play, Inexpensive troops may be produced fast, good at looting, for aggressive and experienced players.");
 define("REGISTER_SELECT_TRIBE","Select Tribe");
 define("REGISTER_LOCATION","Location");
 define("REGISTER_NE","North-East");
@@ -553,4 +555,13 @@ $lang['HELP1']['Text_5'] ="On the forum, chat with other players.";
 $lang['HELP1']['Partie_6'] = "Quick information";
 $lang['HELP1']['Text_6'] ="Here you can find short and quick information about the troops and buildings Travian";
 
+
+//added by Stoakes
+//warsim.php
+$lang['WARSIM']['Attacker'] = "Attacker";
+$lang['WARSIM']['Defender'] = "Defender";
+$lang['WARSIM']['Battle_Type'] = "Battle Type";
+$lang['WARSIM']['Normal'] = "Normal";
+$lang['WARSIM']['Raid'] = "Raid";
+$lang['WARSIM']['Simulate_Attack'] = "Simulate attack";
 ?>

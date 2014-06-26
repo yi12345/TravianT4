@@ -2,7 +2,7 @@
 
 date_default_timezone_set('Asia/Tehran');
         if(file_exists("include/constant.php") && file_exists("include/connection.php")) {
-        	include ("include/database.php");
+        	include_once ("include/database.php");
         }
         class Process {
 
@@ -67,7 +67,7 @@ date_default_timezone_set('Asia/Tehran');
         		fwrite($fh, $text);
 				
         		if(file_exists("include/constant.php") && file_exists("include/connection.php")) {
-					include 'include/database.php';
+                    include_once 'include/database.php';
 					$str = file_get_contents("data/config.sql");
         			$str = preg_replace("'%PREFIX%'", TB_PREFIX, $str);
 					if(DB_TYPE) {

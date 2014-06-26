@@ -8,17 +8,17 @@ $result = mysql_fetch_array($sql);
 /////// قیمت های سکه ی طلا ///////
 /////////// به تومان ///////////
 ///////////////////////////////
-define("TALA_100","5,000");
-define("TALA_250","9,000");
-define("TALA_500","16,000");
-define("TALA_1200","28,000");
-define("TALA_3200","50,000");
+if(!defined("TALA_100")) define("TALA_100","5,000");
+if(!defined("TALA_250")) define("TALA_250","9,000");
+if(!defined("TALA_500")) define("TALA_500","16,000");
+if(!defined("TALA_1200")) define("TALA_1200","28,000");
+if(!defined("TALA_3200")) define("TALA_3200","50,000");
 
 //////////////////////////////////
 ///////// آیدی مدیر فروش ////////
 /////////// Yahoo!ID ///////////
 ///////////////////////////////
-define("SALES_ID","westehran");
+if(!defined("SALES_ID")) define("SALES_ID","westehran");
 
 
 //////////////////////////////////
@@ -33,78 +33,78 @@ define("SALES_ID","westehran");
 //////////////////////////////////
 
 // ***** Name
-define("SERVER_NAME",$result['server_name']);
+if(!defined("SERVER_NAME")) define("SERVER_NAME",$result['server_name']);
 
 // ***** Started
 // Defines when has server started.
-define("COMMENCE","%STARTTIME%");
+if(!defined("COMMENCE")) define("COMMENCE","%STARTTIME%");
 
 // ***** Language
 // Choose your server language.
-define("LANG",$result['lang']);
+if(!defined("LANG")) define("LANG",$result['lang']);
 
 // ***** Speed
 // Choose your server speed. NOTICE: Higher speed, more likely
 // to have some bugs. Lower speed, most likely no major bugs.
 // Values: 1 (normal), 3 (3x speed) etc...
-define("SPEED", $result['speed']);
+if(!defined("SPEED")) define("SPEED", $result['speed']);
 
 // ***** World size
 // Defines world size. NOTICE: DO NOT EDIT!!
-define("WORLD_MAX", "%MAX%");
+if(!defined("WORLD_MAX")) define("WORLD_MAX", "%MAX%");
 
 // ***** Graphic Pack
 // True = enabled, false = disabled
 //!!!!!!!!!!!! DO NOT ENABLE !!!!!!!!!!!!
-define("GP_ENABLE",false);
+if(!defined("GP_ENABLE")) define("GP_ENABLE",false);
 // Graphic pack location (default: gpack/travian_basic/)
-define("GP_LOCATE", $result['gp_locate']);
+if(!defined("GP_LOCATE")) define("GP_LOCATE", $result['gp_locate']);
 
 // ***** Troop Speed
 // Values: 1 (normal), 3 (3x speed) etc...
-define("INCREASE_SPEED",$result['increase']);
+if(!defined("INCREASE_SPEED")) define("INCREASE_SPEED",$result['increase']);
 
 // ***** Evasion Speed
 // Values: 1 (normal), 3 (3x speed) etc...
-define("EVASION_SPEED",$result['evasion']);
+if(!defined("EVASION_SPEED")) define("EVASION_SPEED",$result['evasion']);
 
 // ***** Heal Speed
 // Values: 1 (normal), 3 (3x speed) etc...
-define("HEAL_SPEED",$result['heal']);
+if(!defined("HEAL_SPEED")) define("HEAL_SPEED",$result['heal']);
 
 // ***** Add Adventure Speed
 // Values: 1 (normal), 3 (3x speed) etc...
-define("ADVENTURE_SPEED",$result['adventure']);
+if(!defined("ADVENTURE_SPEED")) define("ADVENTURE_SPEED",$result['adventure']);
 
 // ***** Trader capacity
 // Values: 1 (normal), 3 (3x speed) etc...
-define("TRADER_CAPACITY","%TRADERCAP%");
+if(!defined("TRADER_CAPACITY")) define("TRADER_CAPACITY","%TRADERCAP%");
 
 // ***** Cranny capacity
-define("CRANNY_CAPACITY","%CRANNYCAP%");
+if(!defined("CRANNY_CAPACITY")) define("CRANNY_CAPACITY","%CRANNYCAP%");
 
 // ***** Trapper capacity
-define("TRAPPER_CAPACITY","%TRAPPERCAP%");
+if(!defined("TRAPPER_CAPACITY")) define("TRAPPER_CAPACITY","%TRAPPERCAP%");
 
 // ***** Village Expand
 // 1 = slow village expanding - more Cultural Points needed for every new village
 // 0 = fast village expanding - less Cultural Points needed for every new village
-define("CP", %VILLAGE_EXPAND%);
+if(!defined("CP")) define("CP", %VILLAGE_EXPAND%);
 
 // ***** Demolish Level Required
 // Defines which level of Main building is required to be able to
 // demolish. Min value = 1, max value = 20
 // Default: 10
-define("DEMOLISH_LEVEL_REQ", $result['demolish_lvl']);
+if(!defined("DEMOLISH_LEVEL_REQ")) define("DEMOLISH_LEVEL_REQ", $result['demolish_lvl']);
 
 // ***** Change storage capacity
-define("STORAGE_MULTIPLIER","%STORAGE_MULTIPLIER%");
-define("STORAGE_BASE",800*STORAGE_MULTIPLIER);
+if(!defined("STORAGE_MULTIPLIER")) define("STORAGE_MULTIPLIER","%STORAGE_MULTIPLIER%");
+if(!defined("STORAGE_BASE")) define("STORAGE_BASE",800*STORAGE_MULTIPLIER);
 
 // ***** Quest
 // Ingame quest enabled/disabled.
 if($result['taskmaster']==1){ $quest = true; }else{ $quest = false; }
-define("QUEST",$quest);
+if(!defined("QUEST")) define("QUEST",$quest);
 
 // ***** Beginners Protection
 // 3600 = 1 hour
@@ -112,29 +112,29 @@ define("QUEST",$quest);
 // 3600*24 = 1 day
 // 3600*24*3 = 3 days
 // You can choose any value you want!
-define("PROTECTION",$result['protecttime']);
-define("AUCTIONTIME",$result['auctiontime']);
+if(!defined("PROTECTION")) define("PROTECTION",$result['protecttime']);
+if(!defined("AUCTIONTIME")) define("AUCTIONTIME",$result['auctiontime']);
 
 // ***** Enable WW Statistics
 if($result['ww']==1){ $ww = true; }else{ $ww = false; }
-define("WW",$ww);
+if(!defined("WW")) define("WW",$ww);
 
 // ***** Activation Mail
 // true = activation mail will be sent, users will have to finish registration
 //        by clicking on link recieved in mail.
 // false =  users can register with any mail. Not needed to be real one.
 if($result['auth_email']==1){ $auth_email = true; }else{ $auth_email = false; }
-define("AUTH_EMAIL",$auth_email);
+if(!defined("AUTH_EMAIL")) define("AUTH_EMAIL",$auth_email);
 
 // ***** PLUS
 //Plus account lenght
-define("PLUS_TIME",$result['plus_time']);
+if(!defined("PLUS_TIME")) define("PLUS_TIME",$result['plus_time']);
 //+25% production lenght
-define("PLUS_PRODUCTION",$result['plus_prodtime']);
+if(!defined("PLUS_PRODUCTION")) define("PLUS_PRODUCTION",$result['plus_prodtime']);
 // ***** Great Workshop
-define("GREAT_WKS",%GREAT_WKS%);
+if(!defined("GREAT_WKS")) define("GREAT_WKS",%GREAT_WKS%);
 // ***** Tourn threshold
-define("TS_THRESHOLD",%TS_THRESHOLD%);  
+if(!defined("TS_THRESHOLD")) define("TS_THRESHOLD",%TS_THRESHOLD%);
 
 
 
@@ -143,28 +143,28 @@ define("TS_THRESHOLD",%TS_THRESHOLD%);
 //////////////////////////////////
 // LOG BUILDING/UPGRADING
 if($result['log_build']==1){ $log_build = true; }else{ $log_build = false; }
-define("LOG_BUILD",$log_build);
+if(!defined("LOG_BUILD")) define("LOG_BUILD",$log_build);
 // LOG RESEARCHES
 if($result['log_tech']==1){ $log_tech = true; }else{ $log_tech = false; }
-define("LOG_TECH",$log_tech);
+if(!defined("LOG_TECH")) define("LOG_TECH",$log_tech);
 // LOG USER LOGIN (IP's)
 if($result['log_login']==1){ $log_login = true; }else{ $log_login = false; }
-define("LOG_LOGIN",$log_login);
+if(!defined("LOG_LOGIN")) define("LOG_LOGIN",$log_login);
 // LOG GOLD
 if($result['log_gold']==1){ $log_gold = true; }else{ $log_gold = false; }
-define("LOG_GOLD_FIN",$log_gold);
+if(!defined("LOG_GOLD_FIN")) define("LOG_GOLD_FIN",$log_gold);
 // LOG ADMIN
 if($result['log_admin']==1){ $log_admin = true; }else{ $log_admin = false; }
-define("LOG_ADMIN",$log_admin);
+if(!defined("LOG_ADMIN")) define("LOG_ADMIN",$log_admin);
 // LOG ATTACK REPORTS
 if($result['log_war']==1){ $log_war = true; }else{ $log_war = false; }
-define("LOG_WAR",$log_war);
+if(!defined("LOG_WAR")) define("LOG_WAR",$log_war);
 // LOG MARKET REPORTS
 if($result['log_market']==1){ $log_market = true; }else{ $log_market = false; }
-define("LOG_MARKET",$log_market);
+if(!defined("LOG_MARKET")) define("LOG_MARKET",$log_market);
 // LOG ILLEGAL ACTIONS
 if($result['log_illegal']==1){ $log_illegal = true; }else{ $log_illegal = false; }
-define("LOG_ILLEGAL",$log_illegal);
+if(!defined("LOG_ILLEGAL")) define("LOG_ILLEGAL",$log_illegal);
 
 
 
@@ -180,13 +180,13 @@ if($result['home1']==1){ $home1 = true; }else{ $home1 = false; }
 if($result['home2']==1){ $home2 = true; }else{ $home2 = false; }
 if($result['home3']==1){ $home3 = true; }else{ $home3 = false; }
 
-define("NEWSBOX1",$newsbox1);
-define("NEWSBOX2",$newsbox2);
-define("NEWSBOX3",$newsbox3);
+if(!defined("NEWSBOX1")) define("NEWSBOX1",$newsbox1);
+if(!defined("NEWSBOX2")) define("NEWSBOX2",$newsbox2);
+if(!defined("NEWSBOX3")) define("NEWSBOX3",$newsbox3);
 
-define("HOME1",$home1);
-define("HOME2",$home2);
-define("HOME3",$home3);
+if(!defined("HOME1")) define("HOME1",$home1);
+if(!defined("HOME2")) define("HOME2",$home2);
+if(!defined("HOME3")) define("HOME3",$home3);
 
 
 ////////////////////////////////////
@@ -194,28 +194,28 @@ define("HOME3",$home3);
 ////////////////////////////////////
 
 // ***** Censore words
-//define("WORD_CENSOR", "%ACTCEN%");
+//if(!defined("WORD_CENSOR")) define("WORD_CENSOR", "%ACTCEN%");
 
 // ***** Words (censore)
 // Choose which words do you want to be censored
-//define("CENSORED","%CENWORDS%");
+//if(!defined("CENSORED")) define("CENSORED","%CENWORDS%");
 
 
 // ***** Limit Mailbox
 // Limits mailbox to defined number of mails. (IGM's)
-define("LIMIT_MAILBOX",%LIMIT_MAILBOX%);
+if(!defined("LIMIT_MAILBOX")) define("LIMIT_MAILBOX",%LIMIT_MAILBOX%);
 // If enabled, define number of maximum mails.
-define("MAX_MAIL","%MAX_MAILS%");
+if(!defined("MAX_MAIL")) define("MAX_MAIL","%MAX_MAILS%");
 
 // ***** Include administrator in statistics/rank
-define("INCLUDE_ADMIN", %ARANK%);
+if(!defined("INCLUDE_ADMIN")) define("INCLUDE_ADMIN", %ARANK%);
 
 // ***** Server Start Date / Time
-define("START_DATE", "%SSTARTDATE%");
-define("START_TIME", "%SSTARTTIME%");
+if(!defined("START_DATE")) define("START_DATE", "%SSTARTDATE%");
+if(!defined("START_TIME")) define("START_TIME", "%SSTARTTIME%");
 
 // ***** Register Open/Close
-define("REG_OPEN", %REG_OPEN%);
+if(!defined("REG_OPEN")) define("REG_OPEN", %REG_OPEN%);
 
 // ***** Peace system
 // 0 = None
@@ -223,52 +223,52 @@ define("REG_OPEN", %REG_OPEN%);
 // 2 = Christmas
 // 3 = New Year
 // 4 = Easter
-define("PEACE",%PEACE%);
+if(!defined("PEACE")) define("PEACE",%PEACE%);
 
 // ***** Limit troops
-define("LIMIT_TROOPS",%LIMIT_TROOPS%);
+if(!defined("LIMIT_TROOPS")) define("LIMIT_TROOPS",%LIMIT_TROOPS%);
 
 ////////////////////////////////////
 //   ****  ADMIN SETTINGS  ****   //
 ////////////////////////////////////
 
 // ***** Admin Email
-define("ADMIN_EMAIL", $result['admin_email']);
+if(!defined("ADMIN_EMAIL")) define("ADMIN_EMAIL", $result['admin_email']);
 
 // ***** Admin Name
-define("ADMIN_NAME", "%ANAME%");
+if(!defined("ADMIN_NAME")) define("ADMIN_NAME", "%ANAME%");
 
 
 
 //////////////////////////////////////////
 //   ****  DO NOT EDIT SETTINGS  ****   //
 //////////////////////////////////////////
-define("TRACK_USR","%UTRACK%");
-define("USER_TIMEOUT","%UTOUT%"); 
-define("ALLOW_BURST",false);
-define("BASIC_MAX",1);
-define("INNER_MAX",1);
-define("PLUS_MAX",1);
-define("ALLOW_ALL_TRIBE",false);
-define("CFM_ADMIN_ACT",true);
-define("SERVER_WEB_ROOT",false);
-define("USRNM_SPECIAL",true);
-define("USRNM_MIN_LENGTH",3);
-define("PW_MIN_LENGTH",4);
-define("BANNED",0);
-define("AUTH",1);
-define("USER",2);
-define("MULTIHUNTER",8);
-define("ADMIN",9);
-define("COOKIE_EXPIRE", 60*60*24*7); 
-define("COOKIE_PATH", "/"); 
+if(!defined("TRACK_USR"))        define("TRACK_USR","%UTRACK%");
+if(!defined("USER_TIMEOUT"))     define("USER_TIMEOUT","%UTOUT%");
+if(!defined("ALLOW_BURST"))      define("ALLOW_BURST",false);
+if(!defined("BASIC_MAX"))        define("BASIC_MAX",1);
+if(!defined("INNER_MAX"))        define("INNER_MAX",1);
+if(!defined("PLUS_MAX"))         define("PLUS_MAX",1);
+if(!defined("ALLOW_ALL_TRIBE"))  define("ALLOW_ALL_TRIBE",false);
+if(!defined("CFM_ADMIN_ACT"))    define("CFM_ADMIN_ACT",true);
+if(!defined("SERVER_WEB_ROOT"))  define("SERVER_WEB_ROOT",false);
+if(!defined("USRNM_SPECIAL"))    define("USRNM_SPECIAL",true);
+if(!defined("USRNM_SPECIAL"))    define("USRNM_SPECIAL",3);
+if(!defined("PW_MIN_LENGTH"))    define("PW_MIN_LENGTH",4);
+if(!defined("BANNED"))           define("BANNED",0);
+if(!defined("AUTH"))             define("AUTH",1);
+if(!defined("USER"))             define("USER",2);
+if(!defined("MULTIHUNTER"))      define("MULTIHUNTER",8);
+if(!defined("ADMIN"))            define("ADMIN",9);
+if(!defined("COOKIE_EXPIRE"))    define("COOKIE_EXPIRE", 60*60*24*7);
+if(!defined("COOKIE_PATH"))      define("COOKIE_PATH", "/");
 
 
 ////////////////////////////////////////////
 //   ****  DOMAIN/SERVER SETTINGS  ****   //
 ////////////////////////////////////////////
-define("DOMAIN", $result['server_url']);
-define("HOMEPAGE", $result['server_url']);
-define("SERVER", $result['server_url']);
+if(!defined("DOMAIN"))   define("DOMAIN", $result['server_url']);
+if(!defined("HOMEPAGE")) define("HOMEPAGE", $result['server_url']);
+if(!defined("SERVER"))   define("SERVER", $result['server_url']);
 
 ?>
