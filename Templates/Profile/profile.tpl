@@ -1,4 +1,4 @@
-﻿<?php 
+<?php 
 $varmedal = $database->getProfileMedal($session->uid);  ?>
 <form action="spieler.php" method="POST">
     <input type="hidden" name="ft" value="p1" />
@@ -22,7 +22,7 @@ $varmedal = $database->getProfileMedal($session->uid);  ?>
 					
 					<input tabindex="3" type="text" name="jahr" value="<?php echo $bday[0]; ?>" maxlength="4" class="text year">
                     <select tabindex="2" name="monat" class="dropdown">
-<option value="0"></option><option value="1" <?php if($bday[1] == 1) { echo "selected"; } ?>>January</option><option value="2"<?php if($bday[1] == 2) { echo "selected"; } ?>>Febuary</option><option value="3"<?php if($bday[1] == 3) { echo "selected"; } ?>>Március</option><option value="4"<?php if($bday[1] == 4) { echo "selected"; } ?>>Ápril</option><option value="5"<?php if($bday[1] == 5) { echo "selected"; } ?>>May</option><option value="6"<?php if($bday[1] == 6) { echo "selected"; } ?>>June</option><option value="7"<?php if($bday[1] == 7) { echo "selected"; } ?>>July</option><option value="8"<?php if($bday[1] == 8) { echo "selected"; } ?>>August</option><option value="9"<?php if($bday[1] == 9) { echo "selected"; } ?>>September</option><option value="10"<?php if($bday[1] == 10) { echo "selected"; } ?>>October</option><option value="11"<?php if($bday[1] == 11) { echo "selected"; } ?>>November</option><option value="12"<?php if($bday[1] == 12) { echo "selected"; } ?>>December</option>                	</select>
+<option value="0"></option><option value="1" <?php if($bday[1] == 1) { echo "selected"; } ?>>January</option><option value="2"<?php if($bday[1] == 2) { echo "selected"; } ?>>Febuary</option><option value="3"<?php if($bday[1] == 3) { echo "selected"; } ?>>March</option><option value="4"<?php if($bday[1] == 4) { echo "selected"; } ?>>April</option><option value="5"<?php if($bday[1] == 5) { echo "selected"; } ?>>May</option><option value="6"<?php if($bday[1] == 6) { echo "selected"; } ?>>June</option><option value="7"<?php if($bday[1] == 7) { echo "selected"; } ?>>July</option><option value="8"<?php if($bday[1] == 8) { echo "selected"; } ?>>August</option><option value="9"<?php if($bday[1] == 9) { echo "selected"; } ?>>September</option><option value="10"<?php if($bday[1] == 10) { echo "selected"; } ?>>October</option><option value="11"<?php if($bday[1] == 11) { echo "selected"; } ?>>November</option><option value="12"<?php if($bday[1] == 12) { echo "selected"; } ?>>December</option> </select>
                     <input tabindex="1" class="text day" type="text" name="tag" value="<?php echo $bday[2]; ?>" maxlength="2">
                     </td>
 				<th class="gender" rowspan="2">Gender</th>
@@ -144,8 +144,8 @@ INDELING CATEGORIEEN:
 			<tr>
 				<th class="name">Name</th>
                 <th>Oasis</th>
-				<th>Popualtion</th>
-                <th>Coordiantes</th>
+				<th>Popultion</th>
+                <th>Location</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -169,28 +169,28 @@ $type = $row2["type"];
 switch($type) {
 case 1:
 case 2:
-echo  "<img class='r1' src='img/x.gif' title='Fa'>";
+echo  "<img class='r1' src='img/x.gif' title='Wood'>";
 break;
 case 3:
-echo  "<img class='r1' src='img/x.gif' title='Fa'> <img class='r4' src='img/x.gif' title='Búza'>";
+echo  "<img class='r1' src='img/x.gif' title='Wood'> <img class='r4' src='img/x.gif' title='Wheat'>";
 break;
 case 4:
 case 5:
-echo  "<img class='r2' src='img/x.gif' title='Agyag'>";
+echo  "<img class='r2' src='img/x.gif' title='Clay'>";
 break;
 case 6:
-echo  "<img class='r2' src='img/x.gif' title='Agyag'> <img class='r4' src='img/x.gif' title='Búza'>";
+echo  "<img class='r2' src='img/x.gif' title='Clay'> <img class='r4' src='img/x.gif' title='Wheat'>";
 case 7:
 case 8:
-echo  "<img class='r3' src='img/x.gif' title='Vasérc'>";
+echo  "<img class='r3' src='img/x.gif' title='Iron'>";
 break;
 case 9:
-echo  "<img class='r3' src='img/x.gif' title='Vasérc'> <img class='r4' src='img/x.gif' title='Búza'>";
+echo  "<img class='r3' src='img/x.gif' title='Iron'> <img class='r4' src='img/x.gif' title='Wheat'>";
 break;
 case 10:
 case 11:
 case 12:
-echo  "<img class='r4' src='img/x.gif' title='Búza'>";
+echo  "<img class='r4' src='img/x.gif' title='Wheat'>";
 break;
 }
 }
@@ -202,9 +202,9 @@ break;
     echo "<td class=\"coords\"><a href=\"karte.php?x=".$coords['x']."&y=".$coords['y']."\">
     	  <span class=\"coordinates coordinatesAligned\">
           	<span class=\"coordinatesWrapper\">
-          		<span class=\"coordinateY\">(".$coords['y']."</span>
+          		<span class=\"coordinateY\">(".$coords['x']."</span>
           		<span class=\"coordinatePipe\">|</span>
-          		<span class=\"coordinateX\">".$coords['x'].")</span>
+          		<span class=\"coordinateX\">".$coords['y'].")</span>
           	</span>
           </span></td>";
     echo "</tr>";

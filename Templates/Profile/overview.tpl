@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $displayarray = $database->getUserArray($_GET['uid'],1);
 $varmedal = $database->getProfileMedal($_GET['uid']);
 
@@ -169,13 +169,12 @@ break;
         echo "<td class=\"inhabitants\">".$vil['pop']."</td><td class=\"coords\">";
         echo "<a href=\"position_details.php?x=".$coor['x']."&amp;y=".$coor['y']."\">
         <span class=\"coordinates coordinatesAligned\">
-        <span class=\"coordinateY\">(".$coor['y']."</span>
+        <span class=\"coordinateY\">(".$coor['x']."</span>
         <span class=\"coordinatePipe\">|</span>
-        <span class=\"coordinateX\">".$coor['x'].")</span>
+        <span class=\"coordinateX\">".$coor['y'].")</span>
         </span><span class=\"clear\">‎</span>
         </td></tr>";
     }
     ?>
 </tbody>
 </table>
-
