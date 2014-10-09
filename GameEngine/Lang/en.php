@@ -553,4 +553,26 @@ $lang['HELP1']['Text_5'] ="On the forum, chat with other players.";
 $lang['HELP1']['Partie_6'] = "Quick information";
 $lang['HELP1']['Text_6'] ="Here you can find short and quick information about the troops and buildings Travian";
 
+
+//warsim
+
+define("WARSIM","Combat simulator");
+define("WARSIM_ATTACKER","Attacker");
+define("WARSIM_DEFENDER","Defender");
+define("WARSIM_TYPE","Type of attack");
+define("WARSIM_RAID","Raid");
+define("WARSIM_NORMAL","Normal");
+define("WARSIM_TROOPS","Troops");
+define("WARSIM_SIMULATE","Simulate attack");
+define("WARSIM_ETC","Other");
+define("WARSIM_POP","Population");
+define("WARSIM_KATA","Lvl catapult target");
+define("WARSIM_HEROPOWER","Hero (off bonus) ");
+define("WARSIM_STONEMASON","Stonemanson's Lodge");
+define("WARSIM_PALACE","Palace");
+define("WARSIM_WALL1","City Wall");
+define("WARSIM_WALL2","City Wall");
+define("WARSIM_WALL3","City Wall");
+
+
 ?>
