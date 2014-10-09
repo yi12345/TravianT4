@@ -138,14 +138,14 @@ echo '<img class="ww g40 g40_11" src="img/x.gif" alt="Wonder of the World">'; }
 <?php
 for($i=1;$i<=20;$i++) {
 if ($village->resarray['f'.($i+18)] != 0) {
-echo "<div class=\"l$i\">".$village->resarray['f'.($i+18)]."</div>";
+echo "<div class=\"l$i\"><div style=\"background-color: white !important; background-image:none; border:none; border-radius: 50%; height: 18px; width: 18px; position: relative; top: 3px; left: 3px; line-height: 17px; font-size: 11px; text-align: center; font-family: Verdana;\">".$village->resarray['f'.($i+18)]."</div></div>";
 }
 }
 if($village->resarray['f39'] != 0) {
-echo "<div class=\"l39\">".$village->resarray['f39']."</div>";
+echo "<div class=\"l39\"><div style=\"background-color: white !important; background-image:none; border:none; border-radius: 50%; height: 18px; width: 18px; position: relative; top: 3px; left: 3px; line-height: 17px; font-size: 11px; text-align: center; font-family: Verdana;\">".$village->resarray['f39']."</div></div>";
 }
 if($village->resarray['f40'] != 0) {
-echo "<div class=\"aid40\">".$village->resarray['f40']."</div>";
+echo "<div class=\"aid40\"><div style=\"background-color: white !important; background-image:none; border:none; border-radius: 50%; height: 18px; width: 18px; position: relative; top: 3px; left: 3px; line-height: 17px; font-size: 11px; text-align: center; font-family: Verdana;\">".$village->resarray['f40']."</div></div>";
 
 }
 ?>

@@ -757,7 +757,7 @@ div.village1 div.buildingList div.finishNow,div.village2 div.buildingList div.fi
 div.village1 div.buildingList div.finishNow .arrow,div.village2 div.buildingList div.finishNow .arrow{background-position:left 6px;}
 div.village1 div.buildingList div.finishNow .arrow.disabled,div.village2 div.buildingList div.finishNow .arrow.disabled{background-position:left -12px;}
 div.village1 .buildingTime,div.village2 .buildingTime{font-size:11px;text-align:right;color:#6b6b6b;}
-div.village1 .level,div.village2 div#village_map div#levels div{position:absolute;width:24px;height:23px;font-size:14px;text-align:center;}
+div.village1 .level,div.village2 div#village_map div#levels div{position:absolute;width:26px;height:26px;font-size:11px;text-align:center;border-radius:50%;line-height:23px;border:1px solid #506d00;background-image:linear-gradient(to top, #7da100, #c7e94f 100%);margin:1px;}
 body.village1{background-image:url("../../img/layout/bgR.jpg");}body.village1 #wrapper{background-image:url("../../img/layout/bgResources-rtl.jpg");}
 body.village1 #contentOuterContainer,body.village1 #contentOuterContainer .contentTitle,body.village1 #contentOuterContainer .contentContainer,body.village1 #contentOuterContainer .contentFooter{background:none;padding:0;}
 body.village1 #contentOuterContainer .contentTitle,body.village1 #contentOuterContainer .contentFooter{display:none;}
@@ -766,7 +766,6 @@ body.village1 #content{padding:0;}div.village1 table{line-height:19px;background
 div.village1 table th,div.village1 table td{padding:0;background:none;}div.village1 table thead th{text-align:left;}
 div.village1 table tbody td{padding:1px 2px;background:none;}div.village1 table td.ico{width:16px;padding-left:4px;}
 div.village1 table td.num{text-align:right;white-space:nowrap;}div.village1 div#village_map{margin:37px 0 15px;width:500px;height:370px;position:relative;background-position:center bottom;}
-div.village1 div#village_circles{width:500px;height:370px;position:relative;background-image:url(../../img/g/circles-rtl.png);background-position:center bottom;}
 .ie6 div.village1 div#village_circles{background-image:url(../../img/g/circles-rtl.gif);}
 div.village1 img#resfeld{width:500px;height:370px;position:absolute;z-index:22;top:0;left:0;}
 div.village1 .level{z-index:21;line-height:19px;}div.village1 img.rf1{left:93px;top:27px;}
@@ -811,7 +810,7 @@ div.village2 div#village_map img.clickareas{width:628px;height:534px;position:re
 div.village2 div#village_map img.iso{background-image:url(../../img/g/iso.png);}
 .ie6 div.village2 div#village_map img.iso{background-image:url(../../img/g/iso.gif);}
 div.village2 div#village_map div#levels{width:628px;height:534px;position:absolute;z-index:97;visibility:hidden;}
-div.village2 div#village_map div#levels.on{visibility:visible;}div.village2 div#village_map div#levels div{visibility:hidden;background-image:url(../../img/g/circle.png);line-height:23px;}
+div.village2 div#village_map div#levels.on{visibility:visible;}div.village2 div#village_map div#levels div{visibility:hidden;line-height:23px;}
 .ie6 div.village2 div#village_map div#levels div{background-image:url(../../img/g/circle.gif);}
 div.village2 div#village_map div#levels div.aid40{bottom:60px;left:306px;}div.village2 div#village_map div#levels.on div{visibility:visible;}
 div.village2 img#lswitch{width:28px;height:28px;}div.village2 img#lswitch.lswitchPlus{background-image:url(../../img/a/plusBig.png);}
