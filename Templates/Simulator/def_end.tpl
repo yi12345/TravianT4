@@ -9,7 +9,7 @@
 			<table cellpadding="1" cellspacing="1">
 		                    <tbody><tr>
 	<td class="ico">
-                    <img src="img/x.gif" class="unit uhab" alt="<?php echo WARSIM_POP; ?>">
+                    <img src="img/x.gif" class="unit uhab" title="<?php echo WARSIM_POP; ?>">
                 </td>
 	<td class="desc"><?php echo WARSIM_POP; ?></td>
 	<td class="value"><input class="text" type="text" name="ew2" value="<?php echo $form->getValue('ew2')==""? 1 : $form->getValue('ew2'); ?>" maxlength="5"></td>
@@ -18,7 +18,7 @@
 </tr>
 <tr>
 	<td class="ico">
-                    <img src="img/x.gif" class="gebIcon g34Icon" alt="<?php echo WARSIM_STONEMASON; ?>">
+                    <img src="img/x.gif" class="gebIcon g34Icon" title="<?php echo WARSIM_STONEMASON; ?>">
                 </td>
 	<td class="desc"><?php echo WARSIM_STONEMASON; ?></td>
 	<td class="value"><input class="text" type="text" name="stonemason" value="<?php echo $form->getValue('stonemason')==""? 0 : $form->getValue('stonemason'); ?>" maxlength="2"></td>
@@ -27,24 +27,24 @@
 </tr>
 				<?php
                     if(in_array(1,$target)) {
-                    	$title = "دیوار شهر";
+                    	$title = WARSIM_WALL1;
                         $class = "g31Icon";
                         $name = "wall1";
                     }
                     if(in_array(2,$target)) {
-                    	$title = "دیوار گلی";
+                    	$title = WARSIM_WALL2;
                         $class = "g32Icon";
                         $name = "wall2";
                     }
                     if(in_array(3,$target)) {
-                    	$title = "پرچین";
+                    	$title = WARSIM_WALL3;
                         $class = "g33Icon";
                         $name = "wall3";
                     }
                     echo "<tr>
 						    <td class=\"ico\"><img src=\"img/x.gif\" class=\"gebIcon ".$class."\" title=\"".$title."\" /></td>
 						    <td class=\"desc\">".$title."</td>
-						    <td class=\"value\"><input class=\"text\" type=\"text\" name=\"".$name."\" value=\"0\" maxlength=\"2\" title=\"سطح ".$title."\" /></td>
+						    <td class=\"value\"><input class=\"text\" type=\"text\" name=\"".$name."\" value=\"0\" maxlength=\"2\" title=\"??? ".$title."\" /></td>
 						    <td class=\"research\"></td>
 
 					    </tr>";
@@ -64,4 +64,3 @@
 	</tbody>
 </table>
 </div>
-
