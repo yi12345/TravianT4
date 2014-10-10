@@ -46,7 +46,7 @@ if(isset($_GET['o'])) {
     $o = $_GET['o'];
     $oid = $_GET['z'];
     $too = $database->getOasisField($oid,"conqured");
-    if($too['conqured'] == 0){$disabledr ="disabled=disabled";}else{
+    if($too == 0){$disabledr ="disabled=disabled";}else{
     $disabledr ="";
     }
     $disabled ="disabled=disabled";
