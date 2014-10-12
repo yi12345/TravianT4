@@ -104,9 +104,9 @@ if($message->unread) {
 	<a href="#" onclick="return Travian.Game.iPopup(0,0);" class="helpText"><?php echo $lang['HELP1']['Text_6']; ?></a>
 </div>
 <div class="clear"></div>
-</div>
+</div></div>
 <div class="contentFooter">&nbsp;</div>
-					</div></div>
+					</div>
 
 <?php
 include("Templates/sideinfo.tpl");
