@@ -409,7 +409,6 @@ if($greatworkshop == 0 && $workshop >= 15 && $village->capital == 0 && GREAT_WKS
         include("soon/greatworkshop.tpl");
     }
     ?>
-    
     <script language="JavaScript" type="text/javascript">
 window.addEvent('domready', function()
 {
