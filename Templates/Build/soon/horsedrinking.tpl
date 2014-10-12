@@ -6,12 +6,7 @@ $uprequire = $building->resourceRequired($id,$bid);
 <h2>Horse Drinking Trough</h2>
 <div class="build_desc">
 	<a href="#" onclick="return Travian.Game.iPopup(41,4);" class="build_logo">
-		<img class="building big white g19" src="img/x.gif" alt="Horse Drinking Trough">
-<h2>Horse Drinking</h2>
-<div class="build_desc">
-	<a href="#" onclick="return Travian.Game.iPopup(41,4);" class="build_logo">
-
-
+		<img class="building big white g41" src="img/x.gif" alt="Horse Drinking Trough">
 	</a>
 	The horse drinking trough of the Romans decreases the training time of cavalry and the upkeep of these troops as well. It can also be built in Roman Wonder of the World villages.</div>
 <div id="contract" class="contract contractNew contractWrapper">

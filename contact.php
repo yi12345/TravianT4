@@ -1,6 +1,6 @@
 ﻿<?php
 
-include("GameEngine/database.php");
+include("GameEngine/Database.php");
 include("GameEngine/config.php");
 include "Templates/html.tpl";
 ?>
